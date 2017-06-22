@@ -1,0 +1,189 @@
+/*
+Theme Name: Goedemorgen
+
+Adding support for languages written in a Right To Left (RTL) direction is easy -
+it's just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+https://codex.wordpress.org/Right-to-Left_Language_Support
+
+*/
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+/* General */
+#masthead .site-branding,
+#colophon .widget-area .widget,
+#colophon .site-info,
+.active-sidebar .content-area,
+.widget .tagcloud a,
+.widget.widget_tag_cloud a,
+.wp_widget_tag_cloud a,
+.hfeed .hentry .entry-header .byline img,
+.singular-header .avatar,
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: right;
+}
+
+.main-navigation,
+.main-navigation > div,
+#secondary,
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next,
+.main-navigation li.menu-item-has-children > a:before,
+.main-navigation li.page_item_has_children > a:before {
+	float: left;
+}
+
+.main-navigation .header-search,
+.search-form button.submit,
+#mobile-menu-toggle {
+	right: auto;
+	left: 0;
+}
+
+.entry-footer .entry-author .avatar,
+.comments-area .comment-author .avatar,
+.content-area blockquote:not(.pull-left):not(.pull-right):before {
+	left: auto;
+	right: 0;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: left;
+}
+
+/* Header */
+#masthead .site-branding,
+.main-navigation {
+	padding-right: 0;
+	padding-left: 30px;
+}
+
+/* Navigation */
+.main-navigation .header-search {
+	padding-right: 16px;
+	padding-left: 0;
+}
+
+.main-navigation ul ul,
+.main-navigation ul ul ul {
+	left: auto;
+	right: -999em;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	right: auto;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	right: 100%;
+	left: auto;
+}
+
+.main-navigation li.menu-item-has-children > a:before,
+.main-navigation li.page_item_has_children > a:before {
+	padding-left: 0;
+	padding-right: 6px;
+}
+
+.main-navigation .sub-menu li.menu-item-has-children > a:before,
+.main-navigation .children li.page_item_has_children > a:before {
+	content: "\25c0";
+}
+
+.mobile-navigation ul ul li {
+	margin-left: 0;
+	margin-right: 20px;
+}
+
+/* Content */
+.active-sidebar .content-area {
+	border-right: none;
+	border-left: 1px solid #e6e8e8;
+}
+
+.hfeed .hentry .entry-header .byline img {
+	margin-right: 0;
+	margin-left: 8px;
+}
+
+.singular-header .avatar {
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+.hfeed .hentry .entry-header .entry-meta .entry-cats:before,
+.hentry .entry-header .entry-meta .comments-link:before {
+	margin: 0 0 0 4px;
+}
+
+.content-area blockquote:not(.pull-left):not(.pull-right) {
+	padding-left: 60px;
+	padding-right: 100px;
+}
+
+.entry-footer .entry-author .author-heading,
+.entry-footer .entry-author .author-bio {
+	padding-right: 126px;
+	padding-left: 0;
+}
+
+.post-navigation .nav-previous .nav-meta:before,
+.posts-navigation .nav-previous a:before {
+	padding-right: 0;
+	padding-left: 4px;
+}
+
+.post-navigation .nav-next .nav-meta:after,
+.posts-navigation .nav-next a:after {
+	padding-left: 0;
+	padding-right: 4px;
+}
+
+/* Comments */
+.comments-area .comment-author,
+.comments-area .comment-metadata {
+	padding-left: 0;
+	padding-right: 84px;
+}
+
+.comments-area .comment-list .children {
+	margin-left: 0;
+	margin-right: 40px;
+}
+
+/* Footer */
+#colophon .widget-area .widget:nth-child(4n+1),
+#colophon.widgets-col-3 .widget-area .widget:nth-child(3n+1),
+#colophon .widget-area.col-2 .widget:nth-child(2n+1) {
+    clear: right;
+}
+
+.footer-middle .social-navigation li {
+	margin-left: 15px;
+	margin-right: 0;
+}
+
+@media only screen and (max-width: 768px) {
+	#page .content-area blockquote {
+		border-right: 1px solid;
+		border-left: none;
+	}
+}
+
+@media only screen and (max-width: 576px) {
+	.comments-area .comment-list .children {
+		margin-right: 20px;
+	}
+}

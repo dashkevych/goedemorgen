@@ -1,0 +1,198 @@
+/**
+ * Theme's dashboard page styles.
+ */
+
+.getting-started * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.goedemorgen-dashboard img {
+	display: inline-block;
+	width: auto\9;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+
+.goedemorgen-dashboard {
+	max-width: 980px;
+	padding: 30px 25px;
+}
+
+ /*--------------------------------------------------------------
+ # Header
+ --------------------------------------------------------------*/
+.page-header {
+	margin-bottom: 40px;
+}
+
+.page-header .theme-info {
+	width: 60%;
+	float: right;
+}
+
+.page-header .theme-info .inner {
+	padding-left: 40px;
+}
+
+.page-header .theme-info h1 {
+	font-size: 29px;
+	color: #32373c;
+}
+
+.page-header .ver {
+	color: #a3a3a3;
+	margin-top: 8px;
+	margin-bottom: 25px;
+}
+
+.page-header .theme-description {
+	color: #555d66;
+}
+
+.page-header .theme-screenshot {
+	width: 40%;
+	float: left;
+}
+
+ /*--------------------------------------------------------------
+ # Content
+ --------------------------------------------------------------*/
+.goedemorgen-dashboard .nav-tab {
+	padding: 10px 40px;
+	border-color: #dddddd;
+	border-radius: 2px 2px 0 0;
+	box-shadow: 0 -1px 1px rgba(0,0,0,0.02);
+}
+
+.goedemorgen-dashboard .nav-tab:first-of-type {
+	margin-left: 0;
+}
+
+.goedemorgen-dashboard .nav-tab-active {
+	background: #ffffff;
+	border-bottom-color: transparent;
+}
+
+.wrap h2.nav-tab-wrapper {
+	border-bottom-color: #e1e1e1;
+}
+
+.goedemorgen-dashboard .tab-content {
+	position: relative;
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	border-top: none;
+	padding: 0 40px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+	border-radius: 0 0 2px 2px;
+}
+
+.tab-content .section-title {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.tab-content .tab-section ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.tab-content .tab-section {
+	margin-bottom: 40px;
+}
+
+.tab-section.action-section p {
+	padding-left: 25px;
+}
+
+.tab-content .tab-section:last-of-type,
+.tab-content .tab-section :last-child {
+	margin-bottom: 0;
+}
+
+.tab-content .tab-secondary .tab-section {
+	border-bottom: 1px solid #dedede;
+	padding-bottom: 25px;
+}
+
+.tab-content .tab-secondary .tab-section:last-of-type {
+	padding-bottom: 0;
+	border: none;
+}
+
+.tab-content .tab-primary .inner,
+.tab-content .tab-secondary .inner {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.tab-content .tab-primary,
+.tab-content .tab-secondary {
+	float: left;
+}
+
+.tab-content .tab-primary {
+	width: 65%;
+}
+
+.tab-content .tab-secondary {
+	width: 35%;
+}
+
+.tab-content .tab-primary .inner {
+	border-right: 1px solid #dddddd;
+	margin-right: -1px;
+	padding-right: 40px;
+}
+
+.tab-content .tab-secondary .inner {
+	border-left: 1px solid #dddddd;
+	padding-left: 40px;
+}
+
+.tab-content .demo-button {
+	margin-left: 15px;
+}
+
+@media screen and (max-width: 782px) {
+	.page-header .theme-screenshot,
+	.page-header .theme-info,
+	.tab-content .tab-secondary,
+	.tab-content .tab-primary {
+		width: 100%;
+	}
+
+	.page-header .theme-info .inner {
+		padding-left: 0;
+		margin-bottom: 40px;
+	}
+
+	.tab-content .tab-secondary .inner {
+		padding-left: 0;
+		border-left: none;
+		border-top: 1px solid #dddddd;
+	}
+
+	.tab-content .tab-primary .inner {
+		border-right: none;
+		margin-right: 0;
+		padding-right: 0;
+	}
+
+	.goedemorgen-dashboard .nav-tab {
+		float: none;
+		display: block;
+		margin: 0;
+		border-radius: 0;
+	}
+
+	.goedemorgen-dashboard .nav-tab-active {
+		background: #23282d;
+		color: #ffffff;
+	}
+}

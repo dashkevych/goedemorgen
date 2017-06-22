@@ -1,0 +1,982 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Goedemorgen\n"
+"Report-Msgid-Bugs-To: https://themezee.com/\n"
+"POT-Creation-Date: 2017-06-07 17:49-0700\n"
+"PO-Revision-Date: 2016-09-16 12:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: Goedemorgen <support@goedemorgenwp.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: comments.php:32
+msgid "One comment"
+msgstr ""
+
+#: comments.php:35
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:42 comments.php:64
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:45 comments.php:67
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:46 comments.php:68
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:81
+msgid "Comments are closed."
+msgstr ""
+
+#: components/footer/credits-content.php:17
+#, php-format
+msgid "Proudly powered by %1$s and %2$s."
+msgstr ""
+
+#: components/general/content-404.php:12
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: components/general/content-404.php:14
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: components/general/content-archive-header.php:28
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: components/general/content-none.php:12
+msgid "Nothing Found"
+msgstr ""
+
+#: components/general/content-none.php:18
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: components/general/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: components/general/content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: components/page/content-panel.php:38 components/page/content-single.php:35
+#: components/post/content-single.php:56
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: components/post/author-section.php:28
+#, php-format
+msgid "Published by %s"
+msgstr ""
+
+#: components/post/author-section.php:38
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: components/post/content-search.php:28 components/post/content-single.php:28
+#: components/post/content.php:26
+msgid "Leave a comment"
+msgstr ""
+
+#: components/post/content-search.php:28 components/post/content-single.php:28
+#: components/post/content.php:26
+msgid "1 Comment"
+msgstr ""
+
+#: components/post/content-search.php:28 components/post/content-single.php:28
+#: components/post/content.php:26
+msgid "% Comments"
+msgstr ""
+
+#: components/post/content.php:42 functions.php:191
+#, php-format
+msgid "Continue Reading %s"
+msgstr ""
+
+#: functions.php:47
+msgid "Header Menu"
+msgstr ""
+
+#: functions.php:48
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:120
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:122
+msgid "Appears in the sidebar section of the site."
+msgstr ""
+
+#: functions.php:130
+msgid "Footer"
+msgstr ""
+
+#: functions.php:132
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: header.php:24
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:51 searchform.php:19
+msgid "Search"
+msgstr ""
+
+#: header.php:55
+msgid "Menu"
+msgstr ""
+
+#: header.php:61
+msgid "Mobile Navigation"
+msgstr ""
+
+#: header.php:65
+msgid "Close menu"
+msgstr ""
+
+#: inc/admin/class-goedemorgen-welcome-screen.php:77
+msgid "Goedemorgen Dashboard"
+msgstr ""
+
+#: inc/admin/class-goedemorgen-welcome-screen.php:77
+#: inc/admin/partials/theme-dashboard-support.php:12
+msgid "Goedemorgen"
+msgstr ""
+
+#: inc/admin/class-goedemorgen-welcome-screen.php:107
+#, php-format
+msgid ""
+"Welcome and thanks for choosing %1$s! To help you get starter with the "
+"theme, please visit our <a href=\"%2$s\">welcome page</a>."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:13
+msgid ""
+"Do you like the theme? It took us more than hundreds of hours to deliver "
+"Goedemorgen to you. The work is still ongoing, so we would love your help. "
+"There are many ways in which you can become involved in Goedemorgen project."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:17
+msgid "Share"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:19
+msgid ""
+"Do you have Facebook, Twitter or any other social profile? It would be great "
+"if you could share Goedemorgen with anyone you know that might be interested."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:23
+msgid "Rate"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:25
+msgid ""
+"We will appreciate, if you find a few minutes and leave a five star review. "
+"It is important for us, as we see it as a feedback and support from you."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:29
+msgid "Write"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:30
+msgid ""
+"Do you like to blog? We would be very happy if you could write a small blog "
+"post about Goedemorgen and share it with your readers."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-contribute.php:34
+msgid ""
+"Remember, all these actions are totally optional but we would greatly "
+"thankful if you could help us. Again, thank you for using Goedemorgen and we "
+"hope you enjoy it!"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:20
+msgid "Documentation"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:22
+msgid ""
+"We are so glad that you have chosen Goedemorgen theme for your website. Now "
+"it is time to find out what you can achieve with our theme, and how use "
+"Goedemorgen to its fullest. To do so, we have created a dedicated "
+"documentation portal to help you get started with the theme."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:27
+msgid "Open Documentation"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:33
+msgid "Recommended Plugins"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:35
+msgid ""
+"Please keep in mind, we do not officially support these plugins, but they "
+"may help you to extend the functionality of your WordPress website."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:40
+#: inc/class-tgm-plugin-activation.php:328
+msgid "Install Plugins"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:46
+#: inc/customizer/extensions/add-panels.php:30
+msgid "Theme Options"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:48
+msgid ""
+"Theme makes use of the Customizer to provide you with the theme options. "
+"Click on the button below to open the Customizer and start making changes to "
+"your website."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:50
+msgid "Customize Theme"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:54
+msgid "Demo Website"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:56
+msgid ""
+"It is fairly easy to recreate the layout of the demo website. All you need "
+"is the right plugins and settings, and you should be able to mimic most of "
+"the elements found in the demo. Please note that a lot of the details that "
+"make our demo looks good is the result of many hours of hard work."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:61
+msgid "Reproduce Demo"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-getting-started.php:64
+msgid "View Demo"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-page.php:20
+msgid "Welcome to Goedemorgen!"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-page.php:21
+msgid "Version:"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-page.php:33
+msgid "Getting Started"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-page.php:36
+msgid "Support"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-page.php:39
+msgid "Contribute"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-sidebar.php:18
+msgid "Our newsletter"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-sidebar.php:20
+msgid ""
+"Be among the first to know about exciting new updates, features and news by "
+"signing up for our newsletter."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-sidebar.php:25
+msgid "Sign up to get news"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:11
+msgid "How-To and Troubleshooting"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:13
+msgid "documentation"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:14
+msgid "contact form"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:18
+msgid "Looking for help?"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:20
+msgid "We have collected some resources that you may find helpful:"
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:26
+#, php-format
+msgid ""
+"If you have a general question related to WordPress, please post it on "
+"WordPress.org %s forum."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:33
+#, php-format
+msgid "If you have a theme specific question, please post it on %s forum."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:40
+#, php-format
+msgid ""
+"Before contacting us, please visit our %1$s website. If your answer can not "
+"be found in the links that are posted above, please use our %2$s."
+msgstr ""
+
+#: inc/admin/partials/theme-dashboard-support.php:45
+msgid ""
+"Note, there is a fine line between support and modifications. So as we try "
+"to help you with any type of query, we cannot provide any help with "
+"customizations beyond the scope of the theme's original style or "
+"functionality."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:327
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:330
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:332
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:333
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:336
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:342
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:348
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:354
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:360
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:366
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:371
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:376
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:381
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:385
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:386
+#: inc/class-tgm-plugin-activation.php:827
+#: inc/class-tgm-plugin-activation.php:2533
+#: inc/class-tgm-plugin-activation.php:3580
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:387
+#: inc/class-tgm-plugin-activation.php:3159
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:388
+#: inc/class-tgm-plugin-activation.php:2952
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:390
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:392
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:394
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:395
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:396
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:397
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:522
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:523
+msgid "Update Required"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:934
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:934
+#: inc/class-tgm-plugin-activation.php:937
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:937
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:1121
+#: inc/class-tgm-plugin-activation.php:2948
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:1982
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2273
+msgid "Required"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2276
+msgid "Recommended"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2292
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2295
+msgid "External Source"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2298
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2315
+msgid "Not Installed"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2319
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2321
+msgid "Active"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2327
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2330
+msgid "Requires Update"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2333
+msgid "Update recommended"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2342
+#, php-format
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2388
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:2392
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:2396
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:2400
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/class-tgm-plugin-activation.php:2482
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2490
+msgid "Installed version:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2498
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2510
+msgid "Available version:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2533
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2547
+msgid "Plugin"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2548
+msgid "Source"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2549
+msgid "Type"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2553
+msgid "Version"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2554
+msgid "Status"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2603
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2608
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2614
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2684
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2717
+msgid "Install"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2723
+msgid "Update"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2726
+msgid "Activate"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2757
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2759
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2800
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2802
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2908
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:2934
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3158
+msgid "Plugin activation failed."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3498
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3501
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3503
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3507
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3509
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3509
+#: inc/class-tgm-plugin-activation.php:3517
+msgid "Show Details"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3509
+#: inc/class-tgm-plugin-activation.php:3517
+msgid "Hide Details"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3510
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3512
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3515
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3517
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3518
+msgid "All installations have been completed."
+msgstr ""
+
+#: inc/class-tgm-plugin-activation.php:3520
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/customizer/controls/font-family.php:123
+msgid "Reset to default"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:48
+msgid "Body Font Family"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:51
+msgid ""
+"Select the body font family which will be used for text in the body of your "
+"website."
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:62
+msgid "Headings font family"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:65
+msgid ""
+"Select the font family which will be used for the headings on your website."
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:76
+msgid "Widget Area Layout"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:80
+msgid "Two Columns"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:81
+msgid "Three Columns"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:82
+msgid "Four Columns"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:85
+msgid "Select a layout for the footer widget area."
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:95
+msgid "Make widget columns of equal width"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:100
+msgid ""
+"By enabling this option, the footer widget items will have an equal width."
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:110
+msgid "Archive View Header Image"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:112
+msgid "This image will be show as a background image in all archive views."
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:115
+msgid "Select Image"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:116
+msgid "Change Image"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:117
+msgid "Select Header Image"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:118
+msgid "Choose Header Image"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:129
+msgid "Accent Color"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:144
+msgid "Content Alignment"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:148
+msgid "Left Aligned"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:149
+msgid "Right Aligned"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:150
+msgid "Centered"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:153
+msgid ""
+"This option determines how the text is displayed horizontally in the "
+"Jumbotron section."
+msgstr ""
+
+#: inc/customizer/extensions/add-panels.php:24
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/extensions/add-sections.php:23
+msgid "Body"
+msgstr ""
+
+#: inc/customizer/extensions/add-sections.php:30
+msgid "Headings"
+msgstr ""
+
+#: inc/customizer/extensions/add-sections.php:37
+msgid "General Options"
+msgstr ""
+
+#: inc/customizer/extensions/add-sections.php:44
+msgid "Jumbotron Options"
+msgstr ""
+
+#: inc/customizer/extensions/add-sections.php:47
+msgid "This section is designed to showcase key content on your site."
+msgstr ""
+
+#: inc/customizer/extensions/add-sections.php:53
+msgid "Footer Options"
+msgstr ""
+
+#: inc/extras.php:237
+msgid "Pages:"
+msgstr ""
+
+#: inc/extras.php:241
+msgid "Page"
+msgstr ""
+
+#: inc/template-tags.php:21
+msgid "Posted on"
+msgstr ""
+
+#: inc/template-tags.php:24
+msgid "Updated on"
+msgstr ""
+
+#: inc/template-tags.php:42
+#, php-format
+msgctxt "post author"
+msgid "By %s"
+msgstr ""
+
+#: inc/template-tags.php:58 inc/template-tags.php:76
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:62
+msgid "Posted in:"
+msgstr ""
+
+#: inc/template-tags.php:78
+msgid "Tagged:"
+msgstr ""
+
+#: menu-social.php:9
+msgid "Social Navigation"
+msgstr ""
+
+#: searchform.php:13 searchform.php:17
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:15
+msgctxt "placeholder"
+msgid "Search this website&hellip;"
+msgstr ""
+
+#: single.php:21
+msgid "Next Entry"
+msgstr ""
+
+#: single.php:22
+msgid "Previous Entry"
+msgstr ""
