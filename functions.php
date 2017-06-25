@@ -9,6 +9,7 @@
 
 // Theme Constants.
 define( 'GOEDEMORGEN_DIR', get_template_directory() );
+define( 'GOEDEMORGEN_DIR_URI', get_template_directory_uri() );
 
 if ( ! function_exists( 'goedemorgen_setup' ) ) :
 /**
@@ -25,7 +26,7 @@ function goedemorgen_setup() {
 	 * If you're building a theme based on Goedemorgen, use a find and replace
 	 * to change 'goedemorgen' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'goedemorgen', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'goedemorgen', GOEDEMORGEN_DIR . '/languages' );
 
 	/* Add default posts and comments RSS feed links to head. */
 	add_theme_support( 'automatic-feed-links' );
@@ -176,16 +177,16 @@ function goedemorgen_google_fonts() {
  */
 function goedemorgen_scripts() {
 	wp_enqueue_style( 'goedemorgen-google-fonts', goedemorgen_google_fonts(), array(), null );
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.css' );
+	wp_enqueue_style( 'font-awesome', GOEDEMORGEN_DIR_URI . '/css/font-awesome.css' );
 	wp_enqueue_style( 'goedemorgen-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'goedemorgen-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'goedemorgen-skip-link-focus-fix', GOEDEMORGEN_DIR_URI . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'goedemorgen-script', get_template_directory_uri() . '/js/goedemorgen.js', array( 'jquery' ), '1.0.0', true  );
+	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/js/goedemorgen.js', array( 'jquery' ), '1.0.0', true  );
 }
 add_action( 'wp_enqueue_scripts', 'goedemorgen_scripts' );
 
@@ -250,6 +251,7 @@ function goedemorgen_set_tag_cloud_font_size( $args ) {
     $args['smallest'] = 0.875;
     $args['largest'] = 0.875;
 	$args['unit'] = 'rem';
+	
     return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'goedemorgen_set_tag_cloud_font_size' );
