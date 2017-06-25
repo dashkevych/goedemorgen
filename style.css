@@ -2544,11 +2544,12 @@ img.alignright {
 /*--------------------------------------------------------------
 # Templates: Full Width Page
 --------------------------------------------------------------*/
-.page-template-full-width-page #page .content-area {
+body[class*="page-template-full-width"] #page .content-area {
 	width: 100%;
 	border: none;
 	padding-right: 0;
 	padding-left: 0;
+	float: none;
 }
 
 /*--------------------------------------------------------------
@@ -2598,7 +2599,7 @@ img.alignright {
 .search-no-results #page .content-area {
 	width: 100%;
 	border: none;
-	padding: 0;
+	float: none;
 }
 
 .content-area .not-found .entry-title  {
