@@ -333,7 +333,7 @@ add_action( 'wp_ajax_nopriv_goedemorgen_editor_dynamic_styles', 'goedemorgen_edi
  function goedemorgen_set_custom_accent_color() {
 	 $theme_colors = goedemorgen_get_setting( 'color' );
 
-	 if ( isset( $theme_colors['accent'] )  && '#0161bd' != $theme_colors['accent'] ) {
+	 if ( isset( $theme_colors['accent'] ) && '#0161bd' != $theme_colors['accent'] ) {
 		$accent_color = "
 						a,
 						a:visited,
@@ -368,10 +368,25 @@ add_action( 'wp_ajax_nopriv_goedemorgen_editor_dynamic_styles', 'goedemorgen_edi
 						textarea:focus { border-color: " . $theme_colors['accent'] . "; }
 		                ";
 
-		wp_add_inline_style( 'goedemorgen-style', $accent_color );
+		return $accent_color;
+
 	 }
- }
- add_action( 'wp_enqueue_scripts', 'goedemorgen_set_custom_accent_color' );
+}
+add_filter( 'goedemorgen_add_extra_css', 'goedemorgen_set_custom_accent_color' );
+
+/**
+ * Add extra CSS styles.
+ */
+function goedemorgen_add_extra_css() {
+	$custom_css = '';
+	$custom_css = apply_filters( 'goedemorgen_add_extra_css', $custom_css );
+
+	if ( '' != $custom_css ) {
+		$custom_css = trim( preg_replace( '/\s+/', ' ', $custom_css ) );
+		wp_add_inline_style( 'goedemorgen-style', $custom_css );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'goedemorgen_add_extra_css' );
 
 /**
  * Check if we need to display page header section.
