@@ -22,11 +22,6 @@ class Goedemorgen_Extra_CSS {
 	protected static $instance = null;
 
 	/**
-	 * Array of custom css.
-	 */
-	public static $extra_css = array();
-
-	/**
 	 * Constructor method.
 	 *
 	 * @since  1.0.0
@@ -97,9 +92,10 @@ class Goedemorgen_Extra_CSS {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param array
 	 * @return array
 	 */
-	public function set_custom_accent_color() {
+	public function set_custom_accent_color( $extra_css ) {
 		$theme_colors = goedemorgen_get_setting( 'color' );
 
 		if ( isset( $theme_colors['accent'] ) && '#0161bd' != $theme_colors['accent'] ) {
@@ -137,10 +133,10 @@ class Goedemorgen_Extra_CSS {
 							textarea:focus { border-color: " . $theme_colors['accent'] . "; }
 			                ";
 
-			self::$extra_css[] = $accent_color;
+			$extra_css[] = $accent_color;
 		}
 
-		return self::$extra_css;
+		return $extra_css;
 	}
 
 	/**
@@ -148,16 +144,17 @@ class Goedemorgen_Extra_CSS {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param array
 	 * @return array
 	 */
-	public function set_body_font_style() {
+	public function set_body_font_style( $extra_css ) {
  		$custom_font = goedemorgen_get_font_family( 'body' );
 
  		if ( $custom_font && goedemorgen_get_default_font_family( 'body' ) != $custom_font ) {
- 			self::$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( $custom_font ) . "; }";
+ 			$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( $custom_font ) . "; }";
  		}
 
- 		return self::$extra_css;
+ 		return $extra_css;
  	}
 
 	 /**
@@ -165,16 +162,17 @@ class Goedemorgen_Extra_CSS {
  	 *
  	 * @since  1.0.0
  	 * @access public
+	 * @param array
  	 * @return array
  	 */
-	public function set_headings_font_style() {
+	public function set_headings_font_style( $extra_css ) {
 		$custom_font = goedemorgen_get_font_family( 'headings' );
 
 		if ( $custom_font && goedemorgen_get_default_font_family( 'headings' ) != $custom_font ) {
-			self::$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( $custom_font ) . "; }";
+			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( $custom_font ) . "; }";
 		}
 
-		return self::$extra_css;
+		return $extra_css;
 	}
 }
 
