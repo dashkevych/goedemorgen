@@ -261,33 +261,6 @@ function goedemorgen_full_width_layout_content_width() {
 }
 add_action( 'template_redirect', 'goedemorgen_full_width_layout_content_width' );
 
-/**
- * Add body styles to the site.
- */
-function goedemorgen_set_body_font_style( $extra_css ) {
-	$custom_font = goedemorgen_get_font_family( 'body' );
-
-	if ( $custom_font && goedemorgen_get_default_font_family( 'body' ) != $custom_font ) {
-		$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( $custom_font ) . "; }";
-	}
-
-	return $extra_css;
-}
-add_filter( 'goedemorgen_set_extra_css', 'goedemorgen_set_body_font_style' );
-
-/**
- * Add headings styles to the site.
- */
-function goedemorgen_set_headings_font_style( $extra_css ) {
-	$custom_font = goedemorgen_get_font_family( 'headings' );
-
-	if ( $custom_font && goedemorgen_get_default_font_family( 'headings' ) != $custom_font ) {
-		$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( $custom_font ) . "; }";
-	}
-
-	return $extra_css;
-}
-add_filter( 'goedemorgen_set_extra_css', 'goedemorgen_set_headings_font_style' );
 
 /**
  * Add custom styles (based on the Customizer options) to the Editor.
@@ -324,78 +297,6 @@ function goedemorgen_editor_dynamic_styles_callback() {
 }
 add_action( 'wp_ajax_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dynamic_styles_callback' );
 add_action( 'wp_ajax_nopriv_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dynamic_styles_callback' );
-
-/**
- * Change accent color.
- */
- function goedemorgen_set_custom_accent_color( $extra_css ) {
-	 $theme_colors = goedemorgen_get_setting( 'color' );
-
-	 if ( isset( $theme_colors['accent'] ) && '#0161bd' != $theme_colors['accent'] ) {
-		$accent_color = "
-						a,
-						a:visited,
-						#masthead .main-navigation ul:not(.sub-menu):not(.children) > li > a:hover,
-						.content-area blockquote:not(.pull-left):not(.pull-right):before { color: " . $theme_colors['accent'] . "; }
-						";
-
-		$accent_color .= "
-						button,
-						a.button:not(.secondary-button),
-						input[type='button'],
-						input[type='reset'],
-						input[type='submit'] { background: " . $theme_colors['accent'] . "; }
-						";
-
-		$accent_color .= "
-						input[type='text']:focus,
-						input[type='email']:focus,
-						input[type='url']:focus,
-						input[type='password']:focus,
-						input[type='search']:focus,
-						input[type='number']:focus,
-						input[type='tel']:focus,
-						input[type='range']:focus,
-						input[type='date']:focus,
-						input[type='month']:focus,
-						input[type='week']:focus,
-						input[type='time']:focus,
-						input[type='datetime']:focus,
-						input[type='datetime-local']:focus,
-						input[type='color']:focus,
-						textarea:focus { border-color: " . $theme_colors['accent'] . "; }
-		                ";
-
-		$extra_css[] = $accent_color;
-
-	 }
-
-	return $extra_css;
-}
-add_filter( 'goedemorgen_set_extra_css', 'goedemorgen_set_custom_accent_color' );
-
-/**
- * Clean extra CSS styles by removing extra spaces and tabs.
- */
-function goedemorgen_clean_extra_css( $css ) {
-	return trim( preg_replace( '/\s+/', ' ', $css ) );
-}
-
-/**
- * Add extra CSS styles.
- */
-function goedemorgen_add_extra_css() {
-	$extra_css = array();
-	$extra_css = apply_filters( 'goedemorgen_set_extra_css', $extra_css );
-
-	if ( ! empty( $extra_css ) ) {
-		$extra_css = array_map( 'goedemorgen_clean_extra_css', $extra_css );
-		$extra_css = join( ' ', $extra_css );
-
-		wp_add_inline_style( 'goedemorgen-style', $extra_css );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'goedemorgen_add_extra_css' );
 
 /**
  * Check if we need to display page header section.
@@ -463,3 +364,19 @@ function goedemorgen_get_container_width_class() {
 		return 'container-default';
 	}
 }
+
+/**
+ * Attach extra CSS styles to the theme's stylesheet.
+ */
+function goedemorgen_add_extra_css() {
+	$extra_css = array();
+	$extra_css = apply_filters( 'goedemorgen_set_extra_css', $extra_css );
+
+	if ( ! empty( $extra_css ) ) {
+		$extra_css = array_map( array( goedemorgen_extra_css(), 'clean_extra_css' ), $extra_css );
+		$extra_css = join( ' ', $extra_css );
+
+		wp_add_inline_style( 'goedemorgen-style', $extra_css );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'goedemorgen_add_extra_css' );

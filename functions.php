@@ -322,6 +322,11 @@ require GOEDEMORGEN_DIR . '/inc/extras.php';
 require GOEDEMORGEN_DIR . '/inc/customizer/customizer.php';
 
 /**
+ * Extra CSS file.
+ */
+require_once GOEDEMORGEN_DIR . '/inc/class-goedemorgen-extra-css.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 require GOEDEMORGEN_DIR . '/inc/jetpack.php';
