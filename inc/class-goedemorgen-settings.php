@@ -106,22 +106,27 @@ final class Goedemorgen_Settings {
 	}
 
 	/**
-	 * Retrieve theme options mixed with a default options.
+	 * Retrieve theme options mixed with default options.
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @param string $section
+	 * @param bool $get_defaults
 	 * @return array
 	 */
-	public static function get_options( $section = false ) {
+	public static function get_options( $section = false, $get_defaults = false ) {
 		if ( $section ) {
 			if ( 'defaults' === $section ) {
 				return self::get_defaults();
 			} else {
-				return wp_parse_args(
-			        self::get_theme_options( $section ),
-			        self::get_defaults( $section )
-			    );
+				if ( $get_defaults ) {
+					return self::get_defaults( $section );
+				} else {
+					return wp_parse_args(
+				        self::get_theme_options( $section ),
+				        self::get_defaults( $section )
+				    );
+				}
 			}
 		} else {
 			return wp_parse_args(
@@ -135,6 +140,6 @@ final class Goedemorgen_Settings {
 /**
  * A wrapper for theme's settings.
  */
-function goedemorgen_get_setting( $section = false ) {
-	return Goedemorgen_Settings::get_options( $section );
+function goedemorgen_get_setting( $section = false, $get_defaults = false ) {
+	return Goedemorgen_Settings::get_options( $section, $get_defaults );
 }
