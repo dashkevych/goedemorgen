@@ -40,22 +40,3 @@ function goedemorgen_infinite_scroll_render() {
 		endif;
 	}
 }
-
-/**
- * Return early if Author Bio is not available.
- */
-function goedemorgen_author_bio() {
-	if ( ! function_exists( 'jetpack_author_bio' ) ) {
-		get_template_part( 'components/post/author', 'section' );
-	} else {
-		jetpack_author_bio();
-	}
-}
-
-/**
- * Author Bio Avatar Size.
- */
-function goedemorgen_author_bio_avatar_size() {
-	return 352;
-}
-add_filter( 'jetpack_author_bio_avatar_size', 'goedemorgen_author_bio_avatar_size' );
