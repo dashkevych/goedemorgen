@@ -276,3 +276,10 @@ function goedemorgen_add_nothing_found_content() {
 	get_template_part( 'components/general/content', 'none' );
 }
 add_action( 'goedemorgen_nothing_found_content', 'goedemorgen_add_nothing_found_content' );
+
+/**
+ * Display author bio in single post views.
+ */
+function goedemorgen_author_bio() {
+	get_template_part( 'components/post/author', 'section' );
+}
