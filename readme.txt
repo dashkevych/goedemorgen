@@ -16,8 +16,8 @@ Goedemorgen is distributed under the terms of the GNU GPL.
 * Based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
 * This theme uses Bootstrap Grid - Licensed under the MIT : https://github.com/twbs/bootstrap/blob/master/LICENSE
-* Font: Raleway by Multiple Designers - Open Font License: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web
-* Font: Open Sans by Steve Matteson - Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+* Default font: Raleway by Multiple Designers - Open Font License: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web
+* Default font: Open Sans by Steve Matteson - Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
 * Theme uses FontAwesome library which is licensed under SIL OFL 1.1 : http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
 * Images used in screenshot.jpg are from Pixabay (CC0 Public Domain):
  - https://pixabay.com/en/season-box-celebrate-celebration-1985856/
