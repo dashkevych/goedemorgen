@@ -96,14 +96,15 @@ class Goedemorgen_Extra_CSS {
 	 * @return array
 	 */
 	public function set_custom_accent_color( $extra_css ) {
-		$theme_colors = goedemorgen_get_setting( 'color' );
+		$color = goedemorgen_get_setting( 'color' );
+		$default = goedemorgen_get_setting( 'color', true );
 
-		if ( isset( $theme_colors['accent'] ) && '#0161bd' != $theme_colors['accent'] ) {
+		if ( isset( $color['accent'] ) && $default['accent'] != $color['accent'] ) {
 			$accent_color = "
 							a,
 							a:visited,
 							#masthead .main-navigation ul:not(.sub-menu):not(.children) > li > a:hover,
-							.content-area blockquote:not(.pull-left):not(.pull-right):before { color: " . $theme_colors['accent'] . "; }
+							.content-area blockquote:not(.pull-left):not(.pull-right):before { color: " . $color['accent'] . "; }
 							";
 
 			$accent_color .= "
@@ -111,7 +112,7 @@ class Goedemorgen_Extra_CSS {
 							a.button:not(.secondary-button),
 							input[type='button'],
 							input[type='reset'],
-							input[type='submit'] { background: " . $theme_colors['accent'] . "; }
+							input[type='submit'] { background: " . $color['accent'] . "; }
 							";
 
 			$accent_color .= "
@@ -130,7 +131,7 @@ class Goedemorgen_Extra_CSS {
 							input[type='datetime']:focus,
 							input[type='datetime-local']:focus,
 							input[type='color']:focus,
-							textarea:focus { border-color: " . $theme_colors['accent'] . "; }
+							textarea:focus { border-color: " . $color['accent'] . "; }
 			                ";
 
 			$extra_css[] = $accent_color;
@@ -148,11 +149,12 @@ class Goedemorgen_Extra_CSS {
 	 * @return array
 	 */
 	public function set_body_font_style( $extra_css ) {
- 		$custom_font = goedemorgen_get_font_family( 'body' );
+ 		$typography = goedemorgen_get_setting( 'typography' );
+		$default = goedemorgen_get_setting( 'typography', true );
 
- 		if ( $custom_font && goedemorgen_get_default_font_family( 'body' ) != $custom_font ) {
- 			$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( $custom_font ) . "; }";
- 		}
+		if ( isset( $typography['body']['font_family'] ) && $default['body']['font_family'] != $typography['body']['font_family'] ) {
+			$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( $typography['body']['font_family'] ) . "; }";
+		}
 
  		return $extra_css;
  	}
@@ -166,10 +168,11 @@ class Goedemorgen_Extra_CSS {
  	 * @return array
  	 */
 	public function set_headings_font_style( $extra_css ) {
-		$custom_font = goedemorgen_get_font_family( 'headings' );
+		$typography = goedemorgen_get_setting( 'typography' );
+		$default = goedemorgen_get_setting( 'typography', true );
 
-		if ( $custom_font && goedemorgen_get_default_font_family( 'headings' ) != $custom_font ) {
-			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( $custom_font ) . "; }";
+		if ( isset( $typography['headings']['font_family'] ) && $default['headings']['font_family'] != $typography['headings']['font_family'] ) {
+			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( $typography['headings']['font_family'] ) . "; }";
 		}
 
 		return $extra_css;

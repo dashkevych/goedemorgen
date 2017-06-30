@@ -160,10 +160,18 @@ function goedemorgen_google_fonts() {
 	$fonts     = array();
 	$subsets   = 'latin,latin-ext,cyrillic,cyrillic-ext';
 
+	// Get theme's fonts.
+	$typography = goedemorgen_get_setting( 'typography' );
+
 	// Google font for headings.
-	$fonts[] = goedemorgen_get_font_family( 'headings' ) . ':300,300i,400,400i,700,700i';
+	if ( isset( $typography['body']['font_family'] ) ) {
+		$fonts[] = $typography['body']['font_family'] . ':300,300i,400,400i,700,700i';
+	}
+
 	// Google font for body.
-	$fonts[] = goedemorgen_get_font_family( 'body' ) . ':300,300i,400,400i,700,700i';
+	if ( isset( $typography['headings']['font_family'] ) ) {
+		$fonts[] = $typography['headings']['font_family'] . ':300,300i,400,400i,700,700i';
+	}
 
 	if ( $fonts ) {
 		$fonts_url = add_query_arg( array(

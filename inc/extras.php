@@ -186,49 +186,6 @@ function goedemorgen_jumbotron_class() {
 }
 
 /**
- * Get a default font family.
- *
- * @param string $section Specify a section for which we need a font.
- */
- function goedemorgen_get_default_font_family( $section = '' ) {
-
-	$default = array(
- 		'body' => 'Open Sans',
- 		'headings' => 'Raleway',
- 	);
-
-	if ( 'body' === $section ) {
-		return $default['body'];
-	} else if ( 'headings' === $section ) {
-		return $default['headings'];
-	} else {
-		return $default;
-	}
- }
-
-/**
- * Get a custom font family.
- *
- * @param string $section Specify a section for which we need a font.
- * @return string|bool
- */
-function goedemorgen_get_font_family( $section = '' ) {
-	if ( '' != $section && in_array( $section, array( 'body', 'headings' ) ) ) {
-
-		$typography = goedemorgen_get_setting( 'typography' );
-		$default = goedemorgen_get_default_font_family( $section );
-
-		if ( isset( $typography[$section]['font_family'] ) &&  '' != $typography[$section]['font_family'] && $default != $typography[$section]['font_family'] ) {
-			return $typography[$section]['font_family'];
-		} else {
-			return $default;
-		}
-	}
-
-	return false;
-}
-
-/**
  * Display page-links for paginated posts before Jetpack's share buttons and related posts.
  */
 function goedemorgen_custom_link_pages( $content ) {
@@ -261,7 +218,6 @@ function goedemorgen_full_width_layout_content_width() {
 }
 add_action( 'template_redirect', 'goedemorgen_full_width_layout_content_width' );
 
-
 /**
  * Add custom styles (based on the Customizer options) to the Editor.
  */
@@ -269,24 +225,22 @@ function goedemorgen_editor_dynamic_styles_callback() {
 	header( "Content-type: text/css; charset: UTF-8" );
 	$styles = '';
 
-	$body_font = goedemorgen_get_font_family( 'body' );
-	$headings_font = goedemorgen_get_font_family( 'headings' );
-	$theme_colors = goedemorgen_get_setting( 'color' );
+	$setting = goedemorgen_get_setting();
+	$default = goedemorgen_get_setting( 'defaults' );
 
-	// Custom google font selected for the body.
-	if ( $body_font && goedemorgen_get_default_font_family( 'body' ) != $body_font ) {
-		$styles .= "body.mce-content-body { font-family: " . esc_attr( $body_font ) . "; }";
+	if ( isset( $setting['typography']['body']['font_family'] ) && $default['typography']['body']['font_family'] != $setting['typography']['body']['font_family'] ) {
+		$styles .= "body.mce-content-body { font-family: " . esc_attr( $setting['typography']['body']['font_family'] ) . "; }";
 	}
 
-	// Custom google font selected for the headings.
-	if ( $headings_font && goedemorgen_get_default_font_family( 'headings' ) != $headings_font ) {
-		$styles .= " .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 { font-family: " . esc_attr( $headings_font ) . "; }";
+	// Custom google font for the headings.
+	if ( isset( $setting['typography']['headings']['font_family'] ) && $default['typography']['headings']['font_family'] != $setting['typography']['headings']['font_family'] ) {
+		$styles .= " .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 { font-family: " . esc_attr( $setting['typography']['headings']['font_family'] ) . "; }";
 	}
 
 	// Custom accent color.
-	if ( isset( $theme_colors['accent'] )  && '#0161bd' != $theme_colors['accent'] ) {
-		$styles .= " .mce-content-body a, .mce-content-body blockquote:not(.pull-left):not(.pull-right):before { color: ". esc_attr( $theme_colors['accent'] ) ." } ";
-		$styles .= " .mce-content-body a.button:not(.secondary-button):not(.minimal-button) { background: ". esc_attr( $theme_colors['accent'] ) ." }";
+	if ( isset( $setting['color']['accent'] ) && $default['color']['accent'] != $setting['color']['accent'] ) {
+		$styles .= " .mce-content-body a, .mce-content-body blockquote:not(.pull-left):not(.pull-right):before { color: ". esc_attr( $setting['color']['accent'] ) ." } ";
+		$styles .= " .mce-content-body a.button:not(.secondary-button):not(.minimal-button) { background: ". esc_attr( $setting['color']['accent'] ) ." }";
 	}
 
 	if ( '' != $styles ) {
