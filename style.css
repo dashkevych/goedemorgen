@@ -324,12 +324,23 @@ blockquote {
 	font-family: Palatino, Georgia;
 }
 
+blockquote cite {
+	display: block;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 80%;
+}
+
+blockquote cite:before {
+	content: "\2014";
+	padding-right: 4px;
+}
+
 .content-area blockquote:not(.pull-left):not(.pull-right) {
 	padding: 40px 60px 40px 100px;
 	font-size: 23px;
 	font-size: 1.438rem;
 	line-height: 1.45;
-	font-style: italic;
 }
 
 .content-area blockquote:not(.pull-left):not(.pull-right):before {
@@ -2801,6 +2812,7 @@ object {
 
 #page div.sharedaddy .sd-social-icon-text a.sd-button {
 	padding-left: 0;
+	font-family: inherit;
 }
 
 #page div.sharedaddy .sd-social-icon-text a.sd-button:hover,
