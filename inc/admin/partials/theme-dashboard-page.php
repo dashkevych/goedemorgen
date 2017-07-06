@@ -24,43 +24,24 @@ $active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['ta
         </div><!-- .theme-info -->
 
         <div class="theme-screenshot">
-            <img  src="<?php echo esc_url( get_template_directory_uri() . '/screenshot.png' ); ?>" alt="<?php esc_attr( $goedemorgen_theme->Name ); ?>" />
+            <img  src="<?php echo esc_url( GOEDEMORGEN_DIR_URI . '/screenshot.png' ); ?>" alt="<?php esc_attr( $goedemorgen_theme->Name ); ?>" />
         </div><!-- .theme-screenshot -->
     </div><!-- .page-header -->
 
     <h2 class="nav-tab-wrapper wp-clearfix">
-        <a href="<?php echo esc_url( admin_url( 'themes.php?page=goedemorgen-dashboard&tab=getting_started' ) ); ?>"
-        class="nav-tab <?php echo $active_tab == 'getting_started' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Getting Started', 'goedemorgen' ); ?></a>
-
-        <a href="<?php echo esc_url( admin_url( 'themes.php?page=goedemorgen-dashboard&tab=support' ) ); ?>"
-        class="nav-tab <?php echo $active_tab == 'support' ? 'nav-tab-active' : ''; ?> "><?php esc_html_e( 'Support', 'goedemorgen' ); ?></a>
-
-        <a href="<?php echo esc_url( admin_url( 'themes.php?page=goedemorgen-dashboard&tab=contribute' ) ); ?>"
-        class="nav-tab <?php echo $active_tab == 'contribute' ? 'nav-tab-active' : ''; ?> "><?php esc_html_e( 'Contribute', 'goedemorgen' ); ?></a>
+        <?php Goedemorgen_Welcome_Screen::get_dashboard_page_tabs( $active_tab ); ?>
     </h2><!-- .nav-tab-wrapper -->
 
     <div class="tab-content wp-clearfix">
         <div class="tab-primary">
             <div class="inner">
-            <?php
-                switch ( $active_tab ) :
-                    case 'support':
-                        require_once get_template_directory() . '/inc/admin/partials/theme-dashboard-support.php';
-                        break;
-                    case 'contribute':
-                        require_once get_template_directory() . '/inc/admin/partials/theme-dashboard-contribute.php';
-                        break;
-                    default:
-                        require_once get_template_directory() . '/inc/admin/partials/theme-dashboard-getting-started.php';
-                        break;
-                endswitch;
-            ?>
+                <?php Goedemorgen_Welcome_Screen::get_dashboard_page_tab_content( $active_tab ); ?>
             </div><!-- .inner -->
         </div><!-- .tab-primary -->
 
         <div class="tab-secondary">
             <div class="inner">
-                <?php require_once get_template_directory() . '/inc/admin/partials/theme-dashboard-sidebar.php'; ?>
+                <?php require_once GOEDEMORGEN_DIR . '/inc/admin/partials/theme-dashboard-sidebar.php'; ?>
             </div><!-- .inner -->
         </div><!-- .tab-secondary -->
     </div><!-- .tab-content -->

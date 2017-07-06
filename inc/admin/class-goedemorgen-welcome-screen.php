@@ -63,7 +63,7 @@ class Goedemorgen_Welcome_Screen {
 			return;
 		}
 
-		wp_enqueue_style( 'goedemorgen-themes-dashboard', get_template_directory_uri() . '/inc/admin/assets/dashboard-style.css', false, '1.0.0' );
+		wp_enqueue_style( 'goedemorgen-themes-dashboard', GOEDEMORGEN_DIR_URI . '/inc/admin/assets/dashboard-style.css', false, '1.0.0' );
 	}
 
 	/**
@@ -117,7 +117,66 @@ class Goedemorgen_Welcome_Screen {
 	 * @return void
 	 */
 	public function theme_dashboard_page() {
-		require_once get_template_directory() . '/inc/admin/partials/theme-dashboard-page.php';
+		require_once GOEDEMORGEN_DIR . '/inc/admin/partials/theme-dashboard-page.php';
+	}
+
+	/**
+	 * Display tabs on the theme's dashabord page.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function get_dashboard_page_tabs( $current_tab = '' ) {
+		$tabs = array(
+			array(
+				'slug' => 'getting_started',
+				'title' => esc_html__( 'Getting Started', 'goedemorgen' ),
+			),
+			array(
+				'slug' => 'support',
+				'title' => esc_html__( 'Support', 'goedemorgen' ),
+			),
+			array(
+				'slug' => 'contribute',
+				'title' => esc_html__( 'Contribute', 'goedemorgen' ),
+			),
+		);
+
+		$tabs = apply_filters( 'goedemorgen_dashboard_page_tabs', $tabs );
+
+		foreach ( $tabs as $tab ) {
+			if ( $current_tab === $tab['slug'] ) {
+				$class = 'nav-tab nav-tab-active';
+			} else {
+				$class = 'nav-tab';
+			}
+
+			$url = esc_url( admin_url( 'themes.php?page=goedemorgen-dashboard&tab=' . $tab['slug'] ) );
+
+			printf( '<a class="%1$s" href="%2$s">%3$s</a>', $class, $url, $tab['title'] );
+		}
+	}
+
+	/**
+	 * Display tabs content on the theme's dashabord page.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function get_dashboard_page_tab_content( $current_tab = '' ) {
+		$content = array(
+			'support' => GOEDEMORGEN_DIR . '/inc/admin/partials/theme-dashboard-support.php',
+			'contribute' => GOEDEMORGEN_DIR . '/inc/admin/partials/theme-dashboard-contribute.php',
+			'getting_started' => GOEDEMORGEN_DIR . '/inc/admin/partials/theme-dashboard-getting-started.php',
+		);
+
+		$content = apply_filters( 'goedemorgen_dashboard_page_tab_content', $content );
+
+		if ( isset( $content[$current_tab] ) && file_exists( $content[$current_tab] ) ) {
+			require_once $content[$current_tab];
+		}
 	}
 }
 Goedemorgen_Welcome_Screen::get_instance();
