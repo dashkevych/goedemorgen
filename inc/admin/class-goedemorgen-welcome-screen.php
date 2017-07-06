@@ -8,6 +8,13 @@
  * @package Goedemorgen
  */
 class Goedemorgen_Welcome_Screen {
+
+	/**
+	 * Class instance.
+	 * @since 1.0.0
+	 */
+    private static $instance;
+
 	/**
 	 * Constructor method.
 	 *
@@ -24,13 +31,12 @@ class Goedemorgen_Welcome_Screen {
 	 * @access public
 	 * @return object
 	 */
-	public static function get_instance() {
-		static $instance = null;
-		if ( is_null( $instance ) ) {
-			$instance = new self;
-			$instance->setup_actions();
+	public static function instance() {
+		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Goedemorgen_Welcome_Screen ) ) {
+			self::$instance = new Goedemorgen_Welcome_Screen;
+			self::$instance->setup_actions();
 		}
-		return $instance;
+		return self::$instance;
 	}
 
 	/**
@@ -42,11 +48,11 @@ class Goedemorgen_Welcome_Screen {
 	 */
 	private function setup_actions() {
 		// Display activation notice.
-		add_action( 'load-themes.php', array( $this, 'add_admin_notices' ) );
+		add_action( 'load-themes.php', array( self::$instance, 'add_admin_notices' ) );
 		// Add theme's info page to the Dashboard menu.
-		add_action( 'admin_menu', array( $this, 'register_menu_page' ) );
+		add_action( 'admin_menu', array( self::$instance, 'register_menu_page' ) );
 		// Add theme's info page scripts.
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( self::$instance, 'admin_scripts' ) );
 	}
 
 	/**
@@ -74,7 +80,7 @@ class Goedemorgen_Welcome_Screen {
 	 * @return void
 	 */
 	public function register_menu_page() {
-		 add_theme_page( esc_html__( 'Goedemorgen Dashboard', 'goedemorgen' ), esc_html__( 'Goedemorgen', 'goedemorgen' ), 'edit_theme_options', 'goedemorgen-dashboard', array( $this, 'theme_dashboard_page' ) );
+		 add_theme_page( esc_html__( 'Goedemorgen Dashboard', 'goedemorgen' ), esc_html__( 'Goedemorgen', 'goedemorgen' ), 'edit_theme_options', 'goedemorgen-dashboard', array( self::$instance, 'theme_dashboard_page' ) );
 	}
 
 	/**
@@ -125,6 +131,7 @@ class Goedemorgen_Welcome_Screen {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param string
 	 * @return void
 	 */
 	public function get_dashboard_page_tabs( $current_tab = '' ) {
@@ -163,6 +170,7 @@ class Goedemorgen_Welcome_Screen {
 	 *
 	 * @since  1.0.0
 	 * @access public
+	 * @param string
 	 * @return void
 	 */
 	public function get_dashboard_page_tab_content( $current_tab = '' ) {
@@ -179,4 +187,4 @@ class Goedemorgen_Welcome_Screen {
 		}
 	}
 }
-Goedemorgen_Welcome_Screen::get_instance();
+Goedemorgen_Welcome_Screen::instance();
