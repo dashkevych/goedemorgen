@@ -62,7 +62,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 
     $wp_customize->add_control( new Goedemorgen_Customizer_Font_Family_Control( $wp_customize, 'goedemorgen_typography_headings_fontfamily', array(
         'type' => 'font-family',
-        'label' => esc_html__( 'Headings font family', 'goedemorgen' ),
+        'label' => esc_html__( 'Headings Font Family', 'goedemorgen' ),
         'section' => 'goedemorgen_typography_headings_options',
         'settings' => 'goedemorgen_settings[typography][headings][font_family]',
         'description' => esc_html__( 'Select the font family which will be used for the headings on your website.', 'goedemorgen' ),
