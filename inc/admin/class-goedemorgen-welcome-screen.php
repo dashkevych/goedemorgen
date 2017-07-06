@@ -159,9 +159,11 @@ class Goedemorgen_Welcome_Screen {
 				$class = 'nav-tab';
 			}
 
+			// Create URL for the current tab.
 			$url = esc_url( admin_url( 'themes.php?page=goedemorgen-dashboard&tab=' . $tab['slug'] ) );
-
-			printf( '<a class="%1$s" href="%2$s">%3$s</a>', $class, $url, $tab['title'] );
+			
+			/* translators: %1$s, %2$s and %3$s are a placeholders that will be replaced by variables passed as an argument. */
+			printf( '<a class="%1$s" href="%2$s">%3$s</a>', $class, $url, $tab['title'] ); // WPCS: XSS OK.
 		}
 	}
 

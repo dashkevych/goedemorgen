@@ -36,7 +36,7 @@ $contact_form_link = '<a href="https://goedemorgenwp.com/contacts/" target="_bla
 
         <li>
         <?php
-            /* translators: %s is a placeholder that will be replaced by a variable passed as an argument. */
+            /* translators: %1$s and %2$s are a placeholders that will be replaced by variables passed as an argument. */
             printf( esc_html__( 'Before contacting us, please visit our %1$s website. If your answer can not be found in the links that are posted above, please use our %2$s.', 'goedemorgen' ), $documentation_link, $contact_form_link ); // WPCS: XSS OK.
         ?>
         </li>
