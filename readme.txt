@@ -39,10 +39,15 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
-= In Progress =
+= 0.9.4, Jul 5, 2017 =
 
 * Update: dashboard page of the theme;
+* Update: dashboard page styling;
+* Update: Goedemorgen_Welcome_Screen class;
+* Update: readme.txt file;
+* Update: inline comments;
 * Fix: blockquote styling issues;
+* Fix: typography label issue;
 * Remove: invalid rel="designer" attribute;
 
 = 0.9.3, Jun 30, 2017 =
