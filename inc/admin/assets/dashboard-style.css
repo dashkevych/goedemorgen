@@ -59,14 +59,23 @@
 	float: left;
 }
 
- /*--------------------------------------------------------------
- # Content
- --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+.goedemorgen-dashboard h2.nav-tab-wrapper {
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	padding: 0 40px;
+}
+
 .goedemorgen-dashboard .nav-tab {
-	padding: 10px 40px;
-	border-color: #dddddd;
-	border-radius: 2px 2px 0 0;
-	box-shadow: 0 -1px 1px rgba(0,0,0,0.02);
+	padding: 15px 0 13px;
+	border: none;
+	border-bottom: 2px solid transparent;
+	border-radius: 0;
+	box-shadow: none;
+	background: none;
+	margin-right: 40px;
 }
 
 .goedemorgen-dashboard .nav-tab:first-of-type {
@@ -74,12 +83,7 @@
 }
 
 .goedemorgen-dashboard .nav-tab-active {
-	background: #ffffff;
-	border-bottom-color: transparent;
-}
-
-.wrap h2.nav-tab-wrapper {
-	border-bottom-color: #e1e1e1;
+	border-bottom-color: #23282d;
 }
 
 .goedemorgen-dashboard .tab-content {
@@ -167,13 +171,16 @@
 		width: 100%;
 	}
 
-	.page-header .theme-info .inner {
+	.page-header .theme-info .inner,
+	.tab-content .tab-secondary .inner {
 		padding-left: 0;
+	}
+
+	.page-header .theme-info .inner {
 		margin-bottom: 40px;
 	}
 
 	.tab-content .tab-secondary .inner {
-		padding-left: 0;
 		border-left: none;
 		border-top: 1px solid #dddddd;
 	}
@@ -184,11 +191,21 @@
 		padding-right: 0;
 	}
 
+	.goedemorgen-dashboard h2.nav-tab-wrapper {
+		padding: 0;
+	}
+
 	.goedemorgen-dashboard .nav-tab {
 		float: none;
 		display: block;
 		margin: 0;
-		border-radius: 0;
+		padding-left: 40px;
+		padding-right: 40px;
+		border-bottom: 1px solid #dddddd;
+	}
+
+	.goedemorgen-dashboard .nav-tab:last-of-type {
+		border-bottom: none;
 	}
 
 	.goedemorgen-dashboard .nav-tab-active {
