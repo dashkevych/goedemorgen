@@ -94,7 +94,7 @@ class Goedemorgen_Welcome_Screen {
 		global $pagenow;
 
 		if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
-			add_action( 'admin_notices', array( $this, 'welcome_admin_notice' ) );
+			add_action( 'admin_notices', array( self::$instance, 'welcome_admin_notice' ) );
 		}
  	}
 
@@ -161,7 +161,7 @@ class Goedemorgen_Welcome_Screen {
 
 			// Create URL for the current tab.
 			$url = esc_url( admin_url( 'themes.php?page=goedemorgen-dashboard&tab=' . $tab['slug'] ) );
-			
+
 			/* translators: %1$s, %2$s and %3$s are a placeholders that will be replaced by variables passed as an argument. */
 			printf( '<a class="%1$s" href="%2$s">%3$s</a>', $class, $url, $tab['title'] ); // WPCS: XSS OK.
 		}
