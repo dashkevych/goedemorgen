@@ -2,8 +2,8 @@
 Contributors: taskotr
 Requires at least: WordPress 4.6
 Tested up to: WordPress 4.7
-Stable tag: 0.9.3
-Version: 0.9.3
+Stable tag: 0.9.5
+Version: 0.9.5
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -38,6 +38,11 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
  - https://pixabay.com/en/girl-book-beauty-romance-dress-990602/
 
 == Changelog ==
+
+= 0.9.5, Jul 14, 2017 =
+
+* Add: filters to the default theme options;
+* Update: theme dashboard style handle;
 
 = 0.9.4, Jul 5, 2017 =
 
