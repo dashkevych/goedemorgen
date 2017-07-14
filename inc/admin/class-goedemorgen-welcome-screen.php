@@ -69,7 +69,7 @@ class Goedemorgen_Welcome_Screen {
 			return;
 		}
 
-		wp_enqueue_style( 'goedemorgen-themes-dashboard', GOEDEMORGEN_DIR_URI . '/inc/admin/assets/dashboard-style.css', false, '1.0.0' );
+		wp_enqueue_style( 'goedemorgen-dashboard', GOEDEMORGEN_DIR_URI . '/inc/admin/assets/dashboard-style.css', false, '1.0.0' );
 	}
 
 	/**
