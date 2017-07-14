@@ -65,37 +65,50 @@ final class Goedemorgen_Settings {
 	 * @return void
 	 */
 	private static function get_defaults( $section = false ) {
+		// Default theme options for the General section.
+		$general_defaults = array(
+			'container_width' => '',
+		);
+
+		// Default theme options for the Footer section.
+		$footer_defaults = array(
+			'widgets_layout' => '4',
+			'is_widgets_equal' => '',
+		);
+
+		// Default theme options for the Archive section.
+		$archive_defaults = array(
+			'header_image' => '',
+		);
+
+		// Default theme options for the Typography section.
+		$typography_defaults = array(
+			'body' => array(
+				'font_family' => 'Open Sans',
+			),
+
+			'headings' => array(
+				'font_family' => 'Raleway',
+			),
+		);
+
+		// Default theme options for the Jumbotron section.
+		$jumbotron_defaults = array(
+			'alignment' => '',
+		);
+
+		// Default theme options for the Color section.
+		$color_defaults = array(
+			'accent' => '#0161bd',
+		);
+
 		$defaults = array(
-			'general' => array(
-				'container_width' => '',
-			),
-
-			'footer' => array(
-				'widgets_layout' => '4',
-				'is_widgets_equal' => '',
-			),
-
-			'archive' => array(
-				'header_image' => '',
-			),
-
-			'typography' => array(
-				'body' => array(
-					'font_family' => 'Open Sans',
-				),
-
-				'headings' => array(
-					'font_family' => 'Raleway',
-				),
-			),
-
-			'jumbotron' => array(
-				'alignment' => '',
-			),
-
-			'color' => array(
-				'accent' => '#0161bd',
-			),
+			'general' => apply_filters( 'goedemorgen_default_general_options', $general_defaults ),
+			'footer' => apply_filters( 'goedemorgen_default_footer_options', $footer_defaults ),
+			'archive' => apply_filters( 'goedemorgen_default_archive_options', $archive_defaults ),
+			'typography' => apply_filters( 'goedemorgen_default_typography_options', $typography_defaults ),
+			'jumbotron' => apply_filters( 'goedemorgen_default_jumbotron_options', $jumbotron_defaults ),
+			'color' => apply_filters( 'goedemorgen_default_color_options', $color_defaults ),
 		);
 
 		if ( $section ) {
