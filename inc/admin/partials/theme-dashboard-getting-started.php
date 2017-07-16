@@ -9,9 +9,11 @@
 
 // Links that are used on this page.
 $getting_started_links = array(
-    'demo-docs' => 'http://docs.goedemorgenwp.com/category/39-demo-websites',
+    'demo_docs' => 'http://docs.goedemorgenwp.com/category/39-demo-websites',
     'demo' => 'https://demo.goedemorgenwp.com/default/',
     'docs' => 'http://docs.goedemorgenwp.com/',
+    'child_theme' => 'https://github.com/dashkevych/goedemorgen-child/',
+    'child_theme_docs' => 'http://docs.goedemorgenwp.com/article/19-creating-a-child-theme',
 );
 
 ?>
@@ -51,16 +53,32 @@ $getting_started_links = array(
 </div><!-- .tab-section -->
 
 <div class="tab-section">
+    <h3 class="section-title"><?php esc_html_e( 'Heavy Customizations', 'goedemorgen' ); ?></h3>
+
+    <p><?php esc_html_e( 'We have created a blank starter child theme for Goedemorgen. It is highly recommended to use a child theme if you are planning to modify the parent theme.', 'goedemorgen' ); ?></p>
+
+    <p>
+    <?php
+        // Display a link to download child theme.
+        printf( '<a href="%1$s" class="button" target="_blank">%2$s</a>', esc_url( $getting_started_links['child_theme'] ), esc_html__( 'Download Child Theme', 'goedemorgen' ) );
+
+        // Display a link to the child theme documentation.
+        printf( '<a href="%1$s" class="demo-button" target="_blank">%2$s</a>', esc_url( $getting_started_links['child_theme_docs'] ), esc_html__( 'Learn About Child Themes', 'goedemorgen' ) );
+    ?>
+    </p>
+</div><!-- .tab-section -->
+
+<div class="tab-section">
     <h3 class="section-title"><?php esc_html_e( 'Demo Website', 'goedemorgen' ); ?></h3>
 
     <p><?php esc_html_e( 'It is fairly easy to recreate the layout of the demo website. All you need is the right plugins and settings, and you should be able to mimic most of the elements found in the demo. Please note that a lot of the details that make our demo looks good are the result of many hours of hard work.', 'goedemorgen' ); ?></p>
 
     <p>
     <?php
-        // Display link to documentation that describes how to mimic demo website.
-        printf( '<a href="%1$s" class="button" target="_blank">%2$s</a>', esc_url( $getting_started_links['demo-docs'] ), esc_html__( 'Reproduce Demo', 'goedemorgen' ) );
+        // Display a link to documentation that describes how to mimic demo website.
+        printf( '<a href="%1$s" class="button" target="_blank">%2$s</a>', esc_url( $getting_started_links['demo_docs'] ), esc_html__( 'Reproduce Demo', 'goedemorgen' ) );
 
-        // Display link to the demo website.
+        // Display a link to the demo website.
         printf( '<a href="%1$s" class="demo-button" target="_blank">%2$s</a>', esc_url( $getting_started_links['demo'] ), esc_html__( 'View Demo', 'goedemorgen' ) );
     ?>
     </p>
