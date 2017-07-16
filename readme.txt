@@ -39,6 +39,8 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
+* Add: information about the child theme to the dashboard page;
+
 = 0.9.5, Jul 14, 2017 =
 
 * Add: filters to the default theme options;
