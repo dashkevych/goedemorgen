@@ -2,8 +2,8 @@
 Contributors: taskotr
 Requires at least: WordPress 4.6
 Tested up to: WordPress 4.7
-Stable tag: 0.9.5
-Version: 0.9.5
+Stable tag: 0.9.6
+Version: 0.9.6
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -39,7 +39,12 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
+= 0.9.6, Jul 17, 2017 =
+
 * Add: information about the child theme to the dashboard page;
+* Fix: jumbotron font size issue in mobile views;
+* Fix: styling issues (captions and alignment);
+* Remove: unused code;
 
 = 0.9.5, Jul 14, 2017 =
 
