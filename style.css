@@ -1011,7 +1011,6 @@ p, ul, ol, dd, dl, address, pre,
 blockquote,
 .jetpack-video-wrapper,
 .mejs-container,
-.wp-caption,
 #page .wp-playlist,
 table, .table,
 #page .tiled-gallery,
@@ -1778,13 +1777,13 @@ body.toggle-mobile-menu #mobile-menu-toggle {
 .alignleft {
 	display: inline;
 	float: left;
-	margin-right: 2.500rem;
+	margin-right: 2.750rem;
 }
 
 .alignright {
 	display: inline;
 	float: right;
-	margin-left: 2.500rem;
+	margin-left: 2.750rem;
 }
 
 .aligncenter {
@@ -2673,6 +2672,7 @@ object {
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {
+	margin-top: 0;
 	margin-bottom: 40px;
 	max-width: 100%;
 	color: #818589;
