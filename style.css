@@ -2999,6 +2999,7 @@ object {
 		font-size: 1rem;
 	}
 
+	#jumbotron-section .entry-title,
 	.page-header .inner-section .page-title,
 	.singular-header .entry-title {
 		font-size: 2.125rem;
