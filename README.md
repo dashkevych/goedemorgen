@@ -8,4 +8,4 @@ If you are planning to modify theme's files then make sure you are using the <a 
 
 ## Downloading the Theme from GitHub
 
-Simply click on the green download button on the top right to download a zip file. Once it's downloaded, rename the file from *goedemorgen-master.zip* to *goedemorgen.zip*. Aslo, here is a documentation <a href="http://docs.goedemorgenwp.com/article/5-installing-wordpress-theme" target="_blank">how to install a WordPress theme</a>.
+Simply click on the green download button on the top right to download a zip file. Once it's downloaded, rename the file from *goedemorgen-master.zip* to *goedemorgen.zip*. Here is a help guide on <a href="http://docs.goedemorgenwp.com/article/5-installing-wordpress-theme" target="_blank">how to install a WordPress theme</a>.
