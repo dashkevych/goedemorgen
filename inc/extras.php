@@ -31,6 +31,11 @@ function goedemorgen_body_classes( $classes ) {
 		$classes[] = 'active-sidebar';
 	}
 
+	// Adds a class if the user is visiting using a mobile device.
+	if ( wp_is_mobile() ) {
+		$classes[] = 'mobile-view';
+	}
+
 	// Adds a class if user wants to change a default width of container.
 	$classes[] = goedemorgen_get_container_width_class();
 
