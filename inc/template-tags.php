@@ -11,7 +11,7 @@ if ( ! function_exists( 'goedemorgen_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time.
  */
-function goedemorgen_posted_on() {
+function goedemorgen_posted_on( $has_link = false ) {
 	$time_string = '<span class="posted-on"><span>%1$s</span> <time class="published" datetime="%2$s">%3$s</time></span>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string .= '<span class="updated-on">%4$s <time class="updated" datetime="%5$s">%6$s</time></span>';
@@ -26,8 +26,12 @@ function goedemorgen_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	printf( '<div class="entry-date">%s</div>', $time_string ); // WPCS: XSS OK.
-
+	// Display or hide a link to the single post page.
+	if ( ! $has_link ) {
+		printf( '<div class="entry-date">%s</div>', $time_string ); // WPCS: XSS OK.
+	} else {
+		printf( '<div class="entry-date"><a href="%1$s" rel="bookmark">%2$s</a></div>', esc_url( get_permalink() ), $time_string ); // WPCS: XSS OK.
+	}
 }
 endif;
 
