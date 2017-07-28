@@ -151,6 +151,13 @@ body {
 	padding-right: 4px;
 }
 
+.widget_nav_menu li .sub-menu,
+.widget_categories li .children,
+.widget_pages li .children {
+	margin-left: 0;
+	margin-right: 20px;
+}
+
 /* Comments */
 .comments-area .comment-author,
 .comments-area .comment-metadata {
