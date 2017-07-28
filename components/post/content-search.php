@@ -25,7 +25,7 @@
 			<?php goedemorgen_posted_by(); ?>
 
 			<?php if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
-			<span class="comments-link"><?php comments_popup_link( esc_html__( 'Leave a comment', 'goedemorgen' ), esc_html__( '1 Comment', 'goedemorgen' ), esc_html__( '% Comments', 'goedemorgen' ) ); ?></span>
+			<span class="comments-link"><?php comments_popup_link( esc_html__( 'Leave a comment', 'goedemorgen' ), esc_html__( 'One Comment', 'goedemorgen' ), esc_html__( '% Comments', 'goedemorgen' ) ); ?></span>
 			<?php endif; ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
