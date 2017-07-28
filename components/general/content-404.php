@@ -11,7 +11,7 @@
 	<header class="entry-header">
 		<h1 class="entry-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'goedemorgen' ); ?></h1>
 		<div class="archive-description">
-			<?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'goedemorgen' ); ?>
+			<?php esc_html_e( 'It looks like nothing was found at this location. Maybe try a search?', 'goedemorgen' ); ?>
 		</div><!-- .archive-description -->
 	</header><!-- .entry-header -->
 
