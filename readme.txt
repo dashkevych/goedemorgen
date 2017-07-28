@@ -36,6 +36,7 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 * Images used in screenshot.jpg are from Pixabay (CC0 Public Domain):
  - https://pixabay.com/en/season-box-celebrate-celebration-1985856/
  - https://pixabay.com/en/girl-book-beauty-romance-dress-990602/
+ * The TGM Plugin Activation library (http://tgmpluginactivation.com/), by Thomas Griffin, is licensed under the GPL-2.0 or later : https://opensource.org/licenses/GPL-2.0
 
 == Changelog ==
 
