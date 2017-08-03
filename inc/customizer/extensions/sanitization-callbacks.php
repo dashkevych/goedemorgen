@@ -74,7 +74,7 @@ function goedemorgen_sanitize_text_alignment_option( $option ) {
  * @return string Aligment of the text.
  */
  function goedemorgen_sanitize_container_width_option( $option ) {
-     if ( in_array( $option, array( 'small', 'large' ) ) ) {
+    if ( in_array( $option, array( 'small', 'large' ) ) ) {
  		return $option;
  	} else {
  		return '';
