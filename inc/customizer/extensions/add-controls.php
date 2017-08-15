@@ -131,7 +131,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'goedemorgen_archive_header_image', array(
         'label' => esc_html__( 'Archive View Header Image', 'goedemorgen' ),
-        'section' => 'goedemorgen_general_options',
+        'section' => 'goedemorgen_archive_options',
         'settings' => 'goedemorgen_settings[archive][header_image]',
         'description' => esc_html__( 'This image will be show as a background image in all archive views.', 'goedemorgen' ),
         'mime_type' => 'image',
@@ -142,6 +142,21 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
             'frame_button' => esc_html__( 'Choose Header Image', 'goedemorgen' ),
         ),
     ) ) );
+
+    /* General Options: Blog view featured page */
+    $wp_customize->add_setting( 'goedemorgen_settings[archive][featured_page_id]', array(
+		'default'           => '0',
+		'sanitize_callback' => 'absint',
+	) );
+
+	$wp_customize->add_control( 'goedemorgen_blog_featured_page_one_id', array(
+		'label' => esc_html__( 'Blog View Featured Page', 'goedemorgen' ),
+        'description' => esc_html__( 'This page will be shown at the top of the first page of your blog.', 'goedemorgen' ),
+		'section' => 'goedemorgen_archive_options',
+        'settings' => 'goedemorgen_settings[archive][featured_page_id]',
+		'type' => 'dropdown-pages',
+        'active_callback' => 'goedemorgen_is_posts_page_front_page',
+	) );
 
     /* Colors: Accent Color */
     $wp_customize->add_setting( 'goedemorgen_settings[color][accent]', array(
