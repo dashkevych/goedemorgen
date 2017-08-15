@@ -26,9 +26,18 @@ final class Goedemorgen_Settings {
 	 * @return array
 	 */
 	private static function validate_section( $options, $section ) {
+		// Default sections.
 		$sections = array(
 			'general', 'header', 'footer', 'archive', 'typography', 'jumbotron', 'color',
 		);
+
+		// Additional sections.
+		$additional_sections = apply_filters( 'goedemorgen_setting_sections', array() );
+
+		// Merge default sections and additional sections.
+		if ( ! empty( $additional_sections ) ) {
+			$sections = array_merge( $sections, $additional_sections );
+		}
 
 		if ( in_array( $section, $sections ) ) {
 
@@ -79,6 +88,7 @@ final class Goedemorgen_Settings {
 		// Default theme options for the Archive section.
 		$archive_defaults = array(
 			'header_image' => '',
+			'featured_page_id' => '0',
 		);
 
 		// Default theme options for the Typography section.
