@@ -48,6 +48,13 @@ function goedemorgen_add_customizer_sections( $wp_customize ) {
         'active_callback' => 'goedemorgen_is_jumbotron_active',
 	) );
 
+    /* Theme Options: Archive View Options */
+	$wp_customize->add_section( 'goedemorgen_archive_options', array(
+		'title'    => esc_html__( 'Archive View Options', 'goedemorgen' ),
+		'priority' => 4,
+		'panel'    => 'goedemorgen_theme_panel',
+	) );
+
     /* Theme Options: Footer Options */
 	$wp_customize->add_section( 'goedemorgen_footer_options', array(
 		'title'    => esc_html__( 'Footer Options', 'goedemorgen' ),
