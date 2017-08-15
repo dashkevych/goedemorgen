@@ -10,9 +10,9 @@
 <div class="inner-section">
 
 	<?php
-	if ( is_home() && ! is_front_page() ) :
+	if ( is_home() ) :
 
-		goedemorgen_posts_page_header();
+        goedemorgen_posts_page_header();
 
 	elseif ( is_archive() && have_posts() ) :
 

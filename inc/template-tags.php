@@ -164,16 +164,31 @@ endif;
  * Print HTML with the title and content for blog page.
  */
 function goedemorgen_posts_page_header() {
-	$current_post = get_post( get_option( 'page_for_posts' ) );
+	// Default posts page.
+	if ( is_front_page() ) {
+		$featured_page_id = goedemorgen_get_posts_page_featured_page_id();
 
-	// Print HTML with the title for blog page.
-	if ( '' != $current_post->post_title ) {
-		printf( '<h1 class="page-title">%s</h1>', apply_filters( 'the_title', $current_post->post_title ) ); // WPCS: XSS OK.
-	}
+		// Print HTML with the title for the posts page.
+		if ( '' != ( $featured_page_title = get_the_title( $featured_page_id ) ) ) {
+			printf( '<h1 class="page-title">%s</h1>', apply_filters( 'the_title', $featured_page_title ) ); // WPCS: XSS OK.
+		}
 
-	// Print HTML with the content for blog page.
-	if ( '' != $current_post->post_content ) {
-		printf( '<div class="archive-description">%s</div>', apply_filters( 'the_content', $current_post->post_content ) ); // WPCS: XSS OK.
+		// Print HTML with the content for the posts page.
+		if ( '' != ( $featured_page_content = get_post_field( 'post_content', $featured_page_id ) ) ) {
+			printf( '<div class="archive-description">%s</div>', apply_filters( 'the_content', $featured_page_content ) ); // WPCS: XSS OK.
+		}
+	} else {
+		$current_post = get_post( get_option( 'page_for_posts' ) );
+
+		// Print HTML with the title for the posts page.
+		if ( '' != $current_post->post_title ) {
+			printf( '<h1 class="page-title">%s</h1>', apply_filters( 'the_title', $current_post->post_title ) ); // WPCS: XSS OK.
+		}
+
+		// Print HTML with the content for the posts page.
+		if ( '' != $current_post->post_content ) {
+			printf( '<div class="archive-description">%s</div>', apply_filters( 'the_content', $current_post->post_content ) ); // WPCS: XSS OK.
+		}
 	}
 }
 
@@ -194,12 +209,31 @@ function goedemorgen_attachment_description( $class = 'attachment-description' )
  * Print HTML with featured image for single views, or header image for archive views.
  */
 function goedemorgen_page_header_image() {
+	// Default header image.
+	$image = false;
 
-	if ( is_singular() && has_post_thumbnail() ) {
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'goedemorgen-featured-image' );
+	// Display header image in archive views.
+	if ( ! is_singular() ) {
+
+		// Get the featured page id (blog view).
+		$featured_page_id = goedemorgen_get_posts_page_featured_page_id();
+
+		// Get featured image of the featured page for the posts page.
+		if ( is_home() && is_front_page() && has_post_thumbnail( $featured_page_id )  ) {
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $featured_page_id ), 'goedemorgen-featured-image' );
+		} else {
+			$archive_options = goedemorgen_get_setting( 'archive' );
+
+			if ( '' !== $archive_options['header_image'] ) {
+				$image = wp_get_attachment_image_src( $archive_options['header_image'], 'goedemorgen-featured-image' );
+			}
+		}
 	} else {
-		$archive_options = goedemorgen_get_setting( 'archive' );
-		$image = wp_get_attachment_image_src( $archive_options['header_image'], 'goedemorgen-featured-image' );
+		$page_id = get_the_ID();
+
+		if ( has_post_thumbnail( $page_id ) ) {
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'goedemorgen-featured-image' );
+		}
 	}
 
 	if ( is_array( $image ) && isset( $image[0] ) ) {

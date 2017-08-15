@@ -134,19 +134,23 @@ function goedemorgen_page_header_class() {
 	// Default classes.
 	$classes = array( 'page-header', 'container-wrap' );
 
-	// Add class in single views.
-	if ( is_singular() ) {
+	if ( ! is_singular() ) {
+
+		if ( is_home() && is_front_page() && has_post_thumbnail( goedemorgen_get_posts_page_featured_page_id() ) ) {
+			$classes[] = 'has-post-thumbnail';
+		} else {
+			$archive_options = goedemorgen_get_setting( 'archive' );
+			// Add class if header image is set.
+			if ( isset( $archive_options['header_image'] ) && '' != $archive_options['header_image'] ) {
+				$classes[] = 'has-post-thumbnail';
+			}
+		}
+
+	} else {
 		$classes[] = 'entry-header';
 
 		// Add class if featured image is set.
 		if ( has_post_thumbnail() ) {
-			$classes[] = 'has-post-thumbnail';
-		}
-
-	} else {
-		$archive_options = goedemorgen_get_setting( 'archive' );
-		// Add class if header image is set.
-		if ( isset( $archive_options['header_image'] ) && '' != $archive_options['header_image'] ) {
 			$classes[] = 'has-post-thumbnail';
 		}
 	}
@@ -264,16 +268,17 @@ function goedemorgen_is_page_header() {
 	// Display page header by default.
 	$is_page_header = true;
 
-	// Hide page header in single views.
-	if ( is_singular() ) {
-		$is_page_header = false;
-	}
-
 	/**
 	 * Hide page header section on the custom Front Page template and in blog view
 	 * when there is no static front page.
 	 */
-	if ( goedemorgen_is_front_page_template() || ( is_home() && is_front_page() ) || is_404() || ( is_search() && ! have_posts() ) ) {
+	if (
+		is_singular() ||
+		goedemorgen_is_front_page_template() ||
+		( is_home() && is_front_page() && ! goedemorgen_get_posts_page_featured_page_id() ) ||
+		is_404() ||
+		( is_search() && ! have_posts() )
+	) {
 		$is_page_header = false;
 	}
 
@@ -339,3 +344,11 @@ function goedemorgen_add_extra_css() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'goedemorgen_add_extra_css' );
+
+/**
+ * Get ID of the featured page in blog view.
+ */
+function goedemorgen_get_posts_page_featured_page_id() {
+	$archive_options = goedemorgen_get_setting( 'archive' );
+	return $archive_options['featured_page_id'];
+}

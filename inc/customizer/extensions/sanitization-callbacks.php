@@ -96,3 +96,19 @@ function goedemorgen_is_jumbotron_active() {
 
     return false;
 }
+
+/**
+ * Active callback for the Posts page.
+ *
+ * Display "Blog View Featured Page" option only if the Front Page displays recent blog posts.
+ *
+ * @return @return bool True/False . Either display or hide "Blog View Featured Page" option.
+ */
+function goedemorgen_is_posts_page_front_page() {
+
+    if ( is_home() && is_front_page() ) {
+        return true;
+    }
+
+    return false;
+}
