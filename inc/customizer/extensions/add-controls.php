@@ -145,7 +145,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 
     /* General Options: Blog view featured page */
     $wp_customize->add_setting( 'goedemorgen_settings[archive][featured_page_id]', array(
-		'default'           => '0',
+		'default'           => $defaults['archive']['featured_page_id'],
 		'sanitize_callback' => 'absint',
 	) );
 
