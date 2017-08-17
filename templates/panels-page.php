@@ -7,9 +7,8 @@
 
 get_header(); ?>
 
-<div id="jumbotron-section" <?php goedemorgen_jumbotron_class(); ?>>
+<div id="jumbotron-section" <?php goedemorgen_page_header_class(); ?>>
 	<?php while ( have_posts() ) : the_post(); ?>
-	<article <?php post_class( array( 'page-header', 'container-wrap' ) ); ?>>
 		<?php goedemorgen_page_header_image(); ?>
 
 		<div class="inner-section">
@@ -21,7 +20,6 @@ get_header(); ?>
 				<?php the_content(); ?>
 			</div><!-- .entry-content -->
 		</div><!-- .inner-section -->
-	</article><!-- .hentry -->
 	<?php endwhile; ?>
 </div><!-- #jumbotron-section -->
 
