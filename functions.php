@@ -268,6 +268,23 @@ add_filter( 'widget_tag_cloud_args', 'goedemorgen_set_tag_cloud_font_size' );
 endif;
 
 /**
+ * Allow to edit the page which is set to the Posts Page.
+ * Content in this page will be used for the Jumbotron section in the Posts Page.
+ *
+ * @param Object $post
+ * @return void
+ */
+function goedemorgen_add_editor_to_posts_page( $post ) {
+     if ( isset( $post ) && $post->ID != get_option( 'page_for_posts' ) ) {
+         return;
+     }
+
+     remove_action( 'edit_form_after_title', '_wp_posts_page_notice' );
+     add_post_type_support( 'page', 'editor' );
+}
+add_action( 'edit_form_after_title', 'goedemorgen_add_editor_to_posts_page', 0 );
+
+/**
  * Register the required plugins for this theme.
  *
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
