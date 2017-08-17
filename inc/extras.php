@@ -145,14 +145,22 @@ function goedemorgen_is_panels_template() {
  * Check if the current page has a Jumbotron section.
  */
 function goedemorgen_is_jumbotron_header() {
+	// Check if the current page is Panels Page template.
 	if ( is_page() && goedemorgen_is_panels_template() ) {
 		return true;
 	}
 
+	// Check if the current page is the Blog page.
 	if ( is_home() ) {
-		if ( is_front_page() && '' != get_post_field( 'post_content', goedemorgen_get_posts_page_featured_page_id() ) ) {
-			return true;
+		if ( is_front_page() ) {
+			// Get the ID of the feautred page in blog view.
+			$featured_page_id = goedemorgen_get_posts_page_featured_page_id();
+
+			if ( $featured_page_id && '' != get_post_field( 'post_content', $featured_page_id ) ) {
+				return true;
+			}
 		} else {
+			// Get the ID of the page which is set to the Posts Page.
 			$current_post = get_post( get_option( 'page_for_posts' ) );
 
 			if ( '' != $current_post->post_content ) {
