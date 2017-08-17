@@ -1096,13 +1096,13 @@ a.button,
 	-webkit-align-items: center;
 	-webkit-box-align: center;
 	align-items: center;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 35px;
+	padding-bottom: 35px;
 }
 
 .wp-custom-logo #masthead .site-title,
 #masthead .site-description {
-	margin-top: 12px;
+	margin-top: 13px;
 }
 
 #masthead .site-branding {
