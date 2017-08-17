@@ -45,7 +45,7 @@ function goedemorgen_add_customizer_sections( $wp_customize ) {
 		'priority' => 3,
 		'panel'    => 'goedemorgen_theme_panel',
         'description' => esc_html__( 'This section is designed to showcase key content on your site.', 'goedemorgen' ),
-        'active_callback' => 'goedemorgen_is_jumbotron_active',
+        'active_callback' => 'goedemorgen_is_jumbotron_header',
 	) );
 
     /* Theme Options: Archive View Options */
