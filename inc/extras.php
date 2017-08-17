@@ -128,6 +128,43 @@ function goedemorgen_is_front_page_template() {
 }
 
 /**
+ * Check if current page is set to the Panels template.
+ */
+function goedemorgen_is_panels_template() {
+	$template = get_post_meta( get_the_ID(), '_wp_page_template', true );
+	$is_template = preg_match( '%panels-page.php%', $template );
+
+	if (  0 == $is_template ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/**
+ * Check if the current page has a Jumbotron section.
+ */
+function goedemorgen_is_jumbotron_header() {
+	if ( is_page() && goedemorgen_is_panels_template() ) {
+		return true;
+	}
+
+	if ( is_home() ) {
+		if ( is_front_page() && '' != get_post_field( 'post_content', goedemorgen_get_posts_page_featured_page_id() ) ) {
+			return true;
+		} else {
+			$current_post = get_post( get_option( 'page_for_posts' ) );
+
+			if ( '' != $current_post->post_content ) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+/**
  * Retrieve the classes for the page header area as an array.
  */
 function goedemorgen_page_header_class() {
@@ -167,32 +204,31 @@ function goedemorgen_page_header_class() {
 /**
  * Retrieve the classes for the jumbotron area as an array.
  */
-function goedemorgen_jumbotron_class() {
-	// Get jumbotron options.
-	$jumbotron_options = goedemorgen_get_setting( 'jumbotron' );
+function goedemorgen_jumbotron_class( $classes ) {
 
-	// Default classes.
-	$classes = array( 'clear' );
+	if ( goedemorgen_is_jumbotron_header() ) {
+		// Get jumbotron options.
+		$jumbotron_options = goedemorgen_get_setting( 'jumbotron' );
 
-	if ( isset( $jumbotron_options['alignment'] ) && '' != $jumbotron_options['alignment'] ) {
-		switch ( $jumbotron_options['alignment'] ) {
-			case 'right':
-		        $classes[] = 'right-alignment';
-		        break;
-			case 'center':
-		        $classes[] = 'centered-alignment';
-		        break;
+		// Default classes.
+		$classes[] = 'clear';
+		$classes[] = 'jumbotron-header';
+
+		if ( isset( $jumbotron_options['alignment'] ) && '' != $jumbotron_options['alignment'] ) {
+			switch ( $jumbotron_options['alignment'] ) {
+				case 'right':
+			        $classes[] = 'right-alignment';
+			        break;
+				case 'center':
+			        $classes[] = 'centered-alignment';
+			        break;
+			}
 		}
 	}
 
-	// Allow to add custom classes.
-	$classes = array_unique( apply_filters( 'goedemorgen_jumbotron_class', $classes ) );
-
-	// Clean added classes.
-	$classes = array_map( 'esc_attr', $classes );
-
-	printf( 'class="%s"', join( ' ', $classes ) ); // WPCS: XSS OK.
+	return $classes;
 }
+add_filter( 'goedemorgen_page_header_class', 'goedemorgen_jumbotron_class' );
 
 /**
  * Display page-links for paginated posts before Jetpack's share buttons and related posts.
