@@ -1844,20 +1844,11 @@ img.alignright {
 /*--------------------------------------------------------------
 # Featured Content
 --------------------------------------------------------------*/
-#jumbotron-section .hentry {
-	padding-top: 120px;
-	padding-bottom: 120px;
-}
-
-#jumbotron-section.right-alignment .hentry {
-	overflow: hidden;
-}
-
-#jumbotron-section.right-alignment .inner-section {
+.jumbotron-header.right-alignment .inner-section {
 	float: right;
 }
 
-#jumbotron-section.centered-alignment .inner-section {
+.jumbotron-header.centered-alignment .inner-section {
 	margin: 0 auto;
 	text-align: center;
 }
@@ -1872,6 +1863,11 @@ img.alignright {
 
 #jumbotron-section .entry-content {
 	margin-top: 20px;
+}
+
+.jumbotron-header {
+	padding-top: 120px;
+	padding-bottom: 120px;
 }
 
 /*--------------------------------------------------------------
