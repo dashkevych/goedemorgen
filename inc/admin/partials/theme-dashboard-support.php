@@ -9,7 +9,7 @@
 
 // Define support links.
 $general_questions_link = '<a href="https://wordpress.org/support/forum/how-to-and-troubleshooting/" target="_blank">' . esc_html__( 'How-To and Troubleshooting', 'goedemorgen' ) . '</a>';
-$customization_link = '<a href="https://wordpress.org/support/forum/themes-and-templates/" target="_blank">' . esc_html__( 'Goedemorgen', 'goedemorgen' ) . '</a>';
+$customization_link = '<a href="https://wordpress.org/support/theme/goedemorgen/" target="_blank">' . esc_html__( 'Goedemorgen', 'goedemorgen' ) . '</a>';
 $documentation_link = '<a href="http://docs.goedemorgenwp.com/" target="_blank">' . esc_html__( 'documentation', 'goedemorgen' ) . '</a>';
 $contact_form_link = '<a href="https://goedemorgenwp.com/contacts/" target="_blank">' . esc_html__( 'contact form', 'goedemorgen' ) . '</a>';
 ?>
