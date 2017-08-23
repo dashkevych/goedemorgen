@@ -40,14 +40,16 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
-= 0.9.8, Aug 17, 2017 =
+= 0.9.8, Aug 23, 2017 =
 
 * Add: separate section for the Archive View Options;
 * Add: allow to edit the page which is set to the Posts Page;
 * Add: option to display a featured page (Jumbotron section) in blog view;
+* Add: option for the page header visibility on the Posts Page;
 * Update: theme screenshot;
 * Update: overlay opacity;
 * Update: Jumbotron functionality;
+* Update: link to the theme's support forum;
 
 = 0.9.7, Jul 28, 2017 =
 
