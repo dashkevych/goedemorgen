@@ -130,10 +130,10 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 	) );
 
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'goedemorgen_archive_header_image', array(
-        'label' => esc_html__( 'Archive View Header Image', 'goedemorgen' ),
+        'label' => esc_html__( 'Archive View: Header Image', 'goedemorgen' ),
         'section' => 'goedemorgen_archive_options',
         'settings' => 'goedemorgen_settings[archive][header_image]',
-        'description' => esc_html__( 'This image will be show as a background image in all archive views.', 'goedemorgen' ),
+        'description' => esc_html__( 'This image will be show as a header background image in all archive views.', 'goedemorgen' ),
         'mime_type' => 'image',
         'button_labels' => array(
             'select' => esc_html__( 'Select Image', 'goedemorgen' ),
@@ -143,20 +143,39 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
         ),
     ) ) );
 
-    /* General Options: Blog view featured page */
+    /* Archive View Options: Blog view featured page */
     $wp_customize->add_setting( 'goedemorgen_settings[archive][featured_page_id]', array(
 		'default'           => $defaults['archive']['featured_page_id'],
 		'sanitize_callback' => 'absint',
 	) );
 
 	$wp_customize->add_control( 'goedemorgen_blog_featured_page_one_id', array(
-		'label' => esc_html__( 'Blog View Featured Page', 'goedemorgen' ),
-        'description' => esc_html__( 'This page will be shown at the top of the first page of your blog.', 'goedemorgen' ),
+		'label' => esc_html__( 'Blog View: Featured Page', 'goedemorgen' ),
+        'description' => esc_html__( 'This page will be shown in the page header section of your blog.', 'goedemorgen' ),
 		'section' => 'goedemorgen_archive_options',
         'settings' => 'goedemorgen_settings[archive][featured_page_id]',
 		'type' => 'dropdown-pages',
         'active_callback' => 'goedemorgen_is_posts_page_front_page',
 	) );
+
+    /* Archive View Options: Blog View Header Visibility */
+    $wp_customize->add_setting( 'goedemorgen_settings[archive][is_posts_page_header]' , array(
+        'default' => $defaults['archive']['is_posts_page_header'],
+        'sanitize_callback' => 'goedemorgen_sanitize_posts_page_header_visibility_option',
+    ) );
+
+    $wp_customize->add_control( 'goedemorgen_is_posts_page_header', array(
+        'label' => esc_html( 'Blog View: Header Visibility', 'goedemorgen' ),
+        'description' => esc_html__( 'Choose on which blog pages you want to display the page header section.', 'goedemorgen' ),
+        'section' => 'goedemorgen_archive_options',
+        'settings' => 'goedemorgen_settings[archive][is_posts_page_header]',
+        'type' => 'radio',
+        'choices' => array(
+            '' => esc_html__( 'Display on all pages', 'goedemorgen' ),
+            'on_first' => esc_html__( 'Display on the first page only', 'goedemorgen' ),
+        ),
+        'active_callback' => 'goedemorgen_is_blog_header_visibility_option',
+    ) );
 
     /* Colors: Accent Color */
     $wp_customize->add_setting( 'goedemorgen_settings[color][accent]', array(

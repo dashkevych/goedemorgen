@@ -81,6 +81,23 @@ function goedemorgen_sanitize_text_alignment_option( $option ) {
  	}
  }
 
+ /**
+  * Posts page header visibility sanitization callback.
+  *
+  * Sanitization callback for 'select' type controls. This callback sanitizes `$option`
+  * as a string value, the width of the main container. Either "small" or "large".
+  *
+  * @param bool $option Selected option.
+  * @return string Aligment of the text.
+  */
+function goedemorgen_sanitize_posts_page_header_visibility_option( $option ) {
+    if ( 'on_first' === $option ) {
+        return $option;
+    } else {
+        return '';
+    }
+}
+
 /**
  * Active callback for Jumbotron section.
  *
@@ -100,13 +117,28 @@ function goedemorgen_is_jumbotron_active() {
 /**
  * Active callback for the Posts page.
  *
- * Display "Blog View Featured Page" option only if the Front Page displays recent blog posts.
+ * Display "Blog View: Featured Page" option only if the Front Page displays recent blog posts.
  *
- * @return @return bool True/False . Either display or hide "Blog View Featured Page" option.
+ * @return @return bool True/False . Either display or hide "Blog View: Featured Page" option.
  */
 function goedemorgen_is_posts_page_front_page() {
 
     if ( is_home() && is_front_page() ) {
+        return true;
+    }
+
+    return false;
+}
+
+/**
+ * Active callback for the "Blog View: Header Visibility" option.
+ *
+ * Display "Blog View: Header Visibility" option only if the blog header section has content.
+ *
+ * @return @return bool True/False . Either display or hide "Blog View: Header Visibility" option.
+ */
+function goedemorgen_is_blog_header_visibility_option() {
+    if ( goedemorgen_is_posts_page_front_page() || get_option( 'page_for_posts' ) ) {
         return true;
     }
 
