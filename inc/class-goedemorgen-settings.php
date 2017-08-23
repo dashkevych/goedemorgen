@@ -89,6 +89,7 @@ final class Goedemorgen_Settings {
 		$archive_defaults = array(
 			'header_image' => '',
 			'featured_page_id' => '0',
+			'is_posts_page_header' => '',
 		);
 
 		// Default theme options for the Typography section.
