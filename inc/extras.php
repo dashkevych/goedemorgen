@@ -306,7 +306,7 @@ add_action( 'wp_ajax_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dyn
 add_action( 'wp_ajax_nopriv_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dynamic_styles_callback' );
 
 /**
- * Check if we need to display page header section.
+ * Check if we need to display a page header section.
  */
 function goedemorgen_is_page_header() {
 	// Display page header by default.
@@ -319,7 +319,6 @@ function goedemorgen_is_page_header() {
 	if (
 		is_singular() ||
 		goedemorgen_is_front_page_template() ||
-		( is_home() && is_front_page() && ! goedemorgen_get_posts_page_featured_page_id() ) ||
 		is_404() ||
 		( is_search() && ! have_posts() )
 	) {
@@ -332,6 +331,28 @@ function goedemorgen_is_page_header() {
 
 	return (bool) $is_page_header;
 }
+
+/**
+ * Check if we need to display a page header section in blog view.
+ */
+function goedemorgen_is_posts_page_header( $is_page_header ) {
+	if ( is_home() ) {
+		$archive_options = goedemorgen_get_setting( 'archive' );
+
+		// Display the page header only if the posts page has a featured page.
+		if ( is_front_page() && ! goedemorgen_get_posts_page_featured_page_id() ) {
+			$is_page_header = false;
+		}
+
+		// Display the page header only on the first page.
+		if ( 'on_first' === $archive_options['is_posts_page_header'] && is_paged() ) {
+			$is_page_header = false;
+		}
+	}
+
+	return $is_page_header;
+}
+add_filter( 'goedemorgen_is_page_header', 'goedemorgen_is_posts_page_header' );
 
 /**
  * Check if we need to display hentry header in single views.
