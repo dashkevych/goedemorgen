@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Goedemorgen\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2017-07-28 11:32+0300\n"
+"POT-Creation-Date: 2017-08-23 14:29+0300\n"
 "PO-Revision-Date: 2016-09-16 12:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: Goedemorgen <support@goedemorgenwp.com>\n"
@@ -887,11 +887,12 @@ msgid ""
 msgstr ""
 
 #: inc/customizer/extensions/add-controls.php:133
-msgid "Archive View Header Image"
+msgid "Archive View: Header Image"
 msgstr ""
 
 #: inc/customizer/extensions/add-controls.php:136
-msgid "This image will be show as a background image in all archive views."
+msgid ""
+"This image will be show as a header background image in all archive views."
 msgstr ""
 
 #: inc/customizer/extensions/add-controls.php:139
@@ -911,26 +912,46 @@ msgid "Choose Header Image"
 msgstr ""
 
 #: inc/customizer/extensions/add-controls.php:153
-msgid "Accent Color"
+msgid "Blog View: Featured Page"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:168
-msgid "Content Alignment"
+#: inc/customizer/extensions/add-controls.php:154
+msgid "This page will be shown in the page header section of your blog."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:172
-msgid "Left Aligned"
-msgstr ""
-
-#: inc/customizer/extensions/add-controls.php:173
-msgid "Right Aligned"
+#: inc/customizer/extensions/add-controls.php:169
+msgid "Choose on which blog pages you want to display the page header section."
 msgstr ""
 
 #: inc/customizer/extensions/add-controls.php:174
+msgid "Display on all pages"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:175
+msgid "Display on the first page only"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:187
+msgid "Accent Color"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:202
+msgid "Content Alignment"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:206
+msgid "Left Aligned"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:207
+msgid "Right Aligned"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:208
 msgid "Centered"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:177
+#: inc/customizer/extensions/add-controls.php:211
 msgid ""
 "This option determines how the text is displayed horizontally in the "
 "Jumbotron section."
@@ -961,14 +982,18 @@ msgid "This section is designed to showcase key content on your site."
 msgstr ""
 
 #: inc/customizer/extensions/add-sections.php:53
+msgid "Archive View Options"
+msgstr ""
+
+#: inc/customizer/extensions/add-sections.php:60
 msgid "Footer Options"
 msgstr ""
 
-#: inc/extras.php:200
+#: inc/extras.php:248
 msgid "Pages:"
 msgstr ""
 
-#: inc/extras.php:204
+#: inc/extras.php:252
 msgid "Page"
 msgstr ""
 
