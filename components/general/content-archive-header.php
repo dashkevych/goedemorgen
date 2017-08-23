@@ -11,7 +11,7 @@
 
 	<?php
 	if ( is_home() ) :
-        
+
         goedemorgen_posts_page_header();
 
 	elseif ( is_archive() && have_posts() ) :
