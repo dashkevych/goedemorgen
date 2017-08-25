@@ -27,7 +27,7 @@ foreach ( $extensions_files as $file ) {
 function goedemorgen_enqueue_custom_controls_js() {
     wp_enqueue_script( 'goedemorgen-customize-controls', get_template_directory_uri() . '/inc/customizer/js/customize-controls.js', array( 'customize-controls' ) );
 }
-add_action( 'customize_controls_enqueue_scripts', 'goedemorgen_enqueue_custom_controls_js', 0 );
+add_action( 'customize_controls_enqueue_scripts', 'goedemorgen_enqueue_custom_controls_js' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
