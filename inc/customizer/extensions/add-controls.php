@@ -149,7 +149,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 		'sanitize_callback' => 'absint',
 	) );
 
-	$wp_customize->add_control( 'goedemorgen_blog_featured_page_one_id', array(
+	$wp_customize->add_control( 'goedemorgen_blog_featured_page_id', array(
 		'label' => esc_html__( 'Blog View: Featured Page', 'goedemorgen' ),
         'description' => esc_html__( 'This page will be shown in the page header section of your blog.', 'goedemorgen' ),
 		'section' => 'goedemorgen_archive_options',
