@@ -84,8 +84,8 @@ function goedemorgen_sanitize_text_alignment_option( $option ) {
  /**
   * Posts page header visibility sanitization callback.
   *
-  * Sanitization callback for 'select' type controls. This callback sanitizes `$option`
-  * as a string value, the width of the main container. Either "small" or "large".
+  * Sanitization callback for 'radio' type controls. This callback sanitizes `$option`
+  * as a string value, location of the page header in blog view.
   *
   * @param bool $option Selected option.
   * @return string Aligment of the text.
