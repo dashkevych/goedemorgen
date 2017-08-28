@@ -130,7 +130,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 	) );
 
     $wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'goedemorgen_archive_header_image', array(
-        'label' => esc_html__( 'Archive View: Header Image', 'goedemorgen' ),
+        'label' => esc_html__( 'Archive View: Page Header Image', 'goedemorgen' ),
         'section' => 'goedemorgen_archive_options',
         'settings' => 'goedemorgen_settings[archive][header_image]',
         'description' => esc_html__( 'This image will be show as a header background image in all archive views.', 'goedemorgen' ),
@@ -165,7 +165,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( 'goedemorgen_is_posts_page_header', array(
-        'label' => esc_html( 'Blog View: Header Visibility', 'goedemorgen' ),
+        'label' => esc_html( 'Blog View: Page Header Visibility', 'goedemorgen' ),
         'description' => esc_html__( 'Choose on which blog pages you want to display the page header section.', 'goedemorgen' ),
         'section' => 'goedemorgen_archive_options',
         'settings' => 'goedemorgen_settings[archive][is_posts_page_header]',
