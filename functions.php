@@ -216,9 +216,12 @@ function goedemorgen_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'goedemorgen_excerpt_more' );
 endif;
 
-if ( ! function_exists( 'goedemorgen_more_link_container' ) ) :
+if ( ! function_exists( 'goedemorgen_modify_more_link' ) ) :
 /**
  * Modify the post's "more" link.
+ *
+ * @param string $link More link.
+ * @return string More link with a "button" class and wrapped withig a span.
  */
 function goedemorgen_modify_more_link( $link ) {
 	$link = str_replace( 'more-link', 'more-link button', $link );
