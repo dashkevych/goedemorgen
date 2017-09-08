@@ -668,6 +668,10 @@ input[type="submit"]:hover {
 	text-decoration: none;
 }
 
+#content .entry-header a.button:not(.secondary-button):not(.minimal-button) {
+	color: #ffffff;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="url"],
