@@ -635,13 +635,13 @@ input[type="submit"] {
 	color: #ffffff;
 }
 
-#content a.secondary-button,
+#page #content a.secondary-button,
 #page #infinite-handle span {
 	background: #f5f6f7;
 	color: #818589;
 }
 
-#content a.secondary-button:hover,
+#page #content a.secondary-button:hover,
 #page #infinite-handle span:hover {
 	background: #818589;
 	color: #f5f6f7;
