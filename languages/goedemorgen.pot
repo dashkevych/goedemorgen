@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Goedemorgen\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2017-08-23 14:29+0300\n"
+"POT-Creation-Date: 2017-09-08 19:58-0700\n"
 "PO-Revision-Date: 2016-09-16 12:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: Goedemorgen <support@goedemorgenwp.com>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
 "_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
 "esc_html_x:1,2c\n"
@@ -32,19 +32,7 @@ msgid_plural "%s comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:42 comments.php:64
-msgid "Comment navigation"
-msgstr ""
-
-#: comments.php:45 comments.php:67
-msgid "Older Comments"
-msgstr ""
-
-#: comments.php:46 comments.php:68
-msgid "Newer Comments"
-msgstr ""
-
-#: comments.php:81
+#: comments.php:57
 msgid "Comments are closed."
 msgstr ""
 
@@ -817,141 +805,151 @@ msgstr ""
 msgid "Reset to default"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:51
+#: inc/customizer/extensions/add-controls.php:56
 msgid "Body Font Family"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:54
+#: inc/customizer/extensions/add-controls.php:59
 msgid ""
 "Select the body font family which will be used for text in the body of your "
 "website."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:65
+#: inc/customizer/extensions/add-controls.php:70
 msgid "Headings Font Family"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:68
+#: inc/customizer/extensions/add-controls.php:73
 msgid ""
 "Select the font family which will be used for the headings on your website."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:79
+#: inc/customizer/extensions/add-controls.php:84
 msgid "Widget Area Layout"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:83
+#: inc/customizer/extensions/add-controls.php:88
 msgid "Two Columns"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:84
+#: inc/customizer/extensions/add-controls.php:89
 msgid "Three Columns"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:85
+#: inc/customizer/extensions/add-controls.php:90
 msgid "Four Columns"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:88
+#: inc/customizer/extensions/add-controls.php:93
 msgid "Select a layout for the footer widget area."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:98
+#: inc/customizer/extensions/add-controls.php:103
 msgid "Make widget columns of equal width"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:103
+#: inc/customizer/extensions/add-controls.php:108
 msgid ""
 "By enabling this option, the footer widget items will have an equal width."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:114
-msgid "Container Width"
-msgstr ""
-
 #: inc/customizer/extensions/add-controls.php:118
-msgid "Large"
-msgstr ""
-
-#: inc/customizer/extensions/add-controls.php:119
-msgid "Default"
-msgstr ""
-
-#: inc/customizer/extensions/add-controls.php:120
-msgid "Small"
+msgid "Back to Top Button"
 msgstr ""
 
 #: inc/customizer/extensions/add-controls.php:123
 msgid ""
+"Enable this option if you want to display a button that will take the user "
+"to the top of the page when clicked on."
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:134
+msgid "Container Width"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:138
+msgid "Large"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:139
+msgid "Default"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:140
+msgid "Small"
+msgstr ""
+
+#: inc/customizer/extensions/add-controls.php:143
+msgid ""
 "This option allows to change the width of the main container of your website."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:133
-msgid "Archive View: Header Image"
+#: inc/customizer/extensions/add-controls.php:153
+msgid "Archive View: Page Header Image"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:136
+#: inc/customizer/extensions/add-controls.php:156
 msgid ""
 "This image will be show as a header background image in all archive views."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:139
+#: inc/customizer/extensions/add-controls.php:159
 msgid "Select Image"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:140
+#: inc/customizer/extensions/add-controls.php:160
 msgid "Change Image"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:141
+#: inc/customizer/extensions/add-controls.php:161
 msgid "Select Header Image"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:142
+#: inc/customizer/extensions/add-controls.php:162
 msgid "Choose Header Image"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:153
+#: inc/customizer/extensions/add-controls.php:173
 msgid "Blog View: Featured Page"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:154
+#: inc/customizer/extensions/add-controls.php:174
 msgid "This page will be shown in the page header section of your blog."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:169
+#: inc/customizer/extensions/add-controls.php:189
 msgid "Choose on which blog pages you want to display the page header section."
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:174
+#: inc/customizer/extensions/add-controls.php:194
 msgid "Display on all pages"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:175
+#: inc/customizer/extensions/add-controls.php:195
 msgid "Display on the first page only"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:187
+#: inc/customizer/extensions/add-controls.php:207
 msgid "Accent Color"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:202
+#: inc/customizer/extensions/add-controls.php:222
 msgid "Content Alignment"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:206
+#: inc/customizer/extensions/add-controls.php:226
 msgid "Left Aligned"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:207
+#: inc/customizer/extensions/add-controls.php:227
 msgid "Right Aligned"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:208
+#: inc/customizer/extensions/add-controls.php:228
 msgid "Centered"
 msgstr ""
 
-#: inc/customizer/extensions/add-controls.php:211
+#: inc/customizer/extensions/add-controls.php:231
 msgid ""
 "This option determines how the text is displayed horizontally in the "
 "Jumbotron section."
@@ -1021,6 +1019,10 @@ msgstr ""
 
 #: inc/template-tags.php:82
 msgid "Tagged:"
+msgstr ""
+
+#: inc/template-tags.php:332
+msgid "Scroll back to top"
 msgstr ""
 
 #: menu-social.php:9
