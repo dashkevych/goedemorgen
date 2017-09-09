@@ -83,6 +83,7 @@ final class Goedemorgen_Settings {
 		$footer_defaults = array(
 			'widgets_layout' => '4',
 			'is_widgets_equal' => '',
+			'is_backtotop_button' => '0',
 		);
 
 		// Default theme options for the Archive section.

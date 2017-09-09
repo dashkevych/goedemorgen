@@ -25,6 +25,28 @@ wp.customize.controlConstructor['font-family'] = wp.customize.Control.extend({
 });
 
 /**
+ * Toggle switch control.
+ */
+ wp.customize.controlConstructor['toggle-switch'] = wp.customize.Control.extend({
+ 	ready: function () {
+ 		var control = this;
+
+ 		this.container.on( 'change',
+ 			function () {
+				if ( jQuery( this ).find( '.toggle-switch-checkbox' ).is( ':checked' ) ) {
+					var controlValue = 1;
+				} else {
+					var controlValue = 0;
+				}
+				
+ 				control.setting.set( controlValue );
+ 				wp.customize.previewer.refresh();
+ 			}
+ 		);
+ 	}
+ });
+
+/**
  * Checks that all controls and settings are loaded.
  */
 wp.customize.bind( 'ready', function() {

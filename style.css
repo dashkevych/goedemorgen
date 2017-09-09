@@ -1161,6 +1161,26 @@ a.button,
 	color: #ffffff;
 }
 
+#backtotop-button {
+	border-radius: 3px;
+	position: fixed;
+	bottom: 20px; right: 20px;
+	line-height: 40px;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	z-index: 9;
+	background-color: rgba(0,0,0,0.3);
+	color: #ffffff;
+	transition: opacity .25s ease-in-out;
+	opacity: 0;
+	visibility: hidden;
+}
+
+#backtotop-button::before {
+	content: "\f176";
+}
+
 /*--------------------------------------------------------------
 ## Footer: Widget Area
 --------------------------------------------------------------*/

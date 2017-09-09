@@ -42,4 +42,34 @@ jQuery( document ).ready( function() {
 			toggleMenu.slideToggle( 'fast');
 		});
 	});
+
+	// Back to Top button.
+	jQuery( function() {
+		var backToTopButton = jQuery( '#backtotop-button' ),
+			websiteWindow = jQuery( window ),
+			buttonSettings = { opacity: '0', visibility: 'hidden' };
+
+		websiteWindow.scroll(function() {
+			if ( websiteWindow.scrollTop() > 300 ) {
+				buttonSettings.opacity = 1;
+				buttonSettings.visibility = 'visible';
+			} else {
+				buttonSettings.opacity = 0;
+				buttonSettings.visibility = 'hidden';
+			}
+
+			backToTopButton.css({
+				'opacity': buttonSettings.opacity,
+				'visibility': buttonSettings.visibility
+			});
+		});
+
+		backToTopButton.on( 'click', function( e ) {
+			e.preventDefault();
+
+			jQuery( 'html, body' ).animate({
+				scrollTop: 0
+			}, 200);
+		});
+	});
 });

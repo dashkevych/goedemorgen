@@ -25,6 +25,11 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
             'class' => 'Goedemorgen_Customizer_Font_Family_Control',
             'file' => 'font-family.php',
         ),
+
+        array(
+            'class' => 'Goedemorgen_Customizer_Toggle_Switch_Control',
+            'file' => 'toggle-switch.php',
+        ),
     );
 
     /* Register custom controls */
@@ -102,6 +107,21 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 		'type' => 'checkbox',
 		'description' => esc_html__( 'By enabling this option, the footer widget items will have an equal width.', 'goedemorgen' ),
 	) );
+
+    /* Footer Options: Back to Top Button */
+    $wp_customize->add_setting( 'goedemorgen_settings[footer][is_backtotop_button]', array(
+		'default' => $defaults['footer']['is_backtotop_button'],
+		'sanitize_callback' => '',
+	) );
+
+    $wp_customize->add_control( new Goedemorgen_Customizer_Toggle_Switch_Control( $wp_customize, 'goedemorgen_footer_is_backtotop_button', array(
+		'label' => esc_html__( 'Back to Top Button', 'goedemorgen' ),
+		'section' => 'goedemorgen_footer_options',
+		'settings' => 'goedemorgen_settings[footer][is_backtotop_button]',
+		'priority' => 5,
+		'type' => 'toggle-switch',
+		'description' => esc_html__( 'Enable this option if you want to display a button that will take the user to the top of the page when clicked on.', 'goedemorgen' ),
+	) ) );
 
     /* General Options: Container Width */
 	$wp_customize->add_setting( 'goedemorgen_settings[general][container_width]', array(

@@ -321,3 +321,15 @@ add_action( 'goedemorgen_nothing_found_content', 'goedemorgen_add_nothing_found_
 function goedemorgen_author_bio() {
 	get_template_part( 'components/post/author', 'section' );
 }
+
+/**
+ * Display the Back to Top button.
+ */
+function goedemorgen_add_back_to_top_button() {
+	$footer_options = goedemorgen_get_setting( 'footer' );
+
+	if ( $footer_options['is_backtotop_button'] ) {
+		printf( '<button id="backtotop-button" class="clean-button has-icon"><span class="screen-reader-text">%s</span></button>', esc_html__( 'Scroll back to top', 'goedemorgen' ) );
+	}
+}
+add_action( 'wp_footer', 'goedemorgen_add_back_to_top_button' );
