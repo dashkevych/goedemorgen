@@ -111,7 +111,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
     /* Footer Options: Back to Top Button */
     $wp_customize->add_setting( 'goedemorgen_settings[footer][is_backtotop_button]', array(
 		'default' => $defaults['footer']['is_backtotop_button'],
-		'sanitize_callback' => '',
+		'sanitize_callback' => 'goedemorgen_sanitize_toggle_switch',
 	) );
 
     $wp_customize->add_control( new Goedemorgen_Customizer_Toggle_Switch_Control( $wp_customize, 'goedemorgen_footer_is_backtotop_button', array(

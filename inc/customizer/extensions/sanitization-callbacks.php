@@ -81,21 +81,38 @@ function goedemorgen_sanitize_text_alignment_option( $option ) {
  	}
  }
 
- /**
-  * Posts page header visibility sanitization callback.
-  *
-  * Sanitization callback for 'radio' type controls. This callback sanitizes `$option`
-  * as a string value, location of the page header in blog view.
-  *
-  * @param bool $option Selected option.
-  * @return string Aligment of the text.
-  */
+/**
+ * Posts page header visibility sanitization callback.
+ *
+ * Sanitization callback for 'radio' type controls. This callback sanitizes `$option`
+ * as a string value, location of the page header in blog view.
+ *
+ * @param bool $option Selected option.
+ * @return string Aligment of the text.
+ */
 function goedemorgen_sanitize_posts_page_header_visibility_option( $option ) {
     if ( 'on_first' === $option ) {
         return $option;
     } else {
         return '';
     }
+}
+
+/**
+ * Toggle switch sanitization callback.
+ *
+ * Sanitization callback for 'toggle-switch' type controls. This callback sanitizes `$option`
+ * as a string value, either ON or OFF.
+ *
+ * @param bool $option Selected option.
+ * @return string ON/OFF as an integer.
+ */
+function goedemorgen_sanitize_toggle_switch( $option ) {
+   if ( in_array( $option, array( '0', '1' ) ) ) {
+       return $option;
+   } else {
+       return '0';
+   }
 }
 
 /**
