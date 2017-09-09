@@ -356,7 +356,9 @@ require_once GOEDEMORGEN_DIR . '/inc/class-goedemorgen-extra-css.php';
 /**
  * Load Jetpack compatibility file.
  */
-require GOEDEMORGEN_DIR . '/inc/jetpack.php';
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require GOEDEMORGEN_DIR . '/inc/jetpack.php';
+}
 
 /**
  * Include the TGM_Plugin_Activation class.
