@@ -68,7 +68,7 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 			if ( ! empty( $font_data ) ) {
 				return $font_data;
 			} else {
-				include get_template_directory() . '/inc/customizer/extensions/google-fonts-json.php';
+				include GOEDEMORGEN_DIR . '/inc/customizer/extensions/google-fonts-json.php';
 
 				if ( isset( $google_fonts_json ) ) {
 					$font_data = json_decode( $google_fonts_json, true );

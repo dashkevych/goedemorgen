@@ -17,7 +17,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
     }
 
     /* Set path to Customizer controls */
-    $controls_path = get_template_directory() . '/inc/customizer/controls/';
+    $controls_path = GOEDEMORGEN_DIR . '/inc/customizer/controls/';
 
     /* List all custom controls */
     $custom_controls = array(

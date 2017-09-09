@@ -42,7 +42,7 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 		 */
 		public function enqueue() {
 			if ( ! wp_style_is( 'goedemorgen-custom-controls-css', 'queue' ) ) {
-				wp_enqueue_style( 'goedemorgen-custom-controls-css', trailingslashit( get_template_directory_uri() ) . '/inc/customizer/css/custom-controls.css', array(), '1.0', 'all' );
+				wp_enqueue_style( 'goedemorgen-custom-controls-css', GOEDEMORGEN_DIR_URI . '/inc/customizer/css/custom-controls.css', array(), '1.0', 'all' );
 			}
 		}
 
