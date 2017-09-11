@@ -105,7 +105,7 @@ function goedemorgen_sanitize_posts_page_header_visibility_option( $option ) {
  * as a string value, either ON or OFF.
  *
  * @param bool $option Selected option.
- * @return string ON/OFF as an integer.
+ * @return string ON/OFF as a number.
  */
 function goedemorgen_sanitize_toggle_switch( $option ) {
    if ( in_array( $option, array( '0', '1' ) ) ) {
