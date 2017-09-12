@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area full-width">
 		<main id="main" class="site-main container-wrap" role="main">
 
 			<?php
