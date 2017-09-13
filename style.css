@@ -2644,19 +2644,19 @@ img.alignright {
 /*--------------------------------------------------------------
 # Templates: Panels Page
 --------------------------------------------------------------*/
-.page-template-panels-page .panel-section {
+.page-template-panels-page .content-area > .panel-section {
 	background: #ffffff;
 }
 
-.page-template-panels-page .panel-section:nth-child(odd) {
+.page-template-panels-page .content-area > .panel-section:nth-of-type(even) {
 	background: #f5f6f7;
 }
 
-.page-template-panels-page #content .panel-section:nth-child(odd) .post-edit-link {
+.page-template-panels-page #page #content .panel-section:nth-of-type(even) .post-edit-link {
 	background: rgba(0,0,0,0.08);
 }
 
-.page-template-panels-page #content .panel-section:nth-child(odd) .post-edit-link:hover {
+.page-template-panels-page #page #content .panel-section:nth-of-type(even) .post-edit-link:hover {
 	background: rgba(0,0,0,0.5);
 }
 
