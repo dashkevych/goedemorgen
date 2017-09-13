@@ -126,7 +126,6 @@ add_action( 'after_setup_theme', 'goedemorgen_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function goedemorgen_widgets_init() {
-
 	/* Set up an array of default widget areas. */
 	$widget_areas = array(
 		'sidebar-1' => array(
