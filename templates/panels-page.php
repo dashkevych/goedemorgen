@@ -18,7 +18,7 @@ get_header(); ?>
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header><!-- .entry-header -->
 
-			<?php if ( ! empty( get_the_content() ) ) : ?>
+			<?php if ( goedemorgen_has_content() ) : ?>
 			<div class="entry-content">
 				<?php the_content(); ?>
 			</div><!-- .entry-content -->
