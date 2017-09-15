@@ -749,6 +749,7 @@ textarea {
 	max-width: 1440px;
 }
 
+.container-small .container-wrap,
 .container-large .container-wrap {
 	padding-left: 60px;
 	padding-right: 60px;
@@ -3025,6 +3026,10 @@ object {
 	#masthead .site-branding {
 		padding-right: 0;
 		padding-left: 0;
+	}
+
+	.container-small .container {
+		max-width: 740px;
 	}
 }
 
