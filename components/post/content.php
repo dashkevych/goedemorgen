@@ -36,12 +36,6 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-	<?php
-		the_content( sprintf(
-			/* translators: %s: Name of current post. */
-			wp_kses( __( 'Continue Reading %s', 'goedemorgen' ), array( 'span' => array( 'class' => array() ) ) ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		) );
-	?>
+		<?php do_action( 'goedemorgen_hfeed_content' ); ?>
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->

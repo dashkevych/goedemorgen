@@ -26,7 +26,8 @@ body {
 .singular-header .avatar,
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
-.post-navigation .nav-previous {
+.post-navigation .nav-previous,
+.hfeed .hentry .entry-content .thumb-link {
 	float: right;
 }
 
@@ -121,6 +122,11 @@ body {
 .singular-header .avatar {
 	margin-right: 0;
 	margin-left: 10px;
+}
+
+.hfeed .hentry .entry-content .thumb-link {
+	margin-right: 0;
+	margin-left: 2.750rem;
 }
 
 .hfeed .hentry .entry-header .entry-meta .entry-cats:before,

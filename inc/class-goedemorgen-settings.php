@@ -91,6 +91,7 @@ final class Goedemorgen_Settings {
 			'header_image' => '',
 			'featured_page_id' => '0',
 			'is_posts_page_header' => '',
+			'featured_image_size' => '',
 		);
 
 		// Default theme options for the Typography section.

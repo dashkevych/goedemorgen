@@ -197,6 +197,26 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
         'active_callback' => 'goedemorgen_is_blog_header_visibility_option',
     ) );
 
+    /* Archive View Options: Featured Image Size */
+    $wp_customize->add_setting( 'goedemorgen_settings[archive][featured_image_size]' , array(
+        'default' => $defaults['archive']['featured_image_size'],
+        'sanitize_callback' => '',
+    ) );
+
+    $wp_customize->add_control( 'goedemorgen_achive_featured_image_size', array(
+        'label' => esc_html( 'Archive View: Featured Image Size', 'goedemorgen' ),
+        'description' => esc_html__( 'This option allows to choose a size of a featured image in archive views.', 'goedemorgen' ),
+        'section' => 'goedemorgen_archive_options',
+        'settings' => 'goedemorgen_settings[archive][featured_image_size]',
+        'type' => 'select',
+        'choices' => array(
+            '' => esc_html__( 'Default', 'goedemorgen' ),
+            'thumbnail' => esc_html__( 'Thumbnail', 'goedemorgen' ),
+            'original' => esc_html__( 'Original', 'goedemorgen' ),
+        ),
+        'active_callback' => '',
+    ) );
+
     /* Colors: Accent Color */
     $wp_customize->add_setting( 'goedemorgen_settings[color][accent]', array(
         'default' => $defaults['color']['accent'],
