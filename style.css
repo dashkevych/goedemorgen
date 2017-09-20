@@ -1124,7 +1124,7 @@ a.button,
 
 .wp-custom-logo #masthead .site-title,
 #masthead .site-description {
-	margin-top: 13px;
+	margin-top: 12px;
 }
 
 #masthead .site-branding {
@@ -2215,11 +2215,13 @@ img.alignright {
 .hfeed .hentry .entry-header .thumb-link,
 .hfeed .hentry .link-container {
 	margin-top: 35px;
+	line-height: 0;
 }
 
 .hfeed .hentry .entry-content .thumb-link {
 	float: left;
 	margin-right: 2.750rem;
+	max-width: 200px;
 }
 
 .hfeed .hentry .featured-image {
@@ -2692,7 +2694,7 @@ img.alignright {
 	float: none;
 }
 
-.content-area .not-found .entry-title  {
+.content-area .not-found .entry-title {
 	font-size: 29px;
 	font-size: 1.611rem;
 }

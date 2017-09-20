@@ -116,6 +116,23 @@ function goedemorgen_sanitize_toggle_switch( $option ) {
 }
 
 /**
+ * Featured image size sanitization callback.
+ *
+ * Sanitization callback for "Featured Image Size" option. This callback sanitizes `$option`
+ * as a string value, either empty string, 'thumbnail' or 'original'.
+ *
+ * @param bool $option Selected option.
+ * @return string ON/OFF as a number.
+ */
+function goedemorgen_sanitize_featured_image_size_option( $option ) {
+   if ( in_array( $option, array( 'thumbnail', 'original' ) ) ) {
+       return $option;
+   } else {
+       return '';
+   }
+}
+
+/**
  * Active callback for Jumbotron section.
  *
  * Display Jumbotron section only for the pages that has Jumbotron functionality.

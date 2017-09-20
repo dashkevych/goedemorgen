@@ -34,8 +34,8 @@ get_header(); ?>
 <?php
 
 // Hide sidebar if there is no found posts.
-if ( have_posts() ) {
+if ( have_posts() ) :
 	get_sidebar();
-}
+endif;
 
 get_footer();

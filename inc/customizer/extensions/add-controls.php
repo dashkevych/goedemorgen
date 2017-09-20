@@ -200,7 +200,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
     /* Archive View Options: Featured Image Size */
     $wp_customize->add_setting( 'goedemorgen_settings[archive][featured_image_size]' , array(
         'default' => $defaults['archive']['featured_image_size'],
-        'sanitize_callback' => '',
+        'sanitize_callback' => 'goedemorgen_sanitize_featured_image_size_option',
     ) );
 
     $wp_customize->add_control( 'goedemorgen_achive_featured_image_size', array(

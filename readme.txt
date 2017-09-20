@@ -2,8 +2,8 @@
 Contributors: taskotr
 Requires at least: WordPress 4.8
 Tested up to: WordPress 4.8.1
-Stable tag: 0.9.9
-Version: 0.9.9
+Stable tag: 1.0.0
+Version: 1.0.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -39,6 +39,14 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 * The TGM Plugin Activation library (http://tgmpluginactivation.com/), by Thomas Griffin, is licensed under the GPL-2.0 or later : https://opensource.org/licenses/GPL-2.0
 
 == Changelog ==
+
+= 1.0.0, Sep 16, 2017 =
+
+* Add: option to choose the size of a featured image;
+* Update: refactoring a function that registers widget areas;
+* Update: search content template;
+* Update: panels page template;
+* Update: some styles;
 
 = 0.9.9, Sep 9, 2017 =
 
