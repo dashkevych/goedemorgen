@@ -2215,13 +2215,14 @@ img.alignright {
 .hfeed .hentry .entry-header .thumb-link,
 .hfeed .hentry .link-container {
 	margin-top: 35px;
-	line-height: 0;
 }
 
 .hfeed .hentry .entry-content .thumb-link {
 	float: left;
 	margin-right: 2.750rem;
 	max-width: 200px;
+	margin-bottom: 10px;
+	padding-top: 5px;
 }
 
 .hfeed .hentry .featured-image {

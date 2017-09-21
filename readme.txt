@@ -1,7 +1,7 @@
 === Goedemorgen ===
 Contributors: taskotr
 Requires at least: WordPress 4.8
-Tested up to: WordPress 4.8.1
+Tested up to: WordPress 4.8.2
 Stable tag: 1.0.0
 Version: 1.0.0
 License: GNU General Public License v3 or later
@@ -43,10 +43,12 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 = 1.0.0, Sep 16, 2017 =
 
 * Add: option to choose the size of a featured image;
+* Add: function to check if page content available on the Panels template;
 * Update: refactoring a function that registers widget areas;
 * Update: search content template;
-* Update: panels page template;
-* Update: some styles;
+* Update: formatting of the Panels template;
+* Update: some theme styles;
+* Fix: Panels template styling issue;
 
 = 0.9.9, Sep 9, 2017 =
 
