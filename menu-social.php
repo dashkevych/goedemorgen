@@ -10,11 +10,9 @@ if ( has_nav_menu( 'social' ) ) : ?>
 <?php
 	wp_nav_menu( array(
 		'theme_location'  => 'social',
-		'container'       => 'div',
 		'depth'           => 1,
 		'link_before'     => '<span class="screen-reader-text social-meta">',
 		'link_after'      => '</span>',
-		'fallback_cb'     => false,
 		'menu_class'	  => 'menu social-menu',
 	) );
 ?>
