@@ -1061,7 +1061,6 @@ input[type="reset"],
 input[type="submit"],
 a.button,
 .secondary-size,
-.container-small .main-navigation,
 .comments-area .comment-navigation {
 	font-size: 14px;
 	font-size: 0.875rem;
