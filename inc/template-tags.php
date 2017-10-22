@@ -163,9 +163,7 @@ function goedemorgen_hfeed_thumbnail() {
 	        the_post_thumbnail( 'full' );
 	        break;
 	    case 'thumbnail':
-			if ( has_post_thumbnail() ) {
-				add_action( 'goedemorgen_hfeed_content', 'goedemorgen_hfeed_add_content_thumbnail', 4 );
-			}
+			add_action( 'goedemorgen_hfeed_content', 'goedemorgen_hfeed_add_content_thumbnail', 4 );
 	        break;
 	    default:
 	        printf( '<span class="featured-image large has-background-cover has-animation" %s></span>', goedemorgen_featured_image_style_attr( false ) ); // WPCS: XSS OK.
@@ -177,7 +175,9 @@ endif;
  * Display featured image thumbnail in the entry content area.
  */
 function goedemorgen_hfeed_add_content_thumbnail() {
-	printf( '<a href="%1$s" class="thumb-link">%2$s</a>', esc_url( get_permalink() ), get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) ); // WPCS: XSS OK.
+	if ( has_post_thumbnail() ) {
+		printf( '<a href="%1$s" class="thumb-link">%2$s</a>', esc_url( get_permalink() ), get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) ); // WPCS: XSS OK.
+	}
 }
 
 /**
