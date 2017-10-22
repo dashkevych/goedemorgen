@@ -27,6 +27,11 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
         ),
 
         array(
+            'class' => 'Goedemorgen_Customizer_Range_Slider_Control',
+            'file' => 'range-slider.php',
+        ),
+
+        array(
             'class' => 'Goedemorgen_Customizer_Toggle_Switch_Control',
             'file' => 'toggle-switch.php',
         ),
@@ -45,7 +50,7 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
-    /* Body typography */
+    /* Typography: Body typography */
     $wp_customize->add_setting( 'goedemorgen_settings[typography][body][font_family]', array(
         'default' => $defaults['typography']['body']['font_family'],
         'sanitize_callback' => 'goedemorgen_sanitize_font_family',
@@ -59,7 +64,28 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
         'description' => esc_html__( 'Select the body font family which will be used for text in the body of your website.', 'goedemorgen' ),
     ) ) );
 
-    /* Headings typography */
+    /* Typography: Body font size */
+    $wp_customize->add_setting( 'goedemorgen_settings[typography][body][font_size]', array(
+		'default' => $defaults['typography']['body']['font_size'],
+		'sanitize_callback' => 'absint',
+        'transport' => 'postMessage',
+	) );
+
+    $wp_customize->add_control( new Goedemorgen_Customizer_Range_Slider_Control( $wp_customize, 'goedemorgen_settings_typography_body_fontsize', array(
+		'type' => 'goedemorgen-range-slider',
+		'label' => esc_html__( 'Body Font Size', 'goedemorgen' ),
+		'section' => 'goedemorgen_typography_body_options',
+		'settings' => 'goedemorgen_settings[typography][body][font_size]',
+		'choices' => array(
+            'min' => 12,
+            'max' => 26,
+            'step' => 1,
+            'unit' => 'px',
+		),
+        'description' => esc_html__( 'Select the base font size for your website.', 'goedemorgen' ),
+	) ) );
+
+    /* Typography: Headings typography */
     $wp_customize->add_setting( 'goedemorgen_settings[typography][headings][font_family]', array(
         'default' => $defaults['typography']['headings']['font_family'],
         'sanitize_callback' => 'goedemorgen_sanitize_font_family'

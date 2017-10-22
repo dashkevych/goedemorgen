@@ -38,13 +38,84 @@ wp.customize.controlConstructor['font-family'] = wp.customize.Control.extend({
 				} else {
 					var controlValue = 0;
 				}
-				
+
  				control.setting.set( controlValue );
  				wp.customize.previewer.refresh();
  			}
  		);
  	}
  });
+
+/**
+ * Range Slider control.
+ */
+wp.customize.controlConstructor['goedemorgen-range-slider'] = wp.customize.Control.extend({
+	ready: function () {
+		var control = this;
+
+		var rangeSlider = control.container.find( '.goedemorgen-slider' );
+		var rangeInput = control.container.find( 'input.value' );
+		var minValue = rangeSlider.data( 'min' );
+		var maxValue = rangeSlider.data( 'max' );
+		var selectedValue;
+		var defaulValue = rangeInput.data( 'default' );
+
+		// Set up range slider,
+		rangeSlider.slider({
+			value: rangeInput.val(),
+			min: minValue,
+			max: maxValue,
+			step: rangeSlider.data( 'step' ),
+			slide: function( event, ui ) {
+				rangeInput.val( ui.value ).change();
+			}
+		});
+
+		// Update range value based on the input value.
+		this.container.on( 'input', 'input.value', function () {
+			selectedValue = jQuery( this ).val();
+
+			if ( selectedValue < minValue || selectedValue > maxValue ) {
+				selectedValue = defaulValue;
+			}
+
+			rangeSlider.slider( 'value', parseFloat( selectedValue ) ).change();
+		});
+
+		// Reset button.
+		this.container.on( 'click', 'button.goedemorgen-reset', function (e) {
+			e.preventDefault();
+
+			rangeInput.val( defaulValue ).change();
+			rangeSlider.slider( 'value', parseFloat( defaulValue ) );
+		});
+
+		// Save the changes.
+		this.container.on( 'change',
+ 			function () {
+ 				control.saveRangeValue( rangeInput.val(), defaulValue, minValue, maxValue );
+ 			}
+ 		);
+	},
+
+	saveRangeValue: function( selected, defaultV, min, max ) {
+		var control = this, notificationCode, notification;
+		notificationCode = 'goedemorgen_range_input_not_allowed';
+
+		if ( selected < min || selected > max ) {
+			control.setting.notifications.add( notificationCode, new wp.customize.Notification(
+                notificationCode,
+                {
+                    type: 'warning',
+                    message: control.params.notificationWarning
+                }
+            ) );
+        } else {
+            control.setting.notifications.remove( notificationCode );
+			control.setting.set( selected );
+        }
+	}
+});
 
 /**
  * Checks that all controls and settings are loaded.
