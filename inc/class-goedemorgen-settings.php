@@ -98,6 +98,7 @@ final class Goedemorgen_Settings {
 		$typography_defaults = array(
 			'body' => array(
 				'font_family' => 'Open Sans',
+				'font_size' => '18',
 			),
 
 			'headings' => array(
@@ -132,6 +133,31 @@ final class Goedemorgen_Settings {
 	}
 
 	/**
+	 * Like wp_parse_args but supports recursivity.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param array $args
+	 * @param array $defaults
+	 * @return array
+	 */
+	private static function parse_args_r( $args, $defaults ) {
+		$args = (array) $args;
+		$defaults = (array) $defaults;
+		$output = $defaults;
+
+		foreach ( $args as $k => $v ) {
+			if ( is_array( $v ) && isset( $output[ $k ] ) ) {
+				$output[ $k ] = self::parse_args_r( $v, $output[ $k ] );
+			} else {
+				$output[ $k ] = $v;
+			}
+		}
+
+		return $output;
+	}
+
+	/**
 	 * Retrieve theme options mixed with default options.
 	 *
 	 * @since  1.0.0
@@ -148,14 +174,14 @@ final class Goedemorgen_Settings {
 				if ( $get_defaults ) {
 					return self::get_defaults( $section );
 				} else {
-					return wp_parse_args(
+					return self::parse_args_r(
 				        self::get_theme_options( $section ),
 				        self::get_defaults( $section )
 				    );
 				}
 			}
 		} else {
-			return wp_parse_args(
+			return self::parse_args_r(
 				self::get_theme_options(),
 				self::get_defaults()
 			);

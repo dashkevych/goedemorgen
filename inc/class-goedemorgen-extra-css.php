@@ -74,6 +74,7 @@ class Goedemorgen_Extra_CSS {
 		add_filter( 'goedemorgen_set_extra_css', array( self::instance(), 'set_custom_accent_color' ) );
 		add_filter( 'goedemorgen_set_extra_css', array( self::instance(), 'set_body_font_style' ) );
 		add_filter( 'goedemorgen_set_extra_css', array( self::instance(), 'set_headings_font_style' ) );
+		add_filter( 'goedemorgen_set_extra_css', array( self::instance(), 'set_body_font_size' ) );
 	}
 
 	/**
@@ -159,7 +160,7 @@ class Goedemorgen_Extra_CSS {
  		return $extra_css;
  	}
 
-	 /**
+	/**
  	 * Add a custom headings font style.
  	 *
  	 * @since  1.0.0
@@ -173,6 +174,25 @@ class Goedemorgen_Extra_CSS {
 
 		if ( isset( $typography['headings']['font_family'] ) && $default['headings']['font_family'] != $typography['headings']['font_family'] ) {
 			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( $typography['headings']['font_family'] ) . "; }";
+		}
+
+		return $extra_css;
+	}
+
+	/**
+ 	 * Add a custom font size for a website body.
+ 	 *
+ 	 * @since  1.0.0
+ 	 * @access public
+	 * @param array
+ 	 * @return array
+ 	 */
+	public function set_body_font_size( $extra_css ) {
+		$typography = goedemorgen_get_setting( 'typography' );
+		$default = goedemorgen_get_setting( 'typography', true );
+
+		if ( isset( $typography['body']['font_size'] ) && $default['body']['font_size'] != $typography['body']['font_size'] ) {
+			$extra_css[] = 'html { font-size: ' . esc_attr( $typography['body']['font_size'] ) . 'px; }';
 		}
 
 		return $extra_css;
