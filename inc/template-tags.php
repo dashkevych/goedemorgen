@@ -163,9 +163,7 @@ function goedemorgen_hfeed_thumbnail() {
 	        the_post_thumbnail( 'full' );
 	        break;
 	    case 'thumbnail':
-			if ( has_post_thumbnail() ) {
-				add_action( 'goedemorgen_hfeed_content', 'goedemorgen_hfeed_add_content_thumbnail', 4 );
-			}
+			add_action( 'goedemorgen_hfeed_content', 'goedemorgen_hfeed_add_content_thumbnail', 4 );
 	        break;
 	    default:
 	        printf( '<span class="featured-image large has-background-cover has-animation" %s></span>', goedemorgen_featured_image_style_attr( false ) ); // WPCS: XSS OK.
@@ -177,7 +175,9 @@ endif;
  * Display featured image thumbnail in the entry content area.
  */
 function goedemorgen_hfeed_add_content_thumbnail() {
-	printf( '<a href="%1$s" class="thumb-link">%2$s</a>', esc_url( get_permalink() ), get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) ); // WPCS: XSS OK.
+	if ( has_post_thumbnail() ) {
+		printf( '<a href="%1$s" class="thumb-link">%2$s</a>', esc_url( get_permalink() ), get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) ); // WPCS: XSS OK.
+	}
 }
 
 /**
@@ -201,24 +201,24 @@ function goedemorgen_posts_page_header() {
 		$featured_page_id = goedemorgen_get_posts_page_featured_page_id();
 
 		// Print HTML with the title for the posts page.
-		if ( '' != ( $featured_page_title = get_the_title( $featured_page_id ) ) ) {
+		if ( '' !== ( $featured_page_title = get_the_title( $featured_page_id ) ) ) {
 			printf( '<h1 class="page-title">%s</h1>', apply_filters( 'the_title', $featured_page_title ) ); // WPCS: XSS OK.
 		}
 
 		// Print HTML with the content for the posts page.
-		if ( '' != ( $featured_page_content = get_post_field( 'post_content', $featured_page_id ) ) ) {
+		if ( '' !== ( $featured_page_content = get_post_field( 'post_content', $featured_page_id ) ) ) {
 			printf( '<div class="archive-description">%s</div>', apply_filters( 'the_content', $featured_page_content ) ); // WPCS: XSS OK.
 		}
 	} else {
 		$current_post = get_post( get_option( 'page_for_posts' ) );
 
 		// Print HTML with the title for the posts page.
-		if ( '' != $current_post->post_title ) {
+		if ( '' !== $current_post->post_title ) {
 			printf( '<h1 class="page-title">%s</h1>', apply_filters( 'the_title', $current_post->post_title ) ); // WPCS: XSS OK.
 		}
 
 		// Print HTML with the content for the posts page.
-		if ( '' != $current_post->post_content ) {
+		if ( '' !== $current_post->post_content ) {
 			printf( '<div class="archive-description">%s</div>', apply_filters( 'the_content', $current_post->post_content ) ); // WPCS: XSS OK.
 		}
 	}
@@ -232,7 +232,7 @@ function goedemorgen_posts_page_header() {
 function goedemorgen_attachment_description( $class = 'attachment-description' ) {
 	$attachment_description = get_post( get_post_thumbnail_id() )->post_excerpt;
 
-	if ( '' != $attachment_description ) {
+	if ( '' !== $attachment_description ) {
 		printf( '<div class="%1$s">%2$s</div>', esc_attr( $class ), esc_html( $attachment_description ) );
 	}
 }
@@ -291,7 +291,7 @@ function goedemorgen_display_footer_credits() {
 		$credits = apply_filters( 'goedemorgen_footer_credits', $credits );
 	}
 
-	if ( '' != $credits ) {
+	if ( '' !== $credits ) {
 		printf( '%s', wp_kses_post( $credits ) );
 	} else {
 		get_template_part( 'components/footer/credits-content' );
@@ -372,5 +372,5 @@ add_action( 'wp_footer', 'goedemorgen_add_back_to_top_button' );
  * @return bool
  */
 function goedemorgen_has_content() {
-	return '' != get_post_field( 'post_content', get_the_ID() ) ? true : false;
+	return '' !== get_post_field( 'post_content', get_the_ID() ) ? true : false;
 }

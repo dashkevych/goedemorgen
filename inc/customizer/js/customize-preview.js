@@ -16,7 +16,7 @@ jQuery( document ).ready(function () {
 		value.bind( function( to ) {
 			jQuery( '.site-description' ).text( to );
 		} );
-	} );
+	});
 
 	// Jumbotron content alignment.
 	wp.customize( 'goedemorgen_settings[jumbotron][alignment]', function( value ) {
@@ -35,5 +35,12 @@ jQuery( document ).ready(function () {
 			        jumbotronSection.removeClass( 'centered-alignment right-alignment' );
 			}
 		} );
-	} );
+	});
+
+	// Typography: body font size.
+	wp.customize( 'goedemorgen_settings[typography][body][font_size]', function( value ) {
+		value.bind( function( to ) {
+			document.getElementsByTagName('html')[0].style.fontSize = to + 'px';
+		} );
+	});
 });

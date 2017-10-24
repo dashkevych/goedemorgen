@@ -1,10 +1,6 @@
 jQuery( document ).ready( function() {
-	if( jQuery( 'html' ).attr( 'dir' ) == 'rtl' ) {
-		var htmlRTL = true;
-	} else {
-		var htmlRTL = false;
-	}
-
+	var documentBody = jQuery( document.body );
+	var browserWindow = jQuery( window );
 	var pageContainer = jQuery( document.getElementById( 'page' ) );
 	var headerContainer = pageContainer.find( document.getElementById( 'masthead' ) );
 	var contentContainer = pageContainer.find( document.getElementById( 'content' ) );
@@ -15,7 +11,7 @@ jQuery( document ).ready( function() {
 
 		var infiniteCount = 0;
 
-		jQuery( document.body ).on( 'post-load', function() {
+		documentBody.on( 'post-load', function() {
 
 			infiniteCount = infiniteCount + 1;
 
@@ -37,20 +33,19 @@ jQuery( document ).ready( function() {
 		var toggleMenu = pageContainer.find( document.getElementById( 'toggle-menu' ) );
 		headerContainer.find( '.menu:not(.social-menu)' ).clone().appendTo( '#mobile-navigation' );
 
-		jQuery( document ).on( 'click', '#mobile-menu-toggle, #close-toggle-menu', function(e) {
-			jQuery( 'body' ).toggleClass( 'toggle-mobile-menu' );
-			toggleMenu.slideToggle( 'fast');
+		documentBody.on( 'click', '#mobile-menu-toggle, #close-toggle-menu', function(e) {
+			documentBody.toggleClass( 'toggle-mobile-menu' );
+			toggleMenu.slideToggle( 'fast' );
 		});
 	});
 
 	// Back to Top button.
 	jQuery( function() {
-		var backToTopButton = jQuery( '#backtotop-button' ),
-			websiteWindow = jQuery( window ),
-			buttonSettings = { opacity: '0', visibility: 'hidden' };
+		var backToTopButton = jQuery( '#backtotop-button' );
+		var buttonSettings = { opacity: '0', visibility: 'hidden' };
 
-		websiteWindow.scroll(function() {
-			if ( websiteWindow.scrollTop() > 300 ) {
+		browserWindow.scroll(function() {
+			if ( browserWindow.scrollTop() > 300 ) {
 				buttonSettings.opacity = 1;
 				buttonSettings.visibility = 'visible';
 			} else {

@@ -53,3 +53,93 @@
 .customize-control-toggle-switch label:active:after {
 	width: 48px;
 }
+
+/*--------------------------------------------------------------
+# Range Slider
+--------------------------------------------------------------*/
+.customize-control-goedemorgen-range-slider .goedemorgen-control-header {
+	margin-bottom: 5px;
+}
+
+.customize-control-goedemorgen-range-slider .control-range-value,
+.customize-control-goedemorgen-range-slider .goedemorgen-reset {
+	float: right;
+}
+
+.customize-control-goedemorgen-range-slider .goedemorgen-reset {
+	padding-left: 7px;
+	padding-right: 7px;
+	box-shadow: none;
+	border: none;
+	height: 26px;
+	width: 30px;
+}
+
+.customize-control-goedemorgen-range-slider .customize-control-title,
+.customize-control-goedemorgen-range-slider .control-range-value input,
+.customize-control-goedemorgen-range-slider .control-range-value .unit {
+	float: left;
+}
+
+.customize-control-goedemorgen-range-slider .customize-control-title {
+	width: calc(100% - 45px);
+	margin-bottom: 0;
+}
+
+.customize-control-goedemorgen-range-slider .goedemorgen-slider,
+.customize-control-goedemorgen-range-slider .goedemorgen-slider .ui-slider-handle {
+	cursor: pointer;
+}
+
+.customize-control-goedemorgen-range-slider .goedemorgen-slider {
+	position: relative;
+	display: inline-block;
+	width: calc(100% - 100px);
+	height: 3px;
+	margin-top: 14px;
+	background: #dddddd;
+	border-radius: 10px;
+}
+
+.customize-control-goedemorgen-range-slider .goedemorgen-slider .ui-slider-handle {
+	position: absolute;
+	top: 50%;
+	height: 15px;
+	width: 15px;
+	background: #ffffff;
+	-webkit-transform: translateY(-50%) translateX(-4px);
+	transform: translateY(-50%) translateX(-4px);
+	border-radius: 50%;
+	border: 1px solid #cccccc;
+	box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+.customize-control-goedemorgen-range-slider .control-range-value {
+	padding: 0;
+	width: 80px;
+	text-align: center;
+}
+
+.customize-control-goedemorgen-range-slider .control-range-value .unit {
+    width: 30px;
+	height: 28px;
+    background: #ffffff;
+    border: 1px solid #dddddd;
+    border-left: none;
+    line-height: 26px;
+	border-radius: 0 6px 6px 0;
+	color: #a0a5aa;
+}
+
+.customize-control-goedemorgen-range-slider .control-range-value input {
+    font-size: inherit;
+    padding: 0px;
+    height: 30px;
+	border-radius: 6px 0 0 6px;
+	width: calc(100% - 32px);
+	text-align: inherit;
+}
+
+.customize-control-goedemorgen-range-slider .description {
+	margin-top: 5px;
+}

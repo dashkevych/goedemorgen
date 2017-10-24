@@ -3,8 +3,8 @@ Theme Name: Goedemorgen
 Theme URI: https://goedemorgenwp.com/
 Author: Taras Dashkevych
 Author URI: https://goedemorgenwp.com/about-us/
-Description: Goedemorgen is professional and clean WordPress theme for service and product providers who are focused on text in their online marketing. So, it is a perfect solution for people who blog for their business. By focusing on WordPress coding standards, we want to make sure Goedemorgen is compatible with all well-coded WordPress plugins. Theme also incorporates a responsive design, meaning it will look great on any screen. Goedemorgen uses the native WordPress Customizer functionality to preview and modify the settings of the theme.
-Version: 1.0.0
+Description: Goedemorgen is a professional and clean WordPress theme for service and product providers who are focused on text in their online marketing. So, it is a perfect solution for people who blog for their business. By focusing on WordPress coding standards, we want to make sure Goedemorgen is compatible with all well-coded WordPress plugins. Theme also incorporates a responsive design, meaning it will look great on any screen. Goedemorgen uses the native WordPress Customizer functionality to preview and modify the settings of the theme. You can also set the right font for your website because the theme comes with typography options which include hundreds of Google fonts to choose from.
+Version: 1.0.1
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: goedemorgen
@@ -267,9 +267,8 @@ select,
 textarea {
 	color: #2F3234;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	font-size: 18px;
-	font-size: 1.125rem;
-	line-height: 1.65;
+	font-size: 1rem;
+	line-height: 1.618;
 }
 
 h1,
@@ -281,30 +280,6 @@ h6 {
 	clear: both;
 	font-family: 'Raleway', Helvetica, Arial, sans-serif;
 	font-weight: bold;
-}
-
-h1 {
-	font-size: 2.938rem;
-}
-
-h2 {
-	font-size: 2.125rem;
-}
-
-h3 {
-	font-size: 1.813rem;
-}
-
-h4 {
-	font-size: 1.438rem;
-}
-
-h5 {
-	font-size: 1.125rem;
-}
-
-h6 {
-	font-size: 0.875rem;
 }
 
 p {
@@ -338,8 +313,6 @@ blockquote cite:before {
 
 .entry-content blockquote:not(.pull-left):not(.pull-right) {
 	padding: 40px 60px 40px 100px;
-	font-size: 23px;
-	font-size: 1.438rem;
 	line-height: 1.45;
 }
 
@@ -434,7 +407,7 @@ big {
 # Elements
 --------------------------------------------------------------*/
 html {
-	font-size: 16px;
+	font-size: 18px;
 	box-sizing: border-box;
 }
 
@@ -957,6 +930,76 @@ textarea {
 }
 
 /*--------------------------------------------------------------
+# Font Sizes
+--------------------------------------------------------------*/
+h6,
+button,
+a.button,
+#respond label,
+.secondary-size,
+.gallery-caption,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.posts-navigation,
+.comments-area .reply,
+#respond .logged-in-as,
+#respond .comment-notes,
+.main-navigation ul ul a,
+.mobile-navigation ul ul,
+.screen-reader-text:focus,
+.search-form button.submit,
+.site-main .post-navigation,
+.wp-caption .wp-caption-text,
+.comments-area .comment-metadata,
+#page div.sharedaddy h3.sd-title,
+#page div.sharedaddy a.sd-button,
+.comments-area .comment-navigation,
+#page #infinite-handle span button,
+.widget.widget_recent_comments ul > li.recentcomments span,
+.widget.widget_recent_comments ul > li.recentcomments a,
+#mobile-menu-toggle span {
+	font-size: 0.8rem;
+}
+
+h5,
+#colophon .widget .widget-title,
+#secondary .widget .widget-title,
+.footer-middle .social-navigation li,
+.site-content .post-navigation .nav-title,
+.entry-footer .entry-author .author-heading .author-title {
+	font-size: 1rem;
+}
+
+h4,
+#masthead .site-title,
+.comments-area .comments-title,
+.comments-area .comment-reply-title,
+.single .site-main .entry-content .lead,
+.page:not(.home) .site-main .entry-content .lead,
+.entry-content blockquote:not(.pull-left):not(.pull-right) {
+	font-size: 1.25rem;
+}
+
+h3 {
+	font-size: 1.563rem;
+}
+
+h2,
+.content-area .not-found .entry-title,
+.panel-section .entry-header .entry-title,
+.hfeed .hentry .entry-header .entry-title {
+	font-size: 1.953rem;
+}
+
+h1,
+.singular-header .entry-title,
+.page-header .inner-section .page-title,
+.page-header .inner-section .entry-title {
+	font-size: 2.441rem;
+}
+
+/*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 #page {
@@ -1023,55 +1066,18 @@ ol,
 dd,
 dl,
 pre,
+table,
+.table,
 address,
 blockquote,
-.jetpack-video-wrapper,
 .mejs-container,
 .oembed-gist
 #page .wp-playlist,
-table,
-.table,
 #page .tiled-gallery,
+.jetpack-video-wrapper,
 #page .slideshow-window,
 #page div#jp-relatedposts {
 	margin-bottom: 35px;
-}
-
-.site-main .post-navigation,
-.posts-navigation,
-.main-navigation ul ul a,
-.mobile-navigation ul ul,
-.screen-reader-text:focus,
-.search-form button.submit,
-#respond .logged-in-as,
-#respond .comment-notes,
-.comments-area .comment-metadata,
-.comments-area .reply,
-#respond label,
-#page #infinite-handle span button,
-.wp-caption .wp-caption-text,
-.gallery-caption,
-#page div.sharedaddy h3.sd-title,
-#page div.sharedaddy a.sd-button,
-.widget.widget_recent_comments ul > li.recentcomments span,
-.widget.widget_recent_comments ul > li.recentcomments a,
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"],
-a.button,
-.secondary-size,
-.container-small .main-navigation,
-.comments-area .comment-navigation {
-	font-size: 14px;
-	font-size: 0.875rem;
-}
-
-.footer-middle .social-navigation li,
-.site-content .post-navigation .nav-title,
-.entry-footer .entry-author .author-heading .author-title {
-	font-size: 16px;
-	font-size: 1rem;
 }
 
 #disqus_thread,
@@ -1138,11 +1144,13 @@ a.button,
 	line-height: 0;
 }
 
-#masthead .site-title {
-	font-size: 23px;
-	font-size: 1.438rem;
-	margin-top: 0;
+#masthead .site-title,
+#masthead .site-description {
 	margin-bottom: 0;
+}
+
+#masthead .site-title {
+	margin-top: 0;
 	line-height: 1;
 	font-weight: bold;
 	font-family: inherit;
@@ -1154,7 +1162,6 @@ a.button,
 }
 
 #masthead .site-description {
-	margin-bottom: 0;
 	color: #818589;
 }
 
@@ -1681,7 +1688,6 @@ a.button,
 }
 
 #mobile-menu-toggle span {
-	font-size: 14px;
 	font-weight: 400;
 	line-height: 1;
 	display: inline-block;
@@ -1903,9 +1909,6 @@ img.alignright {
 #jumbotron-section .entry-title {
 	margin-top: 0;
 	margin-bottom: 0;
-	font-size: 42px;
-	font-size: 2.625rem;
-	line-height: 1.25;
 }
 
 #jumbotron-section .entry-content {
@@ -1934,13 +1937,6 @@ img.alignright {
 
 #secondary .widget .widget-title {
 	color: #818589;
-	font-size: 18px;
-	font-size: 1.125rem;
-}
-
-#colophon .widget .widget-title {
-	font-size: 16px;
-	font-size: 1rem;
 }
 
 #secondary a {
@@ -2182,11 +2178,6 @@ img.alignright {
 	margin-bottom: 35px;
 }
 
-.hfeed .hentry .entry-header .entry-title {
-	font-size: 34px;
-	font-size: 2.125rem;
-}
-
 .hfeed .hentry .entry-header .entry-meta.top-meta {
 	margin-bottom: 10px;
 }
@@ -2299,8 +2290,6 @@ img.alignright {
 
 .single .site-main .entry-content .lead,
 .page:not(.home) .site-main .entry-content .lead {
-	font-size: 23px;
-	font-size: 1.278rem;
 	font-weight: 300;
 	letter-spacing: -0.015em;
 	line-height: 1.55;
@@ -2416,8 +2405,6 @@ img.alignright {
 
 .comments-area .comments-title,
 .comments-area .comment-reply-title {
-	font-size: 23px;
-	font-size: 1.438rem;
 	margin-top: 0;
 }
 
@@ -2602,12 +2589,6 @@ img.alignright {
 	z-index: 1;
 }
 
-.page-header .inner-section .page-title,
-.singular-header .entry-title {
-	font-size: 42px;
-	font-size: 2.625rem;
-}
-
 .singular-header .entry-meta {
 	margin-top: 15px;
 }
@@ -2670,8 +2651,6 @@ img.alignright {
 
 .panel-section .entry-header .entry-title {
 	margin-top: 0;
-	font-size: 36px;
-	font-size: 2rem;
 }
 
 .panel-section .entry-header .entry-summary {
@@ -2693,11 +2672,6 @@ img.alignright {
 	width: 100%;
 	border: none;
 	float: none;
-}
-
-.content-area .not-found .entry-title {
-	font-size: 29px;
-	font-size: 1.611rem;
 }
 
 .content-area .not-found .archive-description {
