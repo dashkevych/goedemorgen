@@ -10,7 +10,7 @@
 // Links that are used on this page.
 $getting_started_links = array(
     'demo_docs' => 'http://docs.goedemorgenwp.com/category/39-demo-websites',
-    'demo' => 'https://demo.goedemorgenwp.com/default/',
+    'demo' => 'https://demo.goedemorgenwp.com/',
     'docs' => 'http://docs.goedemorgenwp.com/',
     'child_theme' => 'https://github.com/dashkevych/goedemorgen-child/',
     'child_theme_docs' => 'http://docs.goedemorgenwp.com/article/19-creating-a-child-theme',
