@@ -2392,14 +2392,14 @@ img.alignright {
 #respond .logged-in-as a {
 	color: inherit;
 }
-
-.site-main .comment-navigation,
-#comments .comment-metadata,
-#respond .comment-notes,
-#respond .logged-in-as,
+#respond label,
 .comments-area .says,
+#respond .logged-in-as,
+#respond .comment-notes,
 .comments-area .reply a,
-#respond label {
+#comments .comment-metadata,
+.site-main .comment-navigation,
+.comments-area .comment-awaiting-moderation {
 	color: #818589;
 }
 
@@ -2469,7 +2469,8 @@ img.alignright {
 
 .comments-area .reply a,
 .comments-area .edit-link,
-.site-main .comment-navigation {
+.site-main .comment-navigation,
+.comments-area .comment-awaiting-moderation {
 	font-weight: bold;
 }
 
@@ -2544,6 +2545,10 @@ img.alignright {
 	border-top: 1px solid #e6e8e8;
     margin-bottom: 40px;
     padding: 14px 0;
+}
+
+.comments-area .comment-awaiting-moderation {
+	margin-top: 40px;
 }
 
 /*--------------------------------------------------------------
