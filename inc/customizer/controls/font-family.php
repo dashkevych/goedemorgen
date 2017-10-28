@@ -35,7 +35,8 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 			$this->json['value'] = $this->sanitize_font( $this->value() );
 			$this->json['choices'] = $this->get_google_fonts();
 			$this->json['link'] = $this->get_link();
-			$this->json['defaultValue'] = $this->setting->default;
+			$this->json['default'] = $this->setting->default;
+			$this->json['resetLabel'] = esc_html__( 'Reset to default', 'goedemorgen' );
 		}
 
 		/**
@@ -110,20 +111,25 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 		public function content_template() { ?>
 
 			<label>
-				<# if ( data.label ) { #>
-					<span class="customize-control-title">{{ data.label }}</span>
-				<# } #>
+				<div class="goedemorgen-control-header wp-clearfix">
+					<div class="customize-control-notifications-container"></div>
 
-				<select {{{ data.link }}} name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}">
+					<# if ( data.label ) { #>
+					<span class="customize-control-title">{{ data.label }}</span>
+					<# } #>
+					<button type="button" class="button goedemorgen-reset dashicons dashicons-image-rotate" title="{{ data.resetLabel }}">
+						<span class="screen-reader-text">{{ data.resetLabel }}</span>
+					</button><!-- .goedemorgen-reset -->
+				</div><!-- .goedemorgen-control-header -->
+
+				<select {{{ data.link }}} name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}" data-default="{{ data.default }}">
 					<# for ( key in data.choices ) { #>
 						<option value="{{ key }}" <# if ( key === data.value ) { #> selected="selected" <# } #>>{{ data.choices[ key ] }}</option>
 					<# } #>
 				</select>
 
-				<p><button class="button-link reset-font-family" data-default-value="{{ data.defaultValue }}"><?php esc_html_e( 'Reset to default', 'goedemorgen' ); ?></button></p>
-
 				<# if ( data.description ) { #>
-					<span class="description customize-control-description">{{{ data.description }}}</span>
+				<span class="description customize-control-description goedemorgen-control-description">{{{ data.description }}}</span>
 				<# } #>
 			</label>
 
