@@ -1124,8 +1124,8 @@ blockquote,
 	-webkit-align-items: center;
 	-webkit-box-align: center;
 	align-items: center;
-	padding-top: 35px;
-	padding-bottom: 35px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .wp-custom-logo #masthead .site-title,
@@ -1179,7 +1179,7 @@ blockquote,
 	color: inherit;
 }
 
-#colophon .footer-navigation a,
+#colophon .widget_text a,
 #colophon .widget .widget-title,
 #colophon a:hover {
 	color: #ffffff;
