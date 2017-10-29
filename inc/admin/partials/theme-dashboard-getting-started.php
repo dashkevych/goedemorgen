@@ -14,9 +14,7 @@ $getting_started_links = array(
     'docs' => 'http://docs.goedemorgenwp.com/',
     'child_theme' => 'https://github.com/dashkevych/goedemorgen-child/',
     'child_theme_docs' => 'http://docs.goedemorgenwp.com/article/19-creating-a-child-theme',
-);
-
-?>
+); ?>
 
 <div class="tab-section">
     <h3 class="section-title"><?php esc_html_e( 'Documentation', 'goedemorgen' ); ?></h3>
