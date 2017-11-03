@@ -41,7 +41,7 @@ jQuery( document ).ready( function() {
 
 	// Back to Top button.
 	jQuery( function() {
-		var backToTopButton = jQuery( '#backtotop-button' );
+		var backToTopButton = jQuery( document.getElementById( 'backtotop-button' ) );
 		var buttonSettings = { opacity: '0', visibility: 'hidden' };
 
 		browserWindow.scroll(function() {
