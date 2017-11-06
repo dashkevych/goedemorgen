@@ -4,23 +4,17 @@
 wp.customize.controlConstructor['font-family'] = wp.customize.Control.extend({
 	ready: function () {
 		var control = this;
+		var selectContainer = control.container.find( 'select' );
+		var defaulValue = selectContainer.data( 'default' );
 
-		this.container.on( 'click', 'button.reset-font-family',
-			function (e) {
-				e.preventDefault();
-				var defaultValue = jQuery( this ).data( 'default-value' );
-				control.setting.set( defaultValue );
-				control.container.find( 'select' ).val( defaultValue );
-				wp.customize.previewer.refresh();
-			}
-		);
+		this.container.on( 'click', 'button.goedemorgen-reset', function(e) {
+			e.preventDefault();
+			selectContainer.val( defaulValue ).change();
+		});
 
-		this.container.on( 'change', 'select',
-			function () {
-				control.setting.set( jQuery( this ).val() );
-				wp.customize.previewer.refresh();
-			}
-		);
+		this.container.on( 'change', 'select', function () {
+			control.setting.set( selectContainer.val() );
+		});
 	}
 });
 
@@ -31,18 +25,16 @@ wp.customize.controlConstructor['font-family'] = wp.customize.Control.extend({
  	ready: function () {
  		var control = this;
 
- 		this.container.on( 'change',
- 			function () {
-				if ( jQuery( this ).find( '.toggle-switch-checkbox' ).is( ':checked' ) ) {
-					var controlValue = 1;
-				} else {
-					var controlValue = 0;
-				}
+ 		this.container.on( 'change', function() {
+			if ( jQuery( this ).find( '.toggle-switch-checkbox' ).is( ':checked' ) ) {
+				var controlValue = 1;
+			} else {
+				var controlValue = 0;
+			}
 
- 				control.setting.set( controlValue );
- 				wp.customize.previewer.refresh();
- 			}
- 		);
+			control.setting.set( controlValue );
+			wp.customize.previewer.refresh();
+ 		});
  	}
  });
 
@@ -72,7 +64,7 @@ wp.customize.controlConstructor['goedemorgen-range-slider'] = wp.customize.Contr
 		});
 
 		// Update range value based on the input value.
-		this.container.on( 'input', 'input.value', function () {
+		this.container.on( 'input', 'input.value', function() {
 			selectedValue = jQuery( this ).val();
 
 			if ( selectedValue < minValue || selectedValue > maxValue ) {
@@ -83,7 +75,7 @@ wp.customize.controlConstructor['goedemorgen-range-slider'] = wp.customize.Contr
 		});
 
 		// Reset button.
-		this.container.on( 'click', 'button.goedemorgen-reset', function (e) {
+		this.container.on( 'click', 'button.goedemorgen-reset', function(e) {
 			e.preventDefault();
 
 			rangeInput.val( defaulValue ).change();
@@ -91,11 +83,9 @@ wp.customize.controlConstructor['goedemorgen-range-slider'] = wp.customize.Contr
 		});
 
 		// Save the changes.
-		this.container.on( 'change',
- 			function () {
- 				control.saveRangeValue( rangeInput.val(), defaulValue, minValue, maxValue );
- 			}
- 		);
+		this.container.on( 'change', function() {
+ 			control.saveRangeValue( rangeInput.val(), defaulValue, minValue, maxValue );
+ 		});
 	},
 
 	saveRangeValue: function( selected, defaultV, min, max ) {

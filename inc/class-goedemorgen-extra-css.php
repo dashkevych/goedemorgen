@@ -22,6 +22,34 @@ class Goedemorgen_Extra_CSS {
 	protected static $instance = null;
 
 	/**
+	 * This holds default typography options.
+	 *
+	 * @access protected
+	 */
+	protected static $typography_defaults = array();
+
+	/**
+	 * This holds selected typography options.
+	 *
+	 * @access protected
+	 */
+	protected static $typography = array();
+
+	/**
+	 * This holds default color options.
+	 *
+	 * @access protected
+	 */
+	protected static $color_defaults = array();
+
+	/**
+	 * This holds selected color options.
+	 *
+	 * @access protected
+	 */
+	protected static $color = array();
+
+	/**
 	 * Constructor method.
 	 *
 	 * @since  1.0.0
@@ -58,9 +86,24 @@ class Goedemorgen_Extra_CSS {
 	public static function instance() {
 		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Goedemorgen_Extra_CSS ) ) {
 			self::$instance = new Goedemorgen_Extra_CSS;
+			self::$instance->get_options();
 			self::$instance->init();
 		}
 		return self::$instance;
+	}
+
+	/**
+  	 * Set theme options.
+  	 *
+  	 * @since  1.0.0
+  	 * @access protected
+  	 * @return void
+  	 */
+	protected static function get_options() {
+		self::$typography_defaults = goedemorgen_get_setting( 'typography', true );
+		self::$typography = goedemorgen_get_setting( 'typography' );
+		self::$color_defaults = goedemorgen_get_setting( 'color', true );
+		self::$color = goedemorgen_get_setting( 'color' );
 	}
 
 	/**
@@ -75,6 +118,19 @@ class Goedemorgen_Extra_CSS {
 		add_filter( 'goedemorgen_set_extra_css', array( self::instance(), 'set_body_font_style' ) );
 		add_filter( 'goedemorgen_set_extra_css', array( self::instance(), 'set_headings_font_style' ) );
 		add_filter( 'goedemorgen_set_extra_css', array( self::instance(), 'set_body_font_size' ) );
+		add_action( 'customize_preview_init', array( self::instance(), 'update_selected_options' ) );
+	}
+
+	/**
+  	 * Update selected theme options when viewed in the Customizer.
+  	 *
+  	 * @since  1.0.0
+  	 * @access public
+  	 * @return void
+  	 */
+	public function update_selected_options() {
+		self::$typography = goedemorgen_get_setting( 'typography' );
+		self::$color = goedemorgen_get_setting( 'color' );
 	}
 
 	/**
@@ -97,15 +153,12 @@ class Goedemorgen_Extra_CSS {
 	 * @return array
 	 */
 	public function set_custom_accent_color( $extra_css ) {
-		$color = goedemorgen_get_setting( 'color' );
-		$default = goedemorgen_get_setting( 'color', true );
-
-		if ( isset( $color['accent'] ) && $default['accent'] != $color['accent'] ) {
+		if ( isset( self::$color['accent'] ) && self::$color_defaults['accent'] !== self::$color['accent'] ) {
 			$accent_color = "
 							a,
 							a:visited,
 							#masthead .main-navigation ul:not(.sub-menu):not(.children) > li > a:hover,
-							.content-area blockquote:not(.pull-left):not(.pull-right):before { color: " . $color['accent'] . "; }
+							.content-area blockquote:not(.pull-left):not(.pull-right):before { color: " . self::$color['accent'] . "; }
 							";
 
 			$accent_color .= "
@@ -113,7 +166,7 @@ class Goedemorgen_Extra_CSS {
 							a.button:not(.secondary-button),
 							input[type='button'],
 							input[type='reset'],
-							input[type='submit'] { background: " . $color['accent'] . "; }
+							input[type='submit'] { background: " . self::$color['accent'] . "; }
 							";
 
 			$accent_color .= "
@@ -132,7 +185,7 @@ class Goedemorgen_Extra_CSS {
 							input[type='datetime']:focus,
 							input[type='datetime-local']:focus,
 							input[type='color']:focus,
-							textarea:focus { border-color: " . $color['accent'] . "; }
+							textarea:focus { border-color: " . self::$color['accent'] . "; }
 			                ";
 
 			$extra_css[] = $accent_color;
@@ -150,11 +203,8 @@ class Goedemorgen_Extra_CSS {
 	 * @return array
 	 */
 	public function set_body_font_style( $extra_css ) {
- 		$typography = goedemorgen_get_setting( 'typography' );
-		$default = goedemorgen_get_setting( 'typography', true );
-
-		if ( isset( $typography['body']['font_family'] ) && $default['body']['font_family'] != $typography['body']['font_family'] ) {
-			$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( $typography['body']['font_family'] ) . "; }";
+		if ( isset( self::$typography['body']['font_family'] ) && self::$typography_defaults['body']['font_family'] !== self::$typography['body']['font_family'] ) {
+			$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( self::$typography['body']['font_family'] ) . "; }";
 		}
 
  		return $extra_css;
@@ -169,11 +219,8 @@ class Goedemorgen_Extra_CSS {
  	 * @return array
  	 */
 	public function set_headings_font_style( $extra_css ) {
-		$typography = goedemorgen_get_setting( 'typography' );
-		$default = goedemorgen_get_setting( 'typography', true );
-
-		if ( isset( $typography['headings']['font_family'] ) && $default['headings']['font_family'] != $typography['headings']['font_family'] ) {
-			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( $typography['headings']['font_family'] ) . "; }";
+		if ( isset( self::$typography['headings']['font_family'] ) && self::$typography_defaults['headings']['font_family'] !== self::$typography['headings']['font_family'] ) {
+			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( self::$typography['headings']['font_family'] ) . "; }";
 		}
 
 		return $extra_css;
@@ -188,11 +235,8 @@ class Goedemorgen_Extra_CSS {
  	 * @return array
  	 */
 	public function set_body_font_size( $extra_css ) {
-		$typography = goedemorgen_get_setting( 'typography' );
-		$default = goedemorgen_get_setting( 'typography', true );
-
-		if ( isset( $typography['body']['font_size'] ) && $default['body']['font_size'] != $typography['body']['font_size'] ) {
-			$extra_css[] = 'html { font-size: ' . esc_attr( $typography['body']['font_size'] ) . 'px; }';
+		if ( isset( self::$typography['body']['font_size'] ) && self::$typography_defaults['body']['font_size'] !== self::$typography['body']['font_size'] ) {
+			$extra_css[] = 'html { font-size: ' . esc_attr( self::$typography['body']['font_size'] ) . 'px; }';
 		}
 
 		return $extra_css;

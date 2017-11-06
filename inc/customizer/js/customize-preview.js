@@ -9,13 +9,13 @@ jQuery( document ).ready(function () {
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
 			jQuery( '.site-title a' ).text( to );
-		} );
-	} );
+		});
+	});
 
 	wp.customize( 'blogdescription', function( value ) {
 		value.bind( function( to ) {
 			jQuery( '.site-description' ).text( to );
-		} );
+		});
 	});
 
 	// Jumbotron content alignment.
@@ -34,13 +34,13 @@ jQuery( document ).ready(function () {
 			    default:
 			        jumbotronSection.removeClass( 'centered-alignment right-alignment' );
 			}
-		} );
+		});
 	});
 
 	// Typography: body font size.
 	wp.customize( 'goedemorgen_settings[typography][body][font_size]', function( value ) {
 		value.bind( function( to ) {
 			document.getElementsByTagName('html')[0].style.fontSize = to + 'px';
-		} );
+		});
 	});
 });

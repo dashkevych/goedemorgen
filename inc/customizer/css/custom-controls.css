@@ -3,6 +3,39 @@
  */
 
 /*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+.goedemorgen-control-header {
+	margin-bottom: 5px;
+}
+
+.goedemorgen-control-description {
+	margin-top: 5px;
+}
+
+.goedemorgen-control-header .goedemorgen-reset {
+	float: right;
+}
+
+.goedemorgen-control-header .customize-control-title {
+	float: left;
+}
+
+.goedemorgen-control-header .goedemorgen-reset {
+	padding-left: 7px;
+	padding-right: 7px;
+	box-shadow: none;
+	border: none;
+	height: 26px;
+	width: 30px;
+}
+
+.goedemorgen-control-header .customize-control-title {
+	width: calc(100% - 45px);
+	margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
 # Toggle Switch
 --------------------------------------------------------------*/
 .customize-control-toggle-switch .customize-control-description {
@@ -57,33 +90,13 @@
 /*--------------------------------------------------------------
 # Range Slider
 --------------------------------------------------------------*/
-.customize-control-goedemorgen-range-slider .goedemorgen-control-header {
-	margin-bottom: 5px;
-}
-
-.customize-control-goedemorgen-range-slider .control-range-value,
-.customize-control-goedemorgen-range-slider .goedemorgen-reset {
+.customize-control-goedemorgen-range-slider .control-range-value {
 	float: right;
 }
 
-.customize-control-goedemorgen-range-slider .goedemorgen-reset {
-	padding-left: 7px;
-	padding-right: 7px;
-	box-shadow: none;
-	border: none;
-	height: 26px;
-	width: 30px;
-}
-
-.customize-control-goedemorgen-range-slider .customize-control-title,
 .customize-control-goedemorgen-range-slider .control-range-value input,
 .customize-control-goedemorgen-range-slider .control-range-value .unit {
 	float: left;
-}
-
-.customize-control-goedemorgen-range-slider .customize-control-title {
-	width: calc(100% - 45px);
-	margin-bottom: 0;
 }
 
 .customize-control-goedemorgen-range-slider .goedemorgen-slider,
@@ -138,8 +151,4 @@
 	border-radius: 6px 0 0 6px;
 	width: calc(100% - 32px);
 	text-align: inherit;
-}
-
-.customize-control-goedemorgen-range-slider .description {
-	margin-top: 5px;
 }

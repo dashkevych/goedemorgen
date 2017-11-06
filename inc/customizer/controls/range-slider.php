@@ -78,7 +78,7 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 				</label><!-- .goedemorgen-control-body -->
 
 				<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{ data.description }}</span>
+				<span class="description customize-control-description goedemorgen-control-description">{{ data.description }}</span>
 				<# } #>
 			</div><!-- .goedemorgen-range-slider-control -->
 		<?php

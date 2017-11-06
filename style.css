@@ -3,8 +3,8 @@ Theme Name: Goedemorgen
 Theme URI: https://goedemorgenwp.com/
 Author: Taras Dashkevych
 Author URI: https://goedemorgenwp.com/about-us/
-Description: Goedemorgen is a professional and clean WordPress theme for service and product providers who are focused on text in their online marketing. So, it is a perfect solution for people who blog for their business. By focusing on WordPress coding standards, we want to make sure Goedemorgen is compatible with all well-coded WordPress plugins. Theme also incorporates a responsive design, meaning it will look great on any screen. Goedemorgen uses the native WordPress Customizer functionality to preview and modify the settings of the theme. You can also set the right font for your website because the theme comes with typography options which include hundreds of Google fonts to choose from.
-Version: 1.0.1
+Description: Goedemorgen is a professional, clean and free WordPress theme designed to help you create a modern, fast and secure WordPress site. The Goedemorgen theme is perfect for service and product providers who are focused on text in their online marketing. Basically, this WordPress theme is a perfect solution for web agency business, corporate business, personal and business portfolio, bloggers and freelancers, authors and speakers. By focusing on WordPress coding standards, we want to make sure the theme is compatible with all well-coded WordPress plugins such as Jetpack, Contact Form 7, Yoast SEO, Google Analytics, your favorite page builder plugin, etc. The Goedemorgen theme incorporates a responsive design which makes it mobile friendly, meaning your website will look great on any screen, from mobile to desktop. Also, the theme uses a native WordPress Customizer functionality to preview and modify the settings of the theme in real time. You can also set a font for your website using typography options which include hundreds of Google fonts.
+Version: 1.0.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: goedemorgen
@@ -1124,8 +1124,8 @@ blockquote,
 	-webkit-align-items: center;
 	-webkit-box-align: center;
 	align-items: center;
-	padding-top: 35px;
-	padding-bottom: 35px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 
 .wp-custom-logo #masthead .site-title,
@@ -1172,14 +1172,13 @@ blockquote,
 	position: relative;
 	background: #151B22;
 	color: #818589;
-	box-shadow: 0 -1px 0 2px rgba(0,0,0,0.08);
 }
 
 #colophon a {
 	color: inherit;
 }
 
-#colophon .footer-navigation a,
+#colophon .widget_text a,
 #colophon .widget .widget-title,
 #colophon a:hover {
 	color: #ffffff;
@@ -2392,14 +2391,14 @@ img.alignright {
 #respond .logged-in-as a {
 	color: inherit;
 }
-
-.site-main .comment-navigation,
-#comments .comment-metadata,
-#respond .comment-notes,
-#respond .logged-in-as,
+#respond label,
 .comments-area .says,
+#respond .logged-in-as,
+#respond .comment-notes,
 .comments-area .reply a,
-#respond label {
+#comments .comment-metadata,
+.site-main .comment-navigation,
+.comments-area .comment-awaiting-moderation {
 	color: #818589;
 }
 
@@ -2469,7 +2468,8 @@ img.alignright {
 
 .comments-area .reply a,
 .comments-area .edit-link,
-.site-main .comment-navigation {
+.site-main .comment-navigation,
+.comments-area .comment-awaiting-moderation {
 	font-weight: bold;
 }
 
@@ -2544,6 +2544,10 @@ img.alignright {
 	border-top: 1px solid #e6e8e8;
     margin-bottom: 40px;
     padding: 14px 0;
+}
+
+.comments-area .comment-awaiting-moderation {
+	margin-top: 40px;
 }
 
 /*--------------------------------------------------------------
@@ -2662,6 +2666,14 @@ img.alignright {
 .panel-section .entry-header .entry-title,
 .panel-section .entry-header .entry-summary :last-child {
 	margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Builder Page Template
+--------------------------------------------------------------*/
+.page-template-builder-page .site-main {
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
 /*--------------------------------------------------------------
