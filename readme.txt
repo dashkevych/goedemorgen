@@ -1,9 +1,9 @@
 === Goedemorgen ===
 Contributors: taskotr
 Requires at least: WordPress 4.8
-Tested up to: WordPress 4.8.2
-Stable tag: 1.0.0
-Version: 1.0.0
+Tested up to: WordPress 4.8.3
+Stable tag: 1.0.2
+Version: 1.0.2
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -37,6 +37,17 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 * The TGM Plugin Activation library (http://tgmpluginactivation.com/), by Thomas Griffin, is licensed under the GPL-2.0 or later : https://opensource.org/licenses/GPL-2.0
 
 == Changelog ==
+
+= 1.0.2, Nov 5, 2017 =
+
+* Add: Builder Page template and remove all margins and paddings from the content area in this template;
+* Update: optimize the theme custom CSS output;
+* Update: font family control by simplifying its UI;
+* Update: credits link in the footer section;
+* Update: link to the demo showcase page;
+* Fix: awaiting moderation styling issue;
+* Fix: some minor styling and formatting issues;
+* Remove: unnecessary changelog file;
 
 = 1.0.1, Oct 23, 2017 =
 
