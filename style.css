@@ -706,8 +706,8 @@ textarea {
 }
 
 .container-wrap {
-	padding-left: 90px;
-	padding-right: 90px;
+	padding-left: 80px;
+	padding-right: 80px;
 }
 
 .container-small .container {
@@ -2093,6 +2093,9 @@ img.alignright {
 --------------------------------------------------------------*/
 .site-content {
 	background: #f5f6f7;
+}
+
+.hfeed .site-content {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -2570,6 +2573,7 @@ img.alignright {
 	border-bottom: 1px solid rgba(0,0,0,0.08);
 	box-shadow: inset 0 -15px 15px -15px rgba(0,0,0,0.08);
 	color: #818589;
+	width: 100%;
 }
 
 .page-header.has-post-thumbnail {
