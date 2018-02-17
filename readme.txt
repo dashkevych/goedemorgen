@@ -38,6 +38,13 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
+= 1.0.3, Feb 16, 2018 =
+
+* Fix: minor display issues in IE 11;
+* Fix: sub-menu styling issue;
+* Fix: content area height issue;
+* Deprecated: Jumbotron content alignment option; We are going to provide a custom CSS if needed; Also more functionality will be provided via Gutenberg in the future releases. 
+
 = 1.0.2, Nov 5, 2017 =
 
 * Add: Builder Page template and remove all margins and paddings from the content area in this template;

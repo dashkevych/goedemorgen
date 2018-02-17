@@ -255,26 +255,5 @@ function goedemorgen_add_customizer_controls( $wp_customize ) {
         'settings' => 'goedemorgen_settings[color][accent]',
         'priority' => 1,
     ) ) );
-
-    /* Jumbotron Options: Text Alignment */
-	$wp_customize->add_setting( 'goedemorgen_settings[jumbotron][alignment]', array(
-		'default' => $defaults['jumbotron']['alignment'],
-		'sanitize_callback' => 'goedemorgen_sanitize_text_alignment_option',
-        'transport'   => 'postMessage',
-	) );
-
-	$wp_customize->add_control( 'goedemorgen_jumbotron_content_alignment', array(
-		'type' => 'select',
-		'label' => esc_html__( 'Content Alignment', 'goedemorgen' ),
-		'section' => 'goedemorgen_jumbotron_options',
-		'settings' => 'goedemorgen_settings[jumbotron][alignment]',
-		'choices' => array(
-			'' => esc_html__( 'Left Aligned', 'goedemorgen' ),
-			'right' => esc_html__( 'Right Aligned', 'goedemorgen' ),
-			'center' => esc_html__( 'Centered', 'goedemorgen' ),
-		),
-		'priority' => 1,
-		'description' => esc_html__( 'This option determines how the text is displayed horizontally in the Jumbotron section.', 'goedemorgen' ),
-	) );
 }
 add_action( 'customize_register', 'goedemorgen_add_customizer_controls' );

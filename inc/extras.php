@@ -221,17 +221,6 @@ function goedemorgen_jumbotron_class( $classes ) {
 		// Default classes.
 		$classes[] = 'clear';
 		$classes[] = 'jumbotron-header';
-
-		if ( isset( $jumbotron_options['alignment'] ) && '' != $jumbotron_options['alignment'] ) {
-			switch ( $jumbotron_options['alignment'] ) {
-				case 'right':
-			        $classes[] = 'right-alignment';
-			        break;
-				case 'center':
-			        $classes[] = 'centered-alignment';
-			        break;
-			}
-		}
 	}
 
 	return $classes;

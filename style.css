@@ -4,7 +4,7 @@ Theme URI: https://goedemorgenwp.com/
 Author: Taras Dashkevych
 Author URI: https://goedemorgenwp.com/about-us/
 Description: Goedemorgen is a professional, clean and free WordPress theme designed to help you create a modern, fast and secure WordPress site. The Goedemorgen theme is perfect for service and product providers who are focused on text in their online marketing. Basically, this WordPress theme is a perfect solution for web agency business, corporate business, personal and business portfolio, bloggers and freelancers, authors and speakers. By focusing on WordPress coding standards, we want to make sure the theme is compatible with all well-coded WordPress plugins such as Jetpack, Contact Form 7, Yoast SEO, Google Analytics, your favorite page builder plugin, etc. The Goedemorgen theme incorporates a responsive design which makes it mobile friendly, meaning your website will look great on any screen, from mobile to desktop. Also, the theme uses a native WordPress Customizer functionality to preview and modify the settings of the theme in real time. You can also set a font for your website using typography options which include hundreds of Google fonts.
-Version: 1.0.2
+Version: 1.0.3
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: goedemorgen
@@ -91,10 +91,6 @@ template {
 
 a {
 	background-color: transparent;
-}
-
-a:active,
-a:hover {
 	outline: 0;
 }
 
@@ -710,8 +706,8 @@ textarea {
 }
 
 .container-wrap {
-	padding-left: 90px;
-	padding-right: 90px;
+	padding-left: 80px;
+	padding-right: 80px;
 }
 
 .container-small .container {
@@ -1460,20 +1456,18 @@ blockquote,
 	box-shadow: 0 -1px 1px rgba(0,0,0,0.1);
 }
 
-.main-navigation li.menu-item-has-children > a:before,
-.main-navigation li.page_item_has_children > a:before {
+.main-navigation li.menu-item-has-children > a:after,
+.main-navigation li.page_item_has_children > a:after {
 	content: "\25bc";
 	position: relative;
+	top: -0.25em;
+	font-size: 0.45em;
 	padding-left: 6px;
-	float: right;
-	font-size: 0.4em;
-	top: 9px;
 }
 
-.main-navigation .sub-menu li.menu-item-has-children > a:before,
-.main-navigation .children li.page_item_has_children > a:before {
+.main-navigation .sub-menu li.menu-item-has-children > a:after,
+.main-navigation .children li.page_item_has_children > a:after {
 	content: "\25b6";
-	top: 7px;
 }
 
 .main-navigation ul ul {
@@ -1531,7 +1525,7 @@ blockquote,
 .main-navigation ul ul li:hover > ul,
 .main-navigation ul ul li.focus > ul {
 	left: 100%;
-	top: -10px;
+	top: -8px;
 }
 
 /*--------------------------------------------------------------
@@ -2101,6 +2095,18 @@ img.alignright {
 	background: #f5f6f7;
 }
 
+.hfeed .site-content {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.site-content .site-main {
+	height: 100%;
+}
+
 .active-sidebar .content-area {
 	width: 66.66666%;
 	float: left;
@@ -2567,12 +2573,12 @@ img.alignright {
 	border-bottom: 1px solid rgba(0,0,0,0.08);
 	box-shadow: inset 0 -15px 15px -15px rgba(0,0,0,0.08);
 	color: #818589;
+	width: 100%;
 }
 
 .page-header.has-post-thumbnail {
 	background: #000000;
 	color: #ffffff;
-	text-shadow: 0 1px 2px rgba(0,0,0,0.4);
 	border-bottom: none;
 }
 
