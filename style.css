@@ -2093,9 +2093,6 @@ img.alignright {
 --------------------------------------------------------------*/
 .site-content {
 	background: #f5f6f7;
-}
-
-.hfeed .site-content {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
