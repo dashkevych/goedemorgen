@@ -361,6 +361,11 @@ require GOEDEMORGEN_DIR . '/inc/customizer/customizer.php';
 require_once GOEDEMORGEN_DIR . '/inc/class-goedemorgen-extra-css.php';
 
 /**
+ * Include the TGM_Plugin_Activation class.
+ */
+require_once GOEDEMORGEN_DIR . '/inc/class-tgm-plugin-activation.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -371,10 +376,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Load Contact Form 7 compatibility file.
  */
 if ( defined( 'WPCF7_VERSION' ) ) {
-	require GOEDEMORGEN_DIR . '/inc/plugins/wpcf7.php';
+	require GOEDEMORGEN_DIR . '/inc/plugins/class-goedemorgen-wpcf7.php';
 }
-
-/**
- * Include the TGM_Plugin_Activation class.
- */
-require_once GOEDEMORGEN_DIR . '/inc/class-tgm-plugin-activation.php';
