@@ -1195,9 +1195,13 @@ blockquote,
 	z-index: 9;
 	background-color: rgba(0,0,0,0.3);
 	color: #ffffff;
-	transition: opacity .25s ease-in-out;
+	transition: all .25s ease-in-out;
 	opacity: 0;
 	visibility: hidden;
+}
+
+#backtotop-button:hover {
+	background-color: rgba(0,0,0,0.6);
 }
 
 #backtotop-button::before {
