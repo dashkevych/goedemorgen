@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 final class Goedemorgen_Settings {
-
 	/**
 	 * Retrieve settings for the specific section.
 	 *
@@ -33,6 +32,7 @@ final class Goedemorgen_Settings {
 
 		// Additional sections.
 		$additional_sections = apply_filters( 'goedemorgen_setting_sections', array() );
+		$additional_sections = array_unique( $additional_sections );
 
 		// Merge default sections and additional sections.
 		if ( ! empty( $additional_sections ) ) {
@@ -40,7 +40,6 @@ final class Goedemorgen_Settings {
 		}
 
 		if ( in_array( $section, $sections ) ) {
-
 			if ( ! empty( $options[$section] ) ) {
 				return $options[$section];
 			}
@@ -100,7 +99,6 @@ final class Goedemorgen_Settings {
 				'font_family' => 'Open Sans',
 				'font_size' => '18',
 			),
-
 			'headings' => array(
 				'font_family' => 'Raleway',
 			),
@@ -116,6 +114,7 @@ final class Goedemorgen_Settings {
 			'accent' => '#0161bd',
 		);
 
+		// Default defaults.
 		$defaults = array(
 			'general' => apply_filters( 'goedemorgen_default_general_options', $general_defaults ),
 			'footer' => apply_filters( 'goedemorgen_default_footer_options', $footer_defaults ),
@@ -124,6 +123,14 @@ final class Goedemorgen_Settings {
 			'jumbotron' => apply_filters( 'goedemorgen_default_jumbotron_options', $jumbotron_defaults ),
 			'color' => apply_filters( 'goedemorgen_default_color_options', $color_defaults ),
 		);
+
+		// Additional defaults.
+		$additional_defaults = apply_filters( 'goedemorgen_setting_defaults', array() );
+
+		// Merge default values and default values.
+		if ( ! empty( $additional_defaults ) ) {
+			$defaults = array_merge( $defaults, $additional_defaults );
+		}
 
 		if ( $section ) {
 			$defaults = self::validate_section( $defaults, $section );
