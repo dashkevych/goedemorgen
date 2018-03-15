@@ -1,9 +1,9 @@
 === Goedemorgen ===
 Contributors: taskotr
 Requires at least: WordPress 4.8
-Tested up to: WordPress 4.8.3
-Stable tag: 1.0.2
-Version: 1.0.2
+Tested up to: WordPress 5.0-alpha
+Stable tag: 1.0.4
+Version: 1.0.4
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -38,12 +38,21 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
+= 1.0.4, Mar 14, 2018 =
+
+* Add: better support for Contact Form 7 plugin;
+* Update: change Go To Top button background color on hover;
+* Update: group all assets into one folder (css, js, fonts);
+* Update: group all compatibility files into one folder;
+* Update: select and input styles;
+* Fix: content container height in single views;
+
 = 1.0.3, Feb 16, 2018 =
 
 * Fix: minor display issues in IE 11;
 * Fix: sub-menu styling issue;
 * Fix: content area height issue;
-* Deprecated: Jumbotron content alignment option; We are going to provide a custom CSS if needed; Also more functionality will be provided via Gutenberg in the future releases. 
+* Deprecated: Jumbotron content alignment option; We are going to provide a custom CSS if needed; Also more functionality will be provided via Gutenberg in the future releases.
 
 = 1.0.2, Nov 5, 2017 =
 
