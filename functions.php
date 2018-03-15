@@ -192,18 +192,20 @@ function goedemorgen_google_fonts() {
  */
 function goedemorgen_scripts() {
 	wp_enqueue_style( 'goedemorgen-google-fonts', goedemorgen_google_fonts(), array(), null );
-	wp_enqueue_style( 'font-awesome', GOEDEMORGEN_DIR_URI . '/css/font-awesome.css' );
+	wp_enqueue_style( 'font-awesome', GOEDEMORGEN_DIR_URI . '/assets/css/font-awesome.css' );
 	wp_enqueue_style( 'goedemorgen-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'goedemorgen-skip-link-focus-fix', GOEDEMORGEN_DIR_URI . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'goedemorgen-skip-link-focus-fix', GOEDEMORGEN_DIR_URI . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/js/goedemorgen.js', array( 'jquery' ), '1.0.0', true  );
+	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/assets/js/goedemorgen.js', array( 'jquery' ), '1.0.0', true  );
 }
 add_action( 'wp_enqueue_scripts', 'goedemorgen_scripts' );
+
+
 
 if ( ! function_exists( 'goedemorgen_excerpt_more' ) ) :
 /**
@@ -359,13 +361,20 @@ require GOEDEMORGEN_DIR . '/inc/customizer/customizer.php';
 require_once GOEDEMORGEN_DIR . '/inc/class-goedemorgen-extra-css.php';
 
 /**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require GOEDEMORGEN_DIR . '/inc/jetpack.php';
-}
-
-/**
  * Include the TGM_Plugin_Activation class.
  */
 require_once GOEDEMORGEN_DIR . '/inc/class-tgm-plugin-activation.php';
+
+/**
+ * Load Jetpack compatibility file.
+ */
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require GOEDEMORGEN_DIR . '/inc/plugins/jetpack.php';
+}
+
+/**
+ * Load Contact Form 7 compatibility file.
+ */
+if ( defined( 'WPCF7_VERSION' ) ) {
+	require GOEDEMORGEN_DIR . '/inc/plugins/class-goedemorgen-wpcf7.php';
+}

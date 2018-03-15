@@ -4,7 +4,7 @@ Theme URI: https://goedemorgenwp.com/
 Author: Taras Dashkevych
 Author URI: https://goedemorgenwp.com/about-us/
 Description: Goedemorgen is a professional, clean and free WordPress theme designed to help you create a modern, fast and secure WordPress site. The Goedemorgen theme is perfect for service and product providers who are focused on text in their online marketing. Basically, this WordPress theme is a perfect solution for web agency business, corporate business, personal and business portfolio, bloggers and freelancers, authors and speakers. By focusing on WordPress coding standards, we want to make sure the theme is compatible with all well-coded WordPress plugins such as Jetpack, Contact Form 7, Yoast SEO, Google Analytics, your favorite page builder plugin, etc. The Goedemorgen theme incorporates a responsive design which makes it mobile friendly, meaning your website will look great on any screen, from mobile to desktop. Also, the theme uses a native WordPress Customizer functionality to preview and modify the settings of the theme in real time. You can also set a font for your website using typography options which include hundreds of Google fonts.
-Version: 1.0.3
+Version: 1.0.4
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: goedemorgen
@@ -658,18 +658,22 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	border: 1px solid #c9c9c9;
-	padding: 0.82rem 1.111rem;
+	padding: 0.745rem 1rem;
 	box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 	border-radius: 3px;
 }
 
 select {
+	border-radius: 3px;
 	border: 1px solid #c9c9c9;
-	padding: 0 1.111rem;
-	line-height: 53px;
-	height: 53px;
-	background: #ffffff;
+	padding-top: 0.4rem;
+	padding-bottom: 0.4rem;
 }
+
+select option {
+	padding: 0.35rem 1rem;
+}
+
 
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -1191,9 +1195,13 @@ blockquote,
 	z-index: 9;
 	background-color: rgba(0,0,0,0.3);
 	color: #ffffff;
-	transition: opacity .25s ease-in-out;
+	transition: all .25s ease-in-out;
 	opacity: 0;
 	visibility: hidden;
+}
+
+#backtotop-button:hover {
+	background-color: rgba(0,0,0,0.6);
 }
 
 #backtotop-button::before {
@@ -2093,9 +2101,6 @@ img.alignright {
 --------------------------------------------------------------*/
 .site-content {
 	background: #f5f6f7;
-}
-
-.hfeed .site-content {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -3257,10 +3262,8 @@ object {
 }
 
 /* Disable Auto Zoom in Input “Text” tag */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-	select,
-	textarea,
-	input {
-		font-size: 16px;
-	}
+.mobile-view select,
+.mobile-view textarea,
+.mobile-view input {
+	font-size: 16px;
 }
