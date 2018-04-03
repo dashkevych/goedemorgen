@@ -70,7 +70,7 @@ class Goedemorgen_SiteOrigin {
 	 * @param  array $fields
 	 * @return array
 	 */
-	public static function remove_full_width_container_settings_field() {
+	public static function remove_full_width_container_settings_field( $fields ) {
 		if ( isset( $fields['layout']['fields']['full-width-container'] ) ) {
 			unset( $fields['layout']['fields']['full-width-container'] );
 		}
