@@ -26,21 +26,16 @@
 		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
-			<?php
-				edit_post_link(
-					sprintf(
-						/* translators: %s: Name of current post */
-						esc_html__( 'Edit %s', 'goedemorgen' ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					),
-					'<div class="edit-link">',
-					'</div>',
-					null,
-					'post-edit-link button secondary-button has-icon'
-				);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
+	<?php
+	edit_post_link(
+		sprintf(
+			/* translators: %s: Name of current post */
+			esc_html__( 'Edit %s', 'goedemorgen' ),
+			the_title( '<span class="screen-reader-text">"', '"</span>', false )
+		),
+		'<footer class="entry-footer"><div class="edit-link">',
+		'</div></footer>',
+		null,
+		'post-edit-link button secondary-button has-icon'
+	); ?>
 </article><!-- #post-## -->
