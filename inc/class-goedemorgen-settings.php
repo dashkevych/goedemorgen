@@ -31,12 +31,14 @@ final class Goedemorgen_Settings {
 		);
 
 		// Additional sections.
-		$additional_sections = apply_filters( 'goedemorgen_setting_sections', array() );
-		$additional_sections = array_unique( $additional_sections );
+		if ( ! in_array( $section, $sections ) ) {
+			$additional_sections = apply_filters( 'goedemorgen_setting_sections', array() );
+			$additional_sections = array_unique( $additional_sections );
 
-		// Merge default sections and additional sections.
-		if ( ! empty( $additional_sections ) ) {
-			$sections = array_merge( $sections, $additional_sections );
+			// Merge default sections and additional sections.
+			if ( ! empty( $additional_sections ) ) {
+				$sections = array_merge( $sections, $additional_sections );
+			}
 		}
 
 		if ( in_array( $section, $sections ) ) {
