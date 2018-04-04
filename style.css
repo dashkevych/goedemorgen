@@ -2132,7 +2132,8 @@ img.alignright {
 	width: 66.666667%;
 }
 
-.inactive-sidebar .content-area {
+.inactive-sidebar .content-area,
+#page .content-area.full-width {
 	-webkit-box-flex: 0;
 	-ms-flex: 0 0 100%;
 	flex: 0 0 100%;
