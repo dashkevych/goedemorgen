@@ -1921,7 +1921,16 @@ img.alignright {
 --------------------------------------------------------------*/
 #secondary {
 	float: right;
-	width: 33.33333%;
+	width: 33.333333%;
+}
+
+@media screen and (min-width: 992px) {
+	#secondary {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
 }
 
 #secondary .widget {
@@ -2108,14 +2117,35 @@ img.alignright {
 	flex-wrap: wrap;
 }
 
+.site-content::before,
+.site-content::after {
+	content: normal;
+}
+
 .site-content .site-main {
 	height: 100%;
 }
 
 .active-sidebar .content-area {
-	width: 66.66666%;
 	float: left;
 	border-right: 1px solid #e6e8e8;
+	width: 66.666667%;
+}
+
+.inactive-sidebar .content-area {
+	-webkit-box-flex: 0;
+	-ms-flex: 0 0 100%;
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+	.active-sidebar .content-area {
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 66.666667%;
+		flex: 0 0 66.666667%;
+		max-width: 66.666667%;
+	}
 }
 
 #content .entry-header a {
