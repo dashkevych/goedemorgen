@@ -38,6 +38,16 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
+= 1.0.5, Apr 4, 2018 =
+
+* Add: better support for SiteOrigin Page Builder plugin;
+* Update: comments in some functions;
+* Update: optimize functionality of theme settings;
+* Update: check if there are any additional sections in the theme settings before performing actions;
+* Update: optimize the edit link in single-page views;
+* Fix: add the edit link to the Builder Page template;
+* Fix: layout breaks in Safari when a sidebar is active;
+
 = 1.0.4, Mar 14, 2018 =
 
 * Add: better support for Contact Form 7 plugin;
