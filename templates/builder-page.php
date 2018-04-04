@@ -15,13 +15,24 @@ get_header(); ?>
 
 				the_content();
 
+				edit_post_link(
+					sprintf(
+						/* translators: %s: Name of current post */
+						esc_html__( 'Edit %s', 'goedemorgen' ),
+						the_title( '<span class="screen-reader-text">"', '"</span>', false )
+					),
+					'<div class="container-wrap entry-footer edit-link">',
+					'</div>',
+					null,
+					'post-edit-link button secondary-button has-icon'
+				);
+
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();
 				endif;
 
-			endwhile; // End of the loop.
-			?>
+			endwhile; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

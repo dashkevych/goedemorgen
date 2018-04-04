@@ -26,7 +26,7 @@ class Goedemorgen_WPCF7 {
 	/**
 	 * Returns the instance.
 	 *
-	 * @since  1.0.0
+	 * @since  1.0.4
 	 * @access public
 	 * @return object
 	 */
@@ -40,10 +40,10 @@ class Goedemorgen_WPCF7 {
 	}
 
 	/**
-	 * Sets up initial actions.
+	 * Sets up initial actions and filters.
 	 *
 	 * @since  1.0.4
-	 * @access protected
+	 * @access public
 	 * @return void
 	 */
 	public static function init() {

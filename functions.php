@@ -378,3 +378,10 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( defined( 'WPCF7_VERSION' ) ) {
 	require GOEDEMORGEN_DIR . '/inc/plugins/class-goedemorgen-wpcf7.php';
 }
+
+/**
+ * Load SiteOrigin Page Builder compatibility file.
+ */
+if ( defined( 'SITEORIGIN_PANELS_VERSION' ) ) {
+	require GOEDEMORGEN_DIR . '/inc/plugins/class-goedemorgen-siteorigin.php';
+}
