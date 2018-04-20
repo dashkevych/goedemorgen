@@ -160,6 +160,12 @@ span.wpcf7-not-valid-tip {
 	width: 100%;
 }
 
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="url"] {
+	max-width: 100%;
+}
+
 /* Mobile */
 @media only screen and (max-width: 576px) {
 	.wpcf7-form input[type="text"],
