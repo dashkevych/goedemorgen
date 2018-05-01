@@ -22,7 +22,6 @@
 		// Run on ready.
 		onReady: function() {
 			this.createResponsiveTables();
-
 		},
 
 		// Run on load.
