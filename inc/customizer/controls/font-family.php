@@ -33,10 +33,13 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 			parent::to_json();
 
 			$this->json['value'] = $this->sanitize_font( $this->value() );
-			$this->json['choices'] = $this->get_google_fonts();
+			$this->json['googleFonts'] = $this->get_google_fonts();
+			$this->json['defaultFonts'] = $this->get_default_fonts();
 			$this->json['link'] = $this->get_link();
 			$this->json['default'] = $this->setting->default;
 			$this->json['resetLabel'] = esc_html__( 'Reset to default', 'goedemorgen' );
+			$this->json[ 'defaultFontsTitle'] = esc_html__( 'System fonts', 'goedemorgen' );
+			$this->json[ 'googleFontsTitle'] = esc_html__( 'Google fonts', 'goedemorgen' );
 		}
 
 		/**
@@ -81,6 +84,17 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 			}
 		}
 
+		/**
+		 * Get all availible default fonts.
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 * @return array
+		 */
+		public function get_default_fonts() {
+			return goedemorgen_get_default_fonts();
+		}
+
 	    /**
 		 * Get all availible google fonts.
 		 *
@@ -123,9 +137,18 @@ if ( class_exists( 'WP_Customize_Control' ) ):
 				</div><!-- .goedemorgen-control-header -->
 
 				<select {{{ data.link }}} name="_customize-{{ data.type }}-{{ data.id }}" id="{{ data.id }}" data-default="{{ data.default }}">
-					<# for ( key in data.choices ) { #>
-						<option value="{{ key }}" <# if ( key === data.value ) { #> selected="selected" <# } #>>{{ data.choices[ key ] }}</option>
+					<optgroup label="{{ data.defaultFontsTitle }}">
+					<# for ( key in data.defaultFonts ) { #>
+						<option value="{{ data.defaultFonts[ key ] }}" <# if ( key === data.value ) { #> selected="selected" <# } #>>{{ data.defaultFonts[ key ] }}</option>
 					<# } #>
+					</optgroup>
+
+					<optgroup label="{{ data.googleFontsTitle }}">
+					<# for ( key in data.googleFonts ) { #>
+						<option value="{{ key }}" <# if ( key === data.value ) { #> selected="selected" <# } #>>{{ data.googleFonts[ key ] }}</option>
+					<# } #>
+					</optgroup>
+
 				</select>
 
 				<# if ( data.description ) { #>

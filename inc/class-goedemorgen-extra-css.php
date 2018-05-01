@@ -204,7 +204,14 @@ class Goedemorgen_Extra_CSS {
 	 */
 	public function set_body_font_style( $extra_css ) {
 		if ( isset( self::$typography['body']['font_family'] ) && self::$typography_defaults['body']['font_family'] !== self::$typography['body']['font_family'] ) {
-			$extra_css[] = "body, button, input, select, textarea { font-family: " . esc_attr( self::$typography['body']['font_family'] ) . "; }";
+
+			if ( 'System Stack' == self::$typography['body']['font_family'] ) {
+				$font_family = goedemorgen_get_system_font_stack();
+			} else {
+				$font_family = self::$typography['body']['font_family'];
+			}
+
+			$extra_css[] = "body, button, input, select, textarea { font-family: " . $font_family . "; }";
 		}
 
  		return $extra_css;
@@ -220,7 +227,14 @@ class Goedemorgen_Extra_CSS {
  	 */
 	public function set_headings_font_style( $extra_css ) {
 		if ( isset( self::$typography['headings']['font_family'] ) && self::$typography_defaults['headings']['font_family'] !== self::$typography['headings']['font_family'] ) {
-			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . esc_attr( self::$typography['headings']['font_family'] ) . "; }";
+
+			if ( 'System Stack' == self::$typography['headings']['font_family'] ) {
+				$font_family = goedemorgen_get_system_font_stack();
+			} else {
+				$font_family = self::$typography['headings']['font_family'];
+			}
+
+			$extra_css[] = "h1, h2, h3, h4, h5, h6 { font-family: " . $font_family . "; }";
 		}
 
 		return $extra_css;

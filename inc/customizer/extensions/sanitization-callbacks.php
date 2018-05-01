@@ -32,9 +32,13 @@ function goedemorgen_sanitize_font_family( $font_family ) {
 
     if ( ! empty( $font_data ) ) {
         $fonts = array();
-            foreach( $font_data as $family => $variants) {
-                $fonts[$family] = $family;
+        $default_fonts = goedemorgen_get_default_fonts();
+
+        foreach( $font_data as $family => $variants ) {
+            $fonts[$family] = $family;
         }
+
+        $fonts = array_merge( $fonts, $default_fonts );
 
         if ( in_array( $font_family, $fonts ) ) {
             return $font_family;
