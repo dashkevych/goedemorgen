@@ -157,41 +157,9 @@ function goedemorgen_widgets_init() {
 add_action( 'widgets_init', 'goedemorgen_widgets_init' );
 
 /**
- * Register Google Fonts.
- */
-function goedemorgen_google_fonts() {
-	$fonts_url = '';
-	$fonts     = array();
-	$subsets   = 'latin,latin-ext,cyrillic,cyrillic-ext';
-
-	// Get theme's fonts.
-	$typography = goedemorgen_get_setting( 'typography' );
-
-	// Google font for headings.
-	if ( isset( $typography['body']['font_family'] ) ) {
-		$fonts[] = $typography['body']['font_family'] . ':300,300i,400,400i,700,700i';
-	}
-
-	// Google font for body.
-	if ( isset( $typography['headings']['font_family'] ) ) {
-		$fonts[] = $typography['headings']['font_family'] . ':300,300i,400,400i,700,700i';
-	}
-
-	if ( $fonts ) {
-		$fonts_url = add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
-		), 'https://fonts.googleapis.com/css' );
-	}
-
-	return esc_url_raw( $fonts_url );
-}
-
-/**
  * Enqueue scripts and styles.
  */
 function goedemorgen_scripts() {
-	wp_enqueue_style( 'goedemorgen-google-fonts', goedemorgen_google_fonts(), array(), null );
 	wp_enqueue_style( 'font-awesome', GOEDEMORGEN_DIR_URI . '/assets/css/font-awesome.css' );
 	wp_enqueue_style( 'goedemorgen-style', get_stylesheet_uri() );
 
@@ -201,11 +169,9 @@ function goedemorgen_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/assets/js/goedemorgen.js', array( 'jquery' ), '1.0.0', true  );
+	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/assets/js/goedemorgen.js', array( 'jquery' ), '1.0.1', true  );
 }
 add_action( 'wp_enqueue_scripts', 'goedemorgen_scripts' );
-
-
 
 if ( ! function_exists( 'goedemorgen_excerpt_more' ) ) :
 /**
@@ -349,6 +315,11 @@ require GOEDEMORGEN_DIR . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require GOEDEMORGEN_DIR . '/inc/extras.php';
+
+/**
+ * Custom functions for site typography.
+ */
+require GOEDEMORGEN_DIR . '/inc/typography.php';
 
 /**
  * Customizer additions.
