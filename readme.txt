@@ -2,8 +2,8 @@
 Contributors: taskotr
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.0-alpha
-Stable tag: 1.0.4
-Version: 1.0.4
+Stable tag: 1.0.6
+Version: 1.0.6
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -37,6 +37,15 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 * The TGM Plugin Activation library (http://tgmpluginactivation.com/), by Thomas Griffin, is licensed under the GPL-2.0 or later : https://opensource.org/licenses/GPL-2.0
 
 == Changelog ==
+
+= 1.0.6, Apr 30, 2018 =
+
+* Add: default (system) fonts support;
+* Add: create a separate file for typography related functions;
+* Update: reorganize the theme JS file;
+* Fix: optimize the theme JS file and improve performance by avoiding to call the ready event multiple times;
+* Fix: date format issue when populating datetime attributes;
+* Fix: contact form 7 input fields issue;
 
 = 1.0.5, Apr 4, 2018 =
 
