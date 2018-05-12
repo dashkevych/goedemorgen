@@ -171,76 +171,6 @@ function goedemorgen_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'goedemorgen_scripts' );
 
-if ( ! function_exists( 'goedemorgen_excerpt_more' ) ) :
-/**
- *	Customize excerpts More tag.
- */
-function goedemorgen_excerpt_more( $more ) {
-	if ( ! is_search() ) {
-		/* translators: %s is a placeholder that will be replaced by a variable passed as an argument. */
-		return sprintf( '&#x2026; <span class="link-container"><a href="%1$s" class="more-link">%2$s</a></span>',
-			esc_url( get_permalink( get_the_ID() ) ),
-			sprintf( esc_html__( 'Continue Reading %s', 'goedemorgen' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
-		);
-	}
-}
-add_filter( 'excerpt_more', 'goedemorgen_excerpt_more' );
-endif;
-
-if ( ! function_exists( 'goedemorgen_modify_more_link' ) ) :
-/**
- * Modify the post's "more" link.
- *
- * @param string $link More link.
- * @return string More link with a "button" class and wrapped withig a span.
- */
-function goedemorgen_modify_more_link( $link ) {
-	$link = str_replace( 'more-link', 'more-link button', $link );
-	return sprintf( '<span class="link-container">%s</span>', $link );
-}
-add_filter( 'the_content_more_link', 'goedemorgen_modify_more_link' );
-endif;
-
-if ( ! function_exists( 'goedemorgen_filter_archive_title' ) ) :
-/**
- * Add a span around the title prefix so that the prefix can be hidden with CSS.
- *
- * @param string $title Archive title.
- * @return string Archive title with inserted span around prefix.
- */
-function goedemorgen_filter_archive_title( $title ) {
-	// Split the title into parts so we can wrap them with span tag.
-	$title_parts = explode( ': ', $title, 2 );
-
-	// Glue title's parts back together.
-	if ( ! empty( $title_parts[1] ) ) {
-		// Add a span around the title.
-		$title = '<span>' . $title_parts[0] . ': </span>' . $title_parts[1];
-
-		// Sanitize our title.
-		$title = wp_kses( $title, array( 'span' => array(), ) );
-	}
-
-	return $title;
-
-}
-add_filter( 'get_the_archive_title', 'goedemorgen_filter_archive_title' );
-endif;
-
-if ( ! function_exists( 'goedemorgen_set_tag_cloud_font_size' ) ) :
-/**
- * Modify tag cloud widget font size.
- */
-function goedemorgen_set_tag_cloud_font_size( $args ) {
-    $args['smallest'] = 0.875;
-    $args['largest'] = 0.875;
-	$args['unit'] = 'rem';
-
-    return $args;
-}
-add_filter( 'widget_tag_cloud_args', 'goedemorgen_set_tag_cloud_font_size' );
-endif;
-
 /**
  * Allow to edit the page which is set to the Posts Page.
  * Content in this page will be used for the Jumbotron section in the Posts Page.
@@ -313,6 +243,11 @@ require GOEDEMORGEN_DIR . '/inc/template-tags.php';
  * Custom functions that act independently of the theme templates.
  */
 require GOEDEMORGEN_DIR . '/inc/extras.php';
+
+/**
+ * Custom functions that act independently of the theme templates.
+ */
+require GOEDEMORGEN_DIR . '/inc/filters.php';
 
 /**
  * Custom functions for site typography.
