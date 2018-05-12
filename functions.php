@@ -167,7 +167,7 @@ function goedemorgen_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/assets/js/goedemorgen.js', array( 'jquery' ), '1.0.1', true  );
+	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/assets/js/goedemorgen.js', array( 'jquery' ), '1.0.2', true  );
 }
 add_action( 'wp_enqueue_scripts', 'goedemorgen_scripts' );
 
