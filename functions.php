@@ -163,8 +163,6 @@ function goedemorgen_scripts() {
 	wp_enqueue_style( 'font-awesome', GOEDEMORGEN_DIR_URI . '/assets/css/font-awesome.css' );
 	wp_enqueue_style( 'goedemorgen-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'goedemorgen-skip-link-focus-fix', GOEDEMORGEN_DIR_URI . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
