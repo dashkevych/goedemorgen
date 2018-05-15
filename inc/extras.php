@@ -8,16 +8,6 @@
  */
 
 /**
- * Add a pingback url auto-discovery header for singularly identifiable articles.
- */
-function goedemorgen_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
-	}
-}
-add_action( 'wp_head', 'goedemorgen_pingback_header' );
-
-/**
  * Retrieve the classes for the site footer area as an array.
  */
  function goedemorgen_footer_class() {
@@ -174,52 +164,6 @@ function goedemorgen_page_header_class() {
 }
 
 /**
- * Change the content width for full-width layouts.
- */
-function goedemorgen_full_width_layout_content_width() {
-	global $content_width;
-
-	if ( is_page_template( 'templates/panels-page.php' ) || is_page_template( 'templates/full-width-page.php' ) || ! is_active_sidebar( 'sidebar-1' ) ) {
-		$content_width = 1240;
-	}
-}
-add_action( 'template_redirect', 'goedemorgen_full_width_layout_content_width' );
-
-/**
- * Add custom styles (based on the Customizer options) to the Editor.
- */
-function goedemorgen_editor_dynamic_styles_callback() {
-	header( "Content-type: text/css; charset: UTF-8" );
-	$styles = '';
-
-	$setting = goedemorgen_get_setting();
-	$default = goedemorgen_get_setting( 'defaults' );
-
-	if ( isset( $setting['typography']['body']['font_family'] ) && $default['typography']['body']['font_family'] != $setting['typography']['body']['font_family'] ) {
-		$styles .= "body.mce-content-body { font-family: " . esc_attr( $setting['typography']['body']['font_family'] ) . "; }";
-	}
-
-	// Custom google font for the headings.
-	if ( isset( $setting['typography']['headings']['font_family'] ) && $default['typography']['headings']['font_family'] != $setting['typography']['headings']['font_family'] ) {
-		$styles .= " .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 { font-family: " . esc_attr( $setting['typography']['headings']['font_family'] ) . "; }";
-	}
-
-	// Custom accent color.
-	if ( isset( $setting['color']['accent'] ) && $default['color']['accent'] != $setting['color']['accent'] ) {
-		$styles .= " .mce-content-body a, .mce-content-body blockquote:not(.pull-left):not(.pull-right):before { color: ". esc_attr( $setting['color']['accent'] ) ." } ";
-		$styles .= " .mce-content-body a.button:not(.secondary-button):not(.minimal-button) { background: ". esc_attr( $setting['color']['accent'] ) ." }";
-	}
-
-	if ( '' != $styles ) {
-		echo esc_attr( $styles );
-	}
-
-	die();
-}
-add_action( 'wp_ajax_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dynamic_styles_callback' );
-add_action( 'wp_ajax_nopriv_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dynamic_styles_callback' );
-
-/**
  * Check if we need to display a page header section.
  */
 function goedemorgen_is_page_header() {
@@ -285,22 +229,6 @@ function goedemorgen_get_container_width_class() {
 		return 'container-default';
 	}
 }
-
-/**
- * Attach extra CSS styles to the theme's stylesheet.
- */
-function goedemorgen_add_extra_css() {
-	$extra_css = array();
-	$extra_css = apply_filters( 'goedemorgen_set_extra_css', $extra_css );
-
-	if ( ! empty( $extra_css ) ) {
-		$extra_css = array_map( array( goedemorgen_extra_css(), 'clean_extra_css' ), $extra_css );
-		$extra_css = join( ' ', $extra_css );
-
-		wp_add_inline_style( 'goedemorgen-style', $extra_css );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'goedemorgen_add_extra_css' );
 
 /**
  * Get ID of the featured page in blog view.

@@ -114,19 +114,6 @@ function goedemorgen_categorized_blog() {
 	}
 }
 
-/**
- * Flush out the transients used in goedemorgen_categorized_blog.
- */
-function goedemorgen_category_transient_flusher() {
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return;
-	}
-	// Like, beat it. Dig?
-	delete_transient( 'goedemorgen_categories' );
-}
-add_action( 'edit_category', 'goedemorgen_category_transient_flusher' );
-add_action( 'save_post',     'goedemorgen_category_transient_flusher' );
-
 if ( ! function_exists( 'goedemorgen_breadcrumbs' ) ) :
 /**
  * Site Breadcrumbs based on Yoast SEO plugin
@@ -179,18 +166,6 @@ function goedemorgen_hfeed_add_content_thumbnail() {
 		printf( '<a href="%1$s" class="thumb-link">%2$s</a>', esc_url( get_permalink() ), get_the_post_thumbnail( get_the_ID(), 'thumbnail' ) ); // WPCS: XSS OK.
 	}
 }
-
-/**
- * Display entry content in archive view.
- */
-function goedemorgen_hfeed_add_content() {
-	the_content( sprintf(
-		/* translators: %s: Name of current post. */
-		wp_kses( __( 'Continue Reading %s', 'goedemorgen' ), array( 'span' => array( 'class' => array() ) ) ),
-		the_title( '<span class="screen-reader-text">"', '"</span>', false )
-	) );
-}
-add_action( 'goedemorgen_hfeed_content', 'goedemorgen_hfeed_add_content', 5 );
 
 /**
  * Print HTML with the title and content for blog page.
@@ -274,14 +249,6 @@ function goedemorgen_page_header_image() {
 }
 
 /**
- * Adds credits sections to the bottom of the site.
- */
-function goedemorgen_add_footer_credits() {
-	get_template_part( 'components/footer/credits-section' );
-}
-add_action( 'goedemorgen_footer_bottom', 'goedemorgen_add_footer_credits' );
-
-/**
  * Print HTML with credits infromation in the footer area.
  */
 function goedemorgen_display_footer_credits() {
@@ -306,65 +273,11 @@ function goedemorgen_add_footer_social_menu() {
 }
 
 /**
-* Adds search form to the toggle menu.
-*/
-function goedemorgen_add_toggle_menu_search() {
-	get_search_form();
-}
-add_action( 'goedemorgen_after_mobile_menu', 'goedemorgen_add_toggle_menu_search' );
-
-/**
- * Adds header image to the page header section.
- */
-function goedemorgen_add_page_header_image() {
-	goedemorgen_page_header_image();
-}
-add_action( 'goedemorgen_page_header', 'goedemorgen_add_page_header_image' );
-
-/**
- * Adds archive view header content to the page header section.
- */
-function goedemorgen_add_archive_view_header_content() {
-	if ( ! is_singular() ) {
-		get_template_part( 'components/general/content', 'archive-header' );
-	}
-}
-add_action( 'goedemorgen_page_header', 'goedemorgen_add_archive_view_header_content' );
-
-/**
- * Adds a default content to the 404 page.
- */
-function goedemorgen_add_404_content() {
-	get_template_part( 'components/general/content', '404' );
-}
-add_action( 'goedemorgen_404_content', 'goedemorgen_add_404_content' );
-
-/**
- * Adds a default content to the Nothing Found page.
- */
-function goedemorgen_add_nothing_found_content() {
-	get_template_part( 'components/general/content', 'none' );
-}
-add_action( 'goedemorgen_nothing_found_content', 'goedemorgen_add_nothing_found_content' );
-
-/**
  * Displays author bio in single post views.
  */
 function goedemorgen_author_bio() {
 	get_template_part( 'components/post/author', 'section' );
 }
-
-/**
- * Displays the Back to Top button.
- */
-function goedemorgen_add_back_to_top_button() {
-	$footer_options = goedemorgen_get_setting( 'footer' );
-
-	if ( $footer_options['is_backtotop_button'] ) {
-		printf( '<button id="backtotop-button" class="clean-button has-icon"><span class="screen-reader-text">%s</span></button>', esc_html__( 'Scroll back to top', 'goedemorgen' ) );
-	}
-}
-add_action( 'wp_footer', 'goedemorgen_add_back_to_top_button' );
 
 /**
  * Checks if current post has a content.
