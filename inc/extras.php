@@ -8,52 +8,6 @@
  */
 
 /**
- * Adds custom classes to the array of body classes.
- *
- * @param array $classes Classes for the body element.
- * @return array
- */
-function goedemorgen_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
-
-	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
-	}
-
-	// Adds a class if a sidebar is not active.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-		$classes[] = 'inactive-sidebar';
-	} else {
-		$classes[] = 'active-sidebar';
-	}
-
-	// Adds a class if the user is visiting using a mobile device.
-	if ( wp_is_mobile() ) {
-		$classes[] = 'mobile-view';
-	}
-
-	// Adds a class if user wants to change a default width of container.
-	$classes[] = goedemorgen_get_container_width_class();
-
-	return $classes;
-}
-add_filter( 'body_class', 'goedemorgen_body_classes' );
-
-/**
- * Add a pingback url auto-discovery header for singularly identifiable articles.
- */
-function goedemorgen_pingback_header() {
-	if ( is_singular() && pings_open() ) {
-		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
-	}
-}
-add_action( 'wp_head', 'goedemorgen_pingback_header' );
-
-/**
  * Retrieve the classes for the site footer area as an array.
  */
  function goedemorgen_footer_class() {
@@ -210,91 +164,6 @@ function goedemorgen_page_header_class() {
 }
 
 /**
- * Retrieve the classes for the jumbotron area as an array.
- */
-function goedemorgen_jumbotron_class( $classes ) {
-
-	if ( goedemorgen_is_jumbotron_header() ) {
-		// Get jumbotron options.
-		$jumbotron_options = goedemorgen_get_setting( 'jumbotron' );
-
-		// Default classes.
-		$classes[] = 'clear';
-		$classes[] = 'jumbotron-header';
-	}
-
-	return $classes;
-}
-add_filter( 'goedemorgen_page_header_class', 'goedemorgen_jumbotron_class' );
-
-/**
- * Display page-links for paginated posts before Jetpack's share buttons and related posts.
- */
-function goedemorgen_custom_link_pages( $content ) {
-	if ( is_singular() ) {
-
-		$content .= wp_link_pages( array(
-			'before'      => '<div class="page-links secondary-size"><span class="page-links-title">' . esc_html__( 'Pages:', 'goedemorgen' ) . '</span>',
-			'after'       => '</div>',
-			'link_before' => '<span>',
-			'link_after'  => '</span>',
-			'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'goedemorgen' ) . ' </span>%',
-			'separator'   => '<span class="screen-reader-text">, </span>',
-			'echo'		  => 0,
-		) );
-	}
-
-	return $content;
-}
-add_filter( 'the_content', 'goedemorgen_custom_link_pages', 1 );
-
-/**
- * Change the content width for full-width layouts.
- */
-function goedemorgen_full_width_layout_content_width() {
-	global $content_width;
-
-	if ( is_page_template( 'templates/panels-page.php' ) || is_page_template( 'templates/full-width-page.php' ) || ! is_active_sidebar( 'sidebar-1' ) ) {
-		$content_width = 1240;
-	}
-}
-add_action( 'template_redirect', 'goedemorgen_full_width_layout_content_width' );
-
-/**
- * Add custom styles (based on the Customizer options) to the Editor.
- */
-function goedemorgen_editor_dynamic_styles_callback() {
-	header( "Content-type: text/css; charset: UTF-8" );
-	$styles = '';
-
-	$setting = goedemorgen_get_setting();
-	$default = goedemorgen_get_setting( 'defaults' );
-
-	if ( isset( $setting['typography']['body']['font_family'] ) && $default['typography']['body']['font_family'] != $setting['typography']['body']['font_family'] ) {
-		$styles .= "body.mce-content-body { font-family: " . esc_attr( $setting['typography']['body']['font_family'] ) . "; }";
-	}
-
-	// Custom google font for the headings.
-	if ( isset( $setting['typography']['headings']['font_family'] ) && $default['typography']['headings']['font_family'] != $setting['typography']['headings']['font_family'] ) {
-		$styles .= " .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 { font-family: " . esc_attr( $setting['typography']['headings']['font_family'] ) . "; }";
-	}
-
-	// Custom accent color.
-	if ( isset( $setting['color']['accent'] ) && $default['color']['accent'] != $setting['color']['accent'] ) {
-		$styles .= " .mce-content-body a, .mce-content-body blockquote:not(.pull-left):not(.pull-right):before { color: ". esc_attr( $setting['color']['accent'] ) ." } ";
-		$styles .= " .mce-content-body a.button:not(.secondary-button):not(.minimal-button) { background: ". esc_attr( $setting['color']['accent'] ) ." }";
-	}
-
-	if ( '' != $styles ) {
-		echo esc_attr( $styles );
-	}
-
-	die();
-}
-add_action( 'wp_ajax_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dynamic_styles_callback' );
-add_action( 'wp_ajax_nopriv_goedemorgen_editor_dynamic_styles', 'goedemorgen_editor_dynamic_styles_callback' );
-
-/**
  * Check if we need to display a page header section.
  */
 function goedemorgen_is_page_header() {
@@ -320,28 +189,6 @@ function goedemorgen_is_page_header() {
 
 	return (bool) $is_page_header;
 }
-
-/**
- * Check if we need to display a page header section in blog view.
- */
-function goedemorgen_is_posts_page_header( $is_page_header ) {
-	if ( is_home() ) {
-		$archive_options = goedemorgen_get_setting( 'archive' );
-
-		// Display the page header only if the posts page has a featured page.
-		if ( is_front_page() && ! goedemorgen_get_posts_page_featured_page_id() ) {
-			$is_page_header = false;
-		}
-
-		// Display the page header only on the first page.
-		if ( 'on_first' === $archive_options['is_posts_page_header'] && is_paged() ) {
-			$is_page_header = false;
-		}
-	}
-
-	return $is_page_header;
-}
-add_filter( 'goedemorgen_is_page_header', 'goedemorgen_is_posts_page_header' );
 
 /**
  * Check if we need to display hentry header in single views.
@@ -382,22 +229,6 @@ function goedemorgen_get_container_width_class() {
 		return 'container-default';
 	}
 }
-
-/**
- * Attach extra CSS styles to the theme's stylesheet.
- */
-function goedemorgen_add_extra_css() {
-	$extra_css = array();
-	$extra_css = apply_filters( 'goedemorgen_set_extra_css', $extra_css );
-
-	if ( ! empty( $extra_css ) ) {
-		$extra_css = array_map( array( goedemorgen_extra_css(), 'clean_extra_css' ), $extra_css );
-		$extra_css = join( ' ', $extra_css );
-
-		wp_add_inline_style( 'goedemorgen-style', $extra_css );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'goedemorgen_add_extra_css' );
 
 /**
  * Get ID of the featured page in blog view.

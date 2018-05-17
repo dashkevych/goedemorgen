@@ -3,29 +3,20 @@
 /*
  Handles additional functionalities of the theme.
 */
+(function() {
 
-(function(){
+	var documentBody = jQuery( document.body );
+	var browserWindow = jQuery( window );
 
 	var goedemorgenTheme = {
 		pageContainer: jQuery( document.getElementById( 'page' ) ),
 		headerContainer: jQuery( document.getElementById( 'page' ) ).find( document.getElementById( 'masthead' ) ),
 		contentContainer: jQuery( document.getElementById( 'page' ) ).find( document.getElementById( 'content' ) ),
 
-		getDocumentBody: function() {
-			return jQuery( document.body );
-		},
-
-		getBrowserWindow: function() {
-			return jQuery( window );
-		},
-
 		// Run on ready.
 		onReady: function() {
 			this.createResponsiveTables();
-		},
-
-		// Run on load.
-		onLoad: function() {
+			this.skipLinkFocusFix();
 			this.displayMobileMenu();
 			this.displayHeaderSearchForm();
 			this.addBackToTopButton();
@@ -35,15 +26,11 @@
 		createResponsiveTables: function() {
 			jQuery( 'table' ).addClass( 'table' ).wrap( '<div class="table-responsive" />' );
 
-			var infiniteCount, infiniteItems, documentBody;
-
+			var infiniteCount, infiniteItems;
 			infiniteCount = 0;
-			documentBody = this.getDocumentBody();
 
 			documentBody.on( 'post-load', function() {
-
 				infiniteCount = infiniteCount + 1;
-
 				infiniteItems = jQuery( '.infinite-wrap.infinite-view-' + infiniteCount );
 				infiniteItems.find( 'table' ).addClass( 'table' ).wrap( '<div class="table-responsive" />' );
 			});
@@ -60,7 +47,6 @@
 		// Create a mobile menu.
 		displayMobileMenu: function() {
 			var toggleMenu = this.pageContainer.find( document.getElementById( 'toggle-menu' ) );
-			var documentBody = this.getDocumentBody();
 			this.headerContainer.find( '.menu:not(.social-menu)' ).clone().appendTo( '#mobile-navigation' );
 
 			documentBody.on( 'click', '#mobile-menu-toggle, #close-toggle-menu', function(e) {
@@ -71,13 +57,12 @@
 
 		// Add Back to Top button functionality.
 		addBackToTopButton: function() {
-			var backToTopButton, buttonSettings, browserWindow;
+			var backToTopButton, buttonSettings;
 
 			backToTopButton = jQuery( document.getElementById( 'backtotop-button' ) );
 			buttonSettings = { opacity: '0', visibility: 'hidden' };
-			browserWindow = this.getBrowserWindow();
 
-			browserWindow.scroll(function() {
+			browserWindow.scroll( function() {
 				if ( browserWindow.scrollTop() > 300 ) {
 					buttonSettings.opacity = 1;
 					buttonSettings.visibility = 'visible';
@@ -99,16 +84,37 @@
 					scrollTop: 0
 				}, 200);
 			});
+		},
+
+		// Helps with accessibility for keyboard only users.
+		skipLinkFocusFix: function() {
+			var isIe = /(trident|msie)/i.test( navigator.userAgent );
+
+			if ( isIe && document.getElementById && window.addEventListener ) {
+				window.addEventListener( 'hashchange', function() {
+					var id = location.hash.substring( 1 ),
+						element;
+
+					if ( ! ( /^[A-z0-9_-]+$/.test( id ) ) ) {
+						return;
+					}
+
+					element = document.getElementById( id );
+
+					if ( element ) {
+						if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
+							element.tabIndex = -1;
+						}
+
+						element.focus();
+					}
+				}, false );
+			}
 		}
 	};
 
 	// Things that need to happen when the document is ready.
-	jQuery(function() {
+	jQuery( function() {
 		goedemorgenTheme.onReady();
-	});
-
-	// Things that need to happen after a full load.
-	jQuery( window ).on( 'load', function() {
-		goedemorgenTheme.onLoad();
 	});
 })();
