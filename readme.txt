@@ -38,6 +38,13 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
+= 1.0.7, May 17, 2018 =
+
+* Update: move functionality of the skip-link-focus-fix.js file to the theme JS file;
+* Update: reduce number of http requests;
+* Update: group all actions of the theme into one file;
+* Update: group all filters of the theme into one file;
+
 = 1.0.6, Apr 30, 2018 =
 
 * Add: default (system) fonts support;
