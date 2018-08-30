@@ -173,7 +173,12 @@ function goedemorgen_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/assets/js/goedemorgen.js', array( 'jquery' ), '1.0.2', true  );
+	wp_enqueue_script( 'goedemorgen-script', GOEDEMORGEN_DIR_URI . '/assets/js/goedemorgen.js', array( 'jquery' ), '1.0.3', true  );
+
+	wp_localize_script( 'goedemorgen-script', 'goedemorgenScreenReaderText', array(
+		'expand'   => esc_html__( 'Expand child menu', 'goedemorgen' ),
+		'collapse' => esc_html__( 'Collapse child menu', 'goedemorgen' ),
+	) );
 }
 add_action( 'wp_enqueue_scripts', 'goedemorgen_scripts' );
 
