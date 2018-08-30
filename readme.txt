@@ -2,8 +2,8 @@
 Contributors: taskotr
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.0-alpha
-Stable tag: 1.0.6
-Version: 1.0.6
+Stable tag: 1.0.8
+Version: 1.0.8
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -12,7 +12,7 @@ Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu,
 
 Goedemorgen is a professional and clean WordPress theme for service and product providers who are focused on text in their online marketing. So, it is a perfect solution for people who blog for their business. By focusing on WordPress coding standards, we want to make sure Goedemorgen is compatible with all well-coded WordPress plugins. Theme also incorporates a responsive design, meaning it will look great on any screen. Goedemorgen uses the native WordPress Customizer functionality to preview and modify the settings of the theme. You can also set the right font for your website because the theme comes with typography options which include hundreds of Google fonts to choose from.
 
-Goedemorgen WordPress theme, Copyright 2017 Taras Dashkevych.
+Goedemorgen WordPress theme, Copyright 2018 Taras Dashkevych.
 Goedemorgen is distributed under the terms of the GNU GPL.
 
 == Installation ==
@@ -37,6 +37,11 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 * The TGM Plugin Activation library (http://tgmpluginactivation.com/), by Thomas Griffin, is licensed under the GPL-2.0 or later : https://opensource.org/licenses/GPL-2.0
 
 == Changelog ==
+
+= 1.0.8, Aug 30, 2018 =
+
+* Add: toggle button to mobile sub-menu items;
+* Update: mobile menu;
 
 = 1.0.7, May 17, 2018 =
 

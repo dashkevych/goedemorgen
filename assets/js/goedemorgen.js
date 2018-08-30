@@ -46,13 +46,45 @@
 
 		// Create a mobile menu.
 		displayMobileMenu: function() {
-			var toggleMenu = this.pageContainer.find( document.getElementById( 'toggle-menu' ) );
+			var toggleMenu, mobileMenu, dropdownToggle, toggleMenuAction;
+
+			toggleMenu = this.pageContainer.find( document.getElementById( 'toggle-menu' ) );
 			this.headerContainer.find( '.menu:not(.social-menu)' ).clone().appendTo( '#mobile-navigation' );
 
-			documentBody.on( 'click', '#mobile-menu-toggle, #close-toggle-menu', function(e) {
+			documentBody.on( 'click', '#mobile-menu-toggle, #close-toggle-menu', function( e ) {
 				documentBody.toggleClass( 'toggle-mobile-menu' );
 				toggleMenu.slideToggle( 'fast' );
 			});
+
+			mobileMenu = this.pageContainer.find( document.getElementById( 'mobile-navigation' ) );
+
+			// Add dropdown toggle that displays child menu items.
+			dropdownToggle = jQuery( '<button />', {
+				'class': 'dropdown-toggle clean-button has-icon',
+				'aria-expanded': false
+			} ).append( jQuery( '<span />', {
+				'class': 'screen-reader-text',
+				text: goedemorgenScreenReaderText.expand
+			} ) );
+
+			mobileMenu.find( '.menu-item-has-children > a, .page_item_has_children > a' ).after( dropdownToggle );
+			mobileMenu.find( '.current-menu-ancestor > button, .current-menu-ancestor > .sub-menu' ).addClass( 'toggled-on' );
+			mobileMenu.find( '.menu-item-has-children, .page_item_has_children' ).attr( 'aria-haspopup', 'true' );
+
+			toggleMenuAction = function( e ) {
+				var currentToggleElement = jQuery( this ),
+					screenReaderSpan = currentToggleElement.find( '.screen-reader-text' );
+
+				e.preventDefault();
+				currentToggleElement.toggleClass( 'toggled-on' );
+				currentToggleElement.next( '.children, .sub-menu' ).toggleClass( 'toggled-on' );
+
+				currentToggleElement.attr( 'aria-expanded', currentToggleElement.attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
+
+				screenReaderSpan.text( screenReaderSpan.text() === goedemorgenScreenReaderText.expand ? goedemorgenScreenReaderText.collapse : goedemorgenScreenReaderText.expand );
+			}
+
+			mobileMenu.on( 'click', '.dropdown-toggle', toggleMenuAction );
 		},
 
 		// Add Back to Top button functionality.

@@ -4,7 +4,7 @@ Theme URI: https://goedemorgenwp.com/
 Author: Taras Dashkevych
 Author URI: https://goedemorgenwp.com/about-us/
 Description: Goedemorgen is a professional, clean and free WordPress theme designed to help you create a modern, fast and secure WordPress site. The Goedemorgen theme is perfect for service and product providers who are focused on text in their online marketing. Basically, this WordPress theme is a perfect solution for web agency business, corporate business, personal and business portfolio, bloggers and freelancers, authors and speakers. By focusing on WordPress coding standards, we want to make sure the theme is compatible with all well-coded WordPress plugins such as Jetpack, Contact Form 7, Yoast SEO, Google Analytics, your favorite page builder plugin, etc. The Goedemorgen theme incorporates a responsive design which makes it mobile friendly, meaning your website will look great on any screen, from mobile to desktop. Also, the theme uses a native WordPress Customizer functionality to preview and modify the settings of the theme in real time. You can also set a font for your website using typography options which include hundreds of Google fonts.
-Version: 1.0.7
+Version: 1.0.8
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: goedemorgen
@@ -1718,10 +1718,15 @@ blockquote,
 
 .mobile-navigation ul > li {
 	border-top: 1px solid rgba(255,255,255,0.15);
+	position: relative;
 }
 
 .mobile-navigation > ul:first-of-type > li:first-child {
 	border-top: none;
+}
+
+.mobile-navigation ul > li ul:not(.toggled-on) {
+	display: none;
 }
 
 .mobile-navigation ul ul li a:before {
@@ -1731,6 +1736,29 @@ blockquote,
 
 .mobile-navigation ul ul li {
 	margin-left: 20px;
+}
+
+.mobile-navigation button.dropdown-toggle {
+	position: absolute;
+	right: 0; top: 13px;
+	width: 25px;
+	height: 25px;
+	line-height: 23px;
+	border: 1px solid rgba(255,255,255,0.15);
+	border-radius: 3px;
+}
+
+.mobile-navigation button.dropdown-toggle.toggled-on {
+	background: rgba(255,255,255,0.15);
+}
+
+.mobile-navigation button.dropdown-toggle::before {
+	content: "\f0d7";
+	font-size: 85%;
+}
+
+.mobile-navigation button.dropdown-toggle.toggled-on::before {
+	content: "\f0d8";
 }
 
 .mobile-navigation .social-list ul {
