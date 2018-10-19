@@ -24,16 +24,50 @@
 
 		// Add custom class to table element and make it responsive.
 		createResponsiveTables: function() {
-			jQuery( 'table' ).addClass( 'table' ).wrap( '<div class="table-responsive" />' );
+			var setUpResponsiveTables = function( container ) {
+			    var tables = container.getElementsByTagName( 'table' );
 
-			var infiniteCount, infiniteItems;
-			infiniteCount = 0;
+			    if ( tables.length ) {
+			        for ( var i = 0; i < tables.length; i++ ) {
+			            goedemorgenTheme.addClass( tables[i], 'table' );
 
-			documentBody.on( 'post-load', function() {
-				infiniteCount = infiniteCount + 1;
-				infiniteItems = jQuery( '.infinite-wrap.infinite-view-' + infiniteCount );
-				infiniteItems.find( 'table' ).addClass( 'table' ).wrap( '<div class="table-responsive" />' );
-			});
+			            var originalHTML = tables[i].outerHTML;
+			            tables[i].outerHTML = '<div class="table-responsive">' + originalHTML + '</div>';
+			        }
+			    }
+			};
+
+			setUpResponsiveTables( document.getElementById( 'page' ) );
+
+			var mainContainer = document.getElementById( 'main' );
+
+			if ( null == mainContainer ) {
+				return;
+			}
+
+			var counter = 0;
+
+			var responsiveTableLoadEvent = function() {
+				var loader = mainContainer.querySelectorAll( '.infinite-loader' )[counter];
+
+				if ( ! loader ) {
+					return;
+				}
+
+				var nextElement = loader.nextSibling;
+
+				do {
+					if ( null != nextElement && 1 === nextElement.nodeType ) {
+						setUpResponsiveTables( nextElement );
+					}
+
+					nextElement = nextElement.nextSibling;
+				} while ( nextElement );
+
+				counter++;
+			};
+
+			jQuery( document.body ).on( 'post-load', responsiveTableLoadEvent );
 		},
 
 		// Create a header search form.
@@ -141,6 +175,24 @@
 						element.focus();
 					}
 				}, false );
+			}
+		},
+
+		// Add a class to the element.
+		addClass: function( element, className ) {
+			if ( element.classList ) {
+				element.classList.add( className );
+			} else {
+				element.className += ' ' + className;
+			}
+		},
+
+		// Remove a class from the element.
+		removeClass: function( element, className ) {
+			if ( element.classList ) {
+				element.classList.remove( className );
+			} else {
+				element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
 			}
 		}
 	};
