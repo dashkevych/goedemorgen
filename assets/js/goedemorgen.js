@@ -72,10 +72,12 @@
 
 		// Create a header search form.
 		displayHeaderSearchForm: function() {
-			this.headerContainer.on( 'click', '#header-search-button', function(e) {
+			var searchButtonEvent = function(e) {
 				e.preventDefault();
-				jQuery( this ).closest( '.main-navigation' ).toggleClass( 'active-search-form' );
-			});
+				goedemorgenTheme.toggleClass( document.getElementById( 'site-navigation' ), 'active-search-form' );
+			};
+
+			document.getElementById( 'header-search-button' ).addEventListener( 'click', searchButtonEvent, false );
 		},
 
 		// Create a mobile menu.
@@ -193,6 +195,15 @@
 				element.classList.remove( className );
 			} else {
 				element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			}
+		},
+
+		// Toggle a class.
+		toggleClass: function( element, className ) {
+			if ( -1 !== element.className.indexOf( className ) ) {
+				goedemorgenTheme.removeClass( element, className );
+			} else {
+				goedemorgenTheme.addClass( element, className );
 			}
 		}
 	};
