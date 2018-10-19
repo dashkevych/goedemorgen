@@ -4,22 +4,15 @@
  Handles additional functionalities of the theme.
 */
 (function() {
-
-	var documentBody = jQuery( document.body );
-	var browserWindow = jQuery( window );
-
 	var goedemorgenTheme = {
-		pageContainer: jQuery( document.getElementById( 'page' ) ),
-		headerContainer: jQuery( document.getElementById( 'page' ) ).find( document.getElementById( 'masthead' ) ),
-		contentContainer: jQuery( document.getElementById( 'page' ) ).find( document.getElementById( 'content' ) ),
-
 		// Run on ready.
 		onReady: function() {
 			this.createResponsiveTables();
-			this.skipLinkFocusFix();
 			this.displayMobileMenu();
 			this.displayHeaderSearchForm();
 			this.addBackToTopButton();
+			this.skipLinkFocusFix();
+			this.requestAnimationFramePolyfill();
 		},
 
 		// Add custom class to table element and make it responsive.
@@ -82,76 +75,136 @@
 
 		// Create a mobile menu.
 		displayMobileMenu: function() {
-			var toggleMenu, mobileMenu, dropdownToggle, toggleMenuAction;
+			var toggleMenu = document.getElementById( 'toggle-menu' );
+			var mobileMenuContainer = document.getElementById( 'mobile-navigation' );
+			var primaryMenu = document.getElementById( 'site-navigation' ).querySelector( '.menu' ).cloneNode( true );
+			primaryMenu.removeAttribute( 'id' );
+			mobileMenuContainer.insertBefore( primaryMenu, mobileMenuContainer.firstChild );
 
-			toggleMenu = this.pageContainer.find( document.getElementById( 'toggle-menu' ) );
-			this.headerContainer.find( '.menu:not(.social-menu)' ).clone().appendTo( '#mobile-navigation' );
+			var toggleMobileMenuEvent = function() {
+				goedemorgenTheme.toggleClass( document.body, 'toggle-mobile-menu' );
+				goedemorgenTheme.toggleClass( toggleMenu, 'visible' );
 
-			documentBody.on( 'click', '#mobile-menu-toggle, #close-toggle-menu', function( e ) {
-				documentBody.toggleClass( 'toggle-mobile-menu' );
-				toggleMenu.slideToggle( 'fast' );
-			});
-
-			mobileMenu = this.pageContainer.find( document.getElementById( 'mobile-navigation' ) );
+				if ( -1 !== toggleMenu.className.indexOf( 'visible' ) ) {
+					toggleMenu.setAttribute( 'aria-hidden', false );
+				} else {
+					toggleMenu.setAttribute( 'aria-hidden', true );
+				}
+			};
+			document.getElementById( 'mobile-menu-toggle' ).addEventListener( 'click', toggleMobileMenuEvent, false );
+			document.getElementById( 'close-toggle-menu' ).addEventListener( 'click', toggleMobileMenuEvent, false );
 
 			// Add dropdown toggle that displays child menu items.
-			dropdownToggle = jQuery( '<button />', {
-				'class': 'dropdown-toggle clean-button has-icon',
-				'aria-expanded': false
-			} ).append( jQuery( '<span />', {
-				'class': 'screen-reader-text',
-				text: goedemorgenScreenReaderText.expand
-			} ) );
+			var parentMenuItems = mobileMenuContainer.querySelectorAll( '.menu-item-has-children' );
 
-			mobileMenu.find( '.menu-item-has-children > a, .page_item_has_children > a' ).after( dropdownToggle );
-			mobileMenu.find( '.current-menu-ancestor > button, .current-menu-ancestor > .sub-menu' ).addClass( 'toggled-on' );
-			mobileMenu.find( '.menu-item-has-children, .page_item_has_children' ).attr( 'aria-haspopup', 'true' );
+			if ( parentMenuItems.length ) {
+				for ( var i = 0; i < parentMenuItems.length; i++ ) {
+					var buttonScreenReaderText = document.createElement( 'span' );
+					buttonScreenReaderText.className = 'screen-reader-text';
+					buttonScreenReaderText.appendChild( document.createTextNode( goedemorgenScreenReaderText.expand ) );
 
-			toggleMenuAction = function( e ) {
-				var currentToggleElement = jQuery( this ),
-					screenReaderSpan = currentToggleElement.find( '.screen-reader-text' );
+					var dropdownToggle = document.createElement( 'button' );
+					dropdownToggle.className = 'dropdown-toggle clean-button has-icon';
+					dropdownToggle.setAttribute( 'aria-expanded', false );
+					dropdownToggle.appendChild( buttonScreenReaderText );
 
-				e.preventDefault();
-				currentToggleElement.toggleClass( 'toggled-on' );
-				currentToggleElement.next( '.children, .sub-menu' ).toggleClass( 'toggled-on' );
-
-				currentToggleElement.attr( 'aria-expanded', currentToggleElement.attr( 'aria-expanded' ) === 'false' ? 'true' : 'false' );
-
-				screenReaderSpan.text( screenReaderSpan.text() === goedemorgenScreenReaderText.expand ? goedemorgenScreenReaderText.collapse : goedemorgenScreenReaderText.expand );
+					parentMenuItems[i].appendChild( dropdownToggle );
+					parentMenuItems[i].setAttribute( 'aria-haspopup', true );
+				}
 			}
 
-			mobileMenu.on( 'click', '.dropdown-toggle', toggleMenuAction );
+			// Toggle buttons and submenu items with active children menu items.
+			var activeToggleButtons = mobileMenuContainer.querySelectorAll( '.current-menu-ancestor > button' );
+			var activeToggleSubMenus = mobileMenuContainer.querySelectorAll( '.current-menu-ancestor > .sub-menu' );
+
+			if ( activeToggleButtons.length ) {
+			    for ( var i = 0; i < activeToggleButtons.length; i++ ) {
+			        goedemorgenTheme.addClass( activeToggleButtons[i], 'toggled-on' );
+			        activeToggleButtons[i].setAttribute( 'aria-expanded', true );
+			    }
+			}
+
+			if ( activeToggleSubMenus.length ) {
+			    for ( var i = 0; i < activeToggleSubMenus.length; i++ ) {
+			        goedemorgenTheme.addClass( activeToggleSubMenus[i], 'toggled-on' );
+			    }
+			}
+
+			var dropdownToggleButtons = mobileMenuContainer.getElementsByTagName( 'button' );
+
+			if ( dropdownToggleButtons.length ) {
+				var dropdownToggleEvent = function(e) {
+					e.preventDefault();
+
+					var screenReader = e.target.querySelector( '.screen-reader-texty' );
+
+					if ( -1 !== e.target.className.indexOf( 'toggled-on' ) ) {
+						e.target.setAttribute( 'aria-expanded', false );
+
+						if ( null != screenReader ) {
+							screenReader.textContent = goedemorgenScreenReaderText.collapse;
+						}
+					} else {
+						e.target.setAttribute( 'aria-expanded', true );
+
+						if ( null != screenReader ) {
+							screenReader.textContent = goedemorgenScreenReaderText.expand;
+						}
+					}
+
+					goedemorgenTheme.toggleClass( e.target, 'toggled-on' );
+
+					var parentItem = e.target.parentNode;
+
+					for ( var i = 0; i < parentItem.childNodes.length; i++ ) {
+						if ( 'UL' === parentItem.childNodes[i].nodeName ) {
+							goedemorgenTheme.toggleClass( parentItem.childNodes[i], 'toggled-on' );
+							break;
+						}
+					}
+				};
+
+				for ( var i = 0; i < dropdownToggleButtons.length; i++ ) {
+					dropdownToggleButtons[i].addEventListener( 'click', dropdownToggleEvent, false );
+				}
+			}
 		},
 
 		// Add Back to Top button functionality.
 		addBackToTopButton: function() {
-			var backToTopButton, buttonSettings;
+			var backToTopButton = document.getElementById( 'backtotop-button' );
 
-			backToTopButton = jQuery( document.getElementById( 'backtotop-button' ) );
-			buttonSettings = { opacity: '0', visibility: 'hidden' };
+			var setButtonStyles = function() {
+				var scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-			browserWindow.scroll( function() {
-				if ( browserWindow.scrollTop() > 300 ) {
-					buttonSettings.opacity = 1;
-					buttonSettings.visibility = 'visible';
-				} else {
-					buttonSettings.opacity = 0;
-					buttonSettings.visibility = 'hidden';
+				if ( scrollTop > 300 ) {
+			        backToTopButton.style.opacity = 1;
+			        backToTopButton.style.visibility = 'visible';
+			    } else {
+			        backToTopButton.style.opacity = 0;
+			        backToTopButton.style.visibility = 'hidden';
+			    }
+			};
+
+			var scrollEvent = function(e) {
+				window.requestAnimationFrame( setButtonStyles );
+			};
+			window.addEventListener( 'scroll', scrollEvent, false );
+
+			var scrollToTop = function() {
+				var scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+				if ( scrollTop > 0 ) {
+					window.requestAnimationFrame( scrollToTop );
+					window.scrollTo( 0, Math.floor( scrollTop - scrollTop / 2 ) ) ;
 				}
+			};
 
-				backToTopButton.css({
-					'opacity': buttonSettings.opacity,
-					'visibility': buttonSettings.visibility
-				});
-			});
-
-			backToTopButton.on( 'click', function( e ) {
+			var buttonEvent = function(e) {
 				e.preventDefault();
-
-				jQuery( 'html, body' ).animate({
-					scrollTop: 0
-				}, 200);
-			});
+				scrollToTop();
+			};
+			backToTopButton.addEventListener( 'click', buttonEvent, false );
 		},
 
 		// Helps with accessibility for keyboard only users.
@@ -180,6 +233,40 @@
 			}
 		},
 
+		// Create requestAnimationFrame polyfill (by Erik Möller, Paul Irish and Tino Zijdel).
+		requestAnimationFramePolyfill: function() {
+			var x, lastTime, vendors;
+
+			lastTime = 0;
+    		vendors = ['webkit', 'moz'];
+
+			for( x = 0; x < vendors.length && ! window.requestAnimationFrame; ++x ) {
+				window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+				window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+											|| window[vendors[x]+'CancelRequestAnimationFrame'];
+			}
+
+			if ( ! window.requestAnimationFrame ) {
+				window.requestAnimationFrame = function( callback, element ) {
+		 		   var currTime = new Date().getTime();
+		 		   var timeToCall = Math.max( 0, 16 - ( currTime - lastTime ) );
+		 		   var id = window.setTimeout( function() {
+					   callback( currTime + timeToCall );
+				   }, timeToCall );
+
+		 		   lastTime = currTime + timeToCall;
+
+		 		   return id;
+		 	   };
+			}
+
+			if ( ! window.cancelAnimationFrame ) {
+				window.cancelAnimationFrame = function( id ) {
+		            clearTimeout( id );
+		        };
+			}
+		},
+
 		// Add a class to the element.
 		addClass: function( element, className ) {
 			if ( element.classList ) {
@@ -198,7 +285,7 @@
 			}
 		},
 
-		// Toggle a class.
+		// Toggle a class of the element.
 		toggleClass: function( element, className ) {
 			if ( -1 !== element.className.indexOf( className ) ) {
 				goedemorgenTheme.removeClass( element, className );
