@@ -2,8 +2,8 @@
 Contributors: taskotr
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.0-alpha
-Stable tag: 1.0.8
-Version: 1.0.8
+Stable tag: 1.1
+Version: 1.1
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -37,6 +37,14 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 * The TGM Plugin Activation library (http://tgmpluginactivation.com/), by Thomas Griffin, is licensed under the GPL-2.0 or later : https://opensource.org/licenses/GPL-2.0
 
 == Changelog ==
+
+= 1.1, Oct 21, 2018 =
+
+* Add: helper class to the mobile menu container;
+* Update: JS functionality of the function that creates responsive tables;
+* Update: JS functionality of the header search button;
+* Update: JS functionality of the mobile menu;
+* Update: JS functionality of the Go to Top button;
 
 = 1.0.8, Aug 30, 2018 =
 
