@@ -174,14 +174,18 @@
 		addBackToTopButton: function() {
 			var backToTopButton = document.getElementById( 'backtotop-button' );
 
+			if ( null == backToTopButton ) {
+				return;
+			}
+
 			var setButtonStyles = function() {
 				var scrollTop = window.scrollY || document.documentElement.scrollTop;
 
 				if ( scrollTop > 300 ) {
-			        backToTopButton.style.opacity = 1;
+			        backToTopButton.style.opacity = '1';
 			        backToTopButton.style.visibility = 'visible';
 			    } else {
-			        backToTopButton.style.opacity = 0;
+			        backToTopButton.style.opacity = '0';
 			        backToTopButton.style.visibility = 'hidden';
 			    }
 			};
