@@ -41,6 +41,7 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 = 1.2.0, Dec 5, 2018 =
 
 * Add: better support for the Block editor;
+* Fix: Go to Top button issue;
 
 = 1.1.0, Oct 21, 2018 =
 
