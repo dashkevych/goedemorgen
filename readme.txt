@@ -2,8 +2,8 @@
 Contributors: taskotr
 Requires at least: WordPress 4.8
 Tested up to: WordPress 5.0-alpha
-Stable tag: 1.1
-Version: 1.1
+Stable tag: 1.2.0
+Version: 1.2.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
@@ -38,7 +38,11 @@ For detailed setup instructions, visit the official [Documentation](http://docs.
 
 == Changelog ==
 
-= 1.1, Oct 21, 2018 =
+= 1.2.0, Dec 5, 2018 =
+
+* Add: better support for the Block editor;
+
+= 1.1.0, Oct 21, 2018 =
 
 * Add: helper class to the mobile menu container;
 * Update: JS functionality of the function that creates responsive tables;
