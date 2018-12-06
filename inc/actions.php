@@ -310,12 +310,12 @@ function goedemorgen_editor_dynamic_styles_callback() {
 	$default = goedemorgen_get_setting( 'defaults' );
 
 	if ( isset( $setting['typography']['body']['font_family'] ) && $default['typography']['body']['font_family'] != $setting['typography']['body']['font_family'] ) {
-		$styles .= "body { font-family: " . esc_attr( $setting['typography']['body']['font_family'] ) . "; }";
+		$styles .= "body, body.mce-content-body { font-family: " . esc_attr( $setting['typography']['body']['font_family'] ) . "; }";
 	}
 
 	// Custom google font for the headings.
 	if ( isset( $setting['typography']['headings']['font_family'] ) && $default['typography']['headings']['font_family'] != $setting['typography']['headings']['font_family'] ) {
-		$styles .= "h1, h2, h3, h4, h5, h6, .editor-post-title__block .editor-post-title__input { font-family: " . esc_attr( $setting['typography']['headings']['font_family'] ) . "; }";
+		$styles .= "h1, h2, h3, h4, h5, h6, .editor-post-title__block .editor-post-title__input, .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 { font-family: " . esc_attr( $setting['typography']['headings']['font_family'] ) . "; }";
 	}
 
 	// Custom accent color.
