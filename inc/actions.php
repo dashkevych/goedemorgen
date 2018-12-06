@@ -86,7 +86,7 @@ function goedemorgen_setup() {
 	 */
 	add_editor_style(
 		array(
-			'css/editor-style.css',
+			'assets/css/editor-style.css',
 			goedemorgen_google_fonts(),
 			add_query_arg( 'action', 'goedemorgen_editor_dynamic_styles', admin_url( 'admin-ajax.php' ) ),
 		)
@@ -98,6 +98,44 @@ function goedemorgen_setup() {
 	if ( has_nav_menu( 'social' ) ) {
 		add_action( 'goedemorgen_footer_middle', 'goedemorgen_add_footer_social_menu' );
 	}
+
+	/**
+     * Setup Gutenberg.
+     */
+     // Add Gutenberg editor styles.
+    add_theme_support( 'editor-styles' );
+
+	// Disabling Gutengerg custom font sizes.
+    add_theme_support( 'disable-custom-font-sizes' );
+
+	// Add Gutengerg color palette.
+	add_theme_support( 'editor-color-palette', array(
+		array(
+			'name' => esc_html__( 'Green', 'goedemorgen' ),
+			'slug' => 'green',
+			'color' => '#048448',
+		),
+		array(
+			'name' => esc_html__( 'Red', 'goedemorgen' ),
+			'slug' => 'red',
+			'color' => '#dc2d47',
+		),
+		array(
+			'name' => esc_html__( 'Blue', 'goedemorgen' ),
+			'slug' => 'blue',
+			'color' => '#3c40c6',
+		),
+		array(
+			'name' => esc_html__( 'Black', 'goedemorgen' ),
+			'slug' => 'black',
+			'color' => '#1e272e',
+		),
+		array(
+			'name' => esc_html__( 'White', 'goedemorgen' ),
+			'slug' => 'white',
+			'color' => '#ffffff',
+		),
+	) );
 }
 endif;
 add_action( 'after_setup_theme', 'goedemorgen_setup' );
@@ -262,7 +300,7 @@ function goedemorgen_add_extra_css() {
 add_action( 'wp_enqueue_scripts', 'goedemorgen_add_extra_css' );
 
 /**
- * Add custom styles (based on the Customizer options) to the Editor.
+ * Add custom styles (based on the Customizer options) to the editor.
  */
 function goedemorgen_editor_dynamic_styles_callback() {
 	header( "Content-type: text/css; charset: UTF-8" );
@@ -272,12 +310,12 @@ function goedemorgen_editor_dynamic_styles_callback() {
 	$default = goedemorgen_get_setting( 'defaults' );
 
 	if ( isset( $setting['typography']['body']['font_family'] ) && $default['typography']['body']['font_family'] != $setting['typography']['body']['font_family'] ) {
-		$styles .= "body.mce-content-body { font-family: " . esc_attr( $setting['typography']['body']['font_family'] ) . "; }";
+		$styles .= "body { font-family: " . esc_attr( $setting['typography']['body']['font_family'] ) . "; }";
 	}
 
 	// Custom google font for the headings.
 	if ( isset( $setting['typography']['headings']['font_family'] ) && $default['typography']['headings']['font_family'] != $setting['typography']['headings']['font_family'] ) {
-		$styles .= " .mce-content-body h1, .mce-content-body h2, .mce-content-body h3, .mce-content-body h4, .mce-content-body h5, .mce-content-body h6 { font-family: " . esc_attr( $setting['typography']['headings']['font_family'] ) . "; }";
+		$styles .= "h1, h2, h3, h4, h5, h6, .editor-post-title__block .editor-post-title__input { font-family: " . esc_attr( $setting['typography']['headings']['font_family'] ) . "; }";
 	}
 
 	// Custom accent color.
@@ -286,7 +324,7 @@ function goedemorgen_editor_dynamic_styles_callback() {
 		$styles .= " .mce-content-body a.button:not(.secondary-button):not(.minimal-button) { background: ". esc_attr( $setting['color']['accent'] ) ." }";
 	}
 
-	if ( '' != $styles ) {
+	if ( '' !== $styles ) {
 		echo esc_attr( $styles );
 	}
 
